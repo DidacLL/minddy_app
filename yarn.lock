@@ -1761,6 +1761,11 @@
     "schema-utils" "^3.0.0"
     "source-map" "^0.7.3"
 
+"@react-buddy/ide-toolbox@^2.4.0":
+  "integrity" "sha512-TWHX6gwa0Gop7215uHhjFMbYLLdjM/b9rr0wYE3E0m7GNJ56gbPpbZiq86w9uI8zksl827acqGeT437MkuO64w=="
+  "resolved" "https://registry.npmjs.org/@react-buddy/ide-toolbox/-/ide-toolbox-2.4.0.tgz"
+  "version" "2.4.0"
+
 "@remix-run/router@1.8.0":
   "integrity" "sha512-mrfKqIHnSZRyIzBcanNJmVQELTnX+qagEDlcKO90RgRBVOZGSGvZKeDihTRfWcqoDn5N/NkUcwWTccnpN18Tfg=="
   "resolved" "https://registry.npmjs.org/@remix-run/router/-/router-1.8.0.tgz"

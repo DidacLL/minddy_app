@@ -1,18 +1,28 @@
 import Task from '../../data/classes/bussiness/Task';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 export function TaskCard(props: { task: Task }) {
-    let dateString = props.task.date?.toLocaleDateString();
-    return <div className='card right-shadow card-compact bg-base-100 hover:-rotate-3 active:scale-95 w-32'>
-        <div className='card-title bg-primary text-center justify-center rounded-t-box text-main-light p-1 '>
-            {dateString || 'ASAP'}
+        const dateString = new Date(props.task.date? props.task.date : '').toLocaleDateString();
+
+    const [task, setTask] = useState<Task>();
+
+    useEffect(() => {
+        props.task && setTask(props.task);
+    }, []);
+    useEffect(() => {
+        setTask(task)
+    }, [task]);
+
+    return <div className='right-shadow card-compact bg-base-100 hover:-rotate-3 active:scale-95 w-64'>
+        <div className='card-title bg-primary text-center justify-center rounded-t-box text-xs text-main-light p-1 '>
+
+            <div className='text-ellipsis truncate'>
+                {task?.description}
+            </div>
         </div>
         <div className='card-body '>
-            <div className='text-ellipsis truncate'>
-                {props.task.name}
-            </div>
+            {dateString || 'ASAP'}
         <div className='text-ellipsis truncate'>
-                {props.task.holderName}
             </div>
         </div>
     </div>

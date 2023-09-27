@@ -11,15 +11,15 @@ export function TreeTab(props: {
     rest: React.JSX.Element | undefined
 }) {
 
-    return <div className={`flex card  ${props.root.isRootProject() ? 'h-full':'mr-2'}`}>
+    return <div className={`flex card  ${props.root.isRootProject() ? 'h-full':' pb-2'}`}>
         {/*TITLE BAR! */}
         <div className={`justify-between overflow-hidden min-w-prose card-title ${props.root.isRootProject()?
             ('')
             :
             (props.open ?
-                ('rounded-tr-box p-1 bg-primary mt-2 pb-4 text-base-100 ')
+                ('rounded-tr-box p-2 bg-primary mt-2 force-shadow-in text-base-100 ')
                 :
-                ('bg-base-100 mb-2 p-2 hover:text-secondary rounded-box bg-base hover:scale-95')
+                ('bg-base-100 mb-2 p-2 hover:text-neutral mt-2 btn-shadow rounded-box bg-base hover:scale-[98%]')
             )}`
         }
              onClick={props.selectTab}>

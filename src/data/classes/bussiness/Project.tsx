@@ -95,24 +95,25 @@ export class Project extends MinddyObject {
     load(token: string, back?: () => any) : boolean {
         console.log("Start loading project")
         if (!this.isLoaded) {
-            MinddyService.getFullProject(token, this.id).then(
+            MinddyService.getFullProject(token, this.id,
                 (response) => {
                     if (response){
                         this.loadFullProject(response)
                         back?.()
-                    }
-                })
+                    }},
+                ()=>{this.isLoaded=false;}
+                )
             return false;
         }
         back?.();
         return  this.isLoaded;
     }
 
-    getPendingTasks(token:string, projectID: string,callBack:(json:any)=>void) {
-        MinddyService.loadProjectDashboardTasks(token,projectID).then((response)=>callBack(response))
+    getPendingTasks(token:string, callBack:(json:any)=>void,error:(message:string)=>void,size:number,page:number) {
+        MinddyService.loadProjectDashboardTasks(token,this.id,callBack,error,size,page)
     }
-    getAllTasks(token:string, projectID: string,callBack:(json:any)=>void,size:number,page:number, viewAll:boolean,subprojects:boolean) {
-        MinddyService.loadAllTasks(token,projectID,size,page,viewAll,subprojects).then((response)=>callBack(response))
+    getAllTasks(token:string,callBack:(json:any)=>void,size:number,page:number, viewAll:boolean,subprojects:boolean,error:(message:string)=>void) {
+        MinddyService.loadAllTasks(token,this.id,size,page,viewAll,subprojects,callBack,error)
     }
 
     isRootProject(){

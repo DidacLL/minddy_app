@@ -42,10 +42,13 @@ export default class ScreenData {
     }
 
     public isVertical(): boolean {
-        return this.isFullScreen?this.orientation.toLowerCase().includes("vertical"):this.windowSize.height>this.windowSize.width;
+        // return this.isFullScreen?this.orientation.toLowerCase().includes("vertical"):this.windowSize.height>this.windowSize.width;
+        if(!this.windowSize)return false;
+        return this.windowSize.height>this.windowSize.width;
     }
 
     public isHorizontal(): boolean {
-        return this.isFullScreen?this.orientation.toLowerCase().includes("horizontal"):this.windowSize.height<this.windowSize.width;
+        // return this.isFullScreen?this.orientation.toLowerCase().includes("horizontal"):this.windowSize.height<this.windowSize.width;
+        return this.windowSize.height<this.windowSize.width;
     }
 }

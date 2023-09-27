@@ -27,7 +27,7 @@ export function PathBreadcrumbs(props: { path: Project[], handleClick: (project:
                             }
                             className='max-w-[100%] truncate overflow-hidden whitespace-nowrap'
                         >
-                            {el.isRootProject() ? '_minddy:' : el.name}
+                            {el.isRootProject() ? '_m  :' : el.name}
                         </button>
                     </li>:'';
                 }

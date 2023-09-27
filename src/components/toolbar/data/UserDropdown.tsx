@@ -3,11 +3,11 @@ import {Trans} from "@lingui/macro";
 import {LanguageSelector} from "../LanguageSelector";
 import {ThemeSelector} from "../ThemeSelector";
 import {useNavigate} from "react-router-dom";
-import {AppData} from "../../../data/classes/AppData";
+import {MinddyManager} from "../../../data/Minddy.manager";
 import {UserIcon} from "@heroicons/react/20/solid";
 
 
-export function UserDropdown(props:{appData: AppData} ) {
+export function UserDropdown(props:{manager: MinddyManager} ) {
     const nav=useNavigate();
     const dropdownRef = useRef<HTMLDetailsElement | null>(null);
     const [open, setOpen] = useState(false);
@@ -37,12 +37,12 @@ export function UserDropdown(props:{appData: AppData} ) {
             {/*</label>*/}
         </summary>
         <ul tabIndex={0}
-            className="mt-3 mr-4z-[1] p-2 shadow menu dropdown-content rounded-box w-52 bg-primary text-primary-content ">
+            className="mt-3 mr-4 p-2 shadow menu dropdown-content rounded-box w-52 bg-primary text-primary-content ">
             <li>
                 <label className="justify-between menu-title text-primary-content">
-                    {props.appData.user.userName}
-                    {props.appData.structure?.root.project.pendingTasks
-                        && props.appData.structure?.root.project.pendingTasks>0
+                    {props.manager.user.userName}
+                    {props.manager.structure?.root.project.pendingTasks
+                        && props.manager.structure?.root.project.pendingTasks>0
                         ?<span className="badge">ToDo</span>:""}
                 </label>
             </li>
@@ -58,7 +58,7 @@ export function UserDropdown(props:{appData: AppData} ) {
                 <label
                     className="btn btn-warning hover:btn-error active:btn-primary btn-sm mt-4 focus:outline-none focus:ring-0 font-extrabold"
                     onClick={() => {
-                        props.appData.logout();
+                        props.manager.logout();
                         nav("/")
                     }}>
                     <Trans>Logout</Trans>

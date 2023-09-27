@@ -1,11 +1,13 @@
-import {AppData} from "../data/classes/AppData";
+import {MinddyManager} from "../data/Minddy.manager";
 import {EllipsisVerticalIcon, PencilSquareIcon} from "@heroicons/react/20/solid";
 import {DeadlineStats} from "../components/dashboard/DeadlineStats";
 import React, {useEffect, useState} from "react";
 import Task from "../data/classes/bussiness/Task";
 import {Trans} from "@lingui/macro";
+import {Simulate} from "react-dom/test-utils";
+import {PagedResponse} from "../data/minddy.service";
 
-export function ProjectTasks(props: { appData: AppData }) {
+export function ProjectTasks(props: { manager: MinddyManager }) {
     const [tasks, setTasks] = useState<Task[]>();
 
     const [viewAll, setViewAll] = useState(false);
@@ -16,29 +18,16 @@ export function ProjectTasks(props: { appData: AppData }) {
         , [viewAll, viewSubprojects]);
 
     useEffect(() => {
-        updateTaskViews();
-        setViewAll(false);
-        setViewSubprojects(true)
-    }, [props.appData.currentProject, props.appData.user.token]);
+            setViewAll(false);
+            setViewSubprojects(true)
+            updateTaskViews();
+    }, [props.manager.currentProject, props.manager.user.token]);
 
     function updateTaskViews() {
-        if (props.appData.currentProject)
-            props.appData.currentProject.getAllTasks(
-                props.appData.user.token,
-                props.appData.currentProject.id,
-                (json) => {
-                    if (json) {
-                        const tasks = JSON.parse(json).content.map((task: any) => Task.buildTask(JSON.stringify(task)));
-                        setTasks(tasks);
-                    }
-                },
-                10,
-                0,
-                viewAll,
-                viewSubprojects);
+
     }
 
-    return <div className='flex flex-col p-2  relative flex-grow w-full '>
+    return <div className='flex flex-col p-2  flex-grow w-full '>
         <div className='flex flex-row justify-between w-[100%] flex-grow  overflow-hidden '>
             <div className='flex flex-col flex-grow justify-between min-h-full overflow-hidden   '>
                 {/*_________OPTIONS____________*/}
@@ -75,8 +64,8 @@ export function ProjectTasks(props: { appData: AppData }) {
                         </div>
                     </div>
                 </div>
-                {props.appData.currentProject.deadLine &&
-                    <DeadlineStats daysMissing={3} deadLine={props.appData.currentProject.deadLine}/>}
+                {props.manager.currentProject.deadLine &&
+                    <DeadlineStats daysMissing={3} deadLine={props.manager.currentProject.deadLine}/>}
 
             </div>
         </div>

@@ -1,8 +1,8 @@
-import {AppData} from "../data/classes/AppData";
+import {MinddyManager} from "../data/Minddy.manager";
 
 export interface EditNoteProps {
     isNew: boolean
-    appData: AppData | undefined
+    manager: MinddyManager | undefined
 }
 
 export default function EditNote(props: EditNoteProps) {

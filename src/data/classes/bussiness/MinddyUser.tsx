@@ -18,14 +18,18 @@ export class MinddyUser extends MinddyObject{
     token:string;
     userName!:string;
     userConfig!:UserConfig;
-    constructor(token: string) {
+    constructor(token: string,callBack?:(v:any)=>void,error?:()=>void) {
         super();
         this.token = token;
         MinddyService.loadUserData(token,
             ({userName, uiConfig}) => {
                 this.userName = userName;
                 this.userConfig = uiConfig
-            })
-            .then(()=>this.isLoaded=true)
+                this.isLoaded=true
+                if(callBack)callBack(this);
+            },()=>{
+            this.isLoaded=false
+                if(error)error()
+        })
     }
 }

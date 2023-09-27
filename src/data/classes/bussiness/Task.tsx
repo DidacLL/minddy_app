@@ -9,13 +9,20 @@ export enum Priority {
     HIGHER
 }
 
-interface TaskMinimal {
+export interface TaskMinimal {
     id: string;
-    date: string;
-    holder: string;
-    name: string;
-    holderName: string;
 }
+
+export interface TaskData {
+    id: string;
+    name: string;
+    description: string;
+    date: Date;
+    holder: string;
+    state: TaskState;
+    priority: Priority
+}
+
 export enum TaskState {
     TODO,
     ON_PROGRESS,
@@ -25,68 +32,80 @@ export enum TaskState {
     DISCARDED
 }
 
-export default class Task extends MinddyObject{
+export default class Task extends MinddyObject {
     id: string;
-    name: string;
-    description: string|undefined;
-    date: Date;
-    holder: string;
-    holderName: string;
-    state: TaskState|undefined;
-    priority: Priority|undefined;
+    name: string | undefined;
+    description: string | undefined;
+    date: Date | undefined;
+    holder: string | undefined;
+    state: TaskState | undefined;
+    priority: Priority | undefined;
 
     constructor(
         id: string,
-        name: string,
-        date: Date,
-        holder: string,
-        holderName: string,
+        name?: string,
+        date?: Date,
+        holder?: string,
         description?: string,
         state?: TaskState,
         priority?: Priority,
     ) {
         super();
         this.id = id;
-        this.name = name;
-        this.description = description;
-        this.date = date;
-        this.holder = holder;
-        this.state = state;
-        this.priority = priority;
-        this.holderName = holderName;
-    }
-    load(token: string, back?: () => any): boolean {
-        console.log("Start loading task");
-        if (!this.isLoaded) {
-            MinddyService.getFullTask(token, this.id).then(
-                (response) => {
-                    if (response){
-                        this.loadFullTask(response);
-                        this.isLoaded = true;
-                        back?.();
-                    }
-                })
-            return false;
+        if (name) {
+            this.name = name;
+            if (description) this.description = description;
+            if (date) this.date = date;
+            if (holder) this.holder = holder;
+            if (state) this.state = state;
+            if (priority) this.priority = priority;
+            this.isLoaded=true;
         }
-        back?.();
-        return this.isLoaded;
     }
 
+    static buildTask(json: string) {
+        let data = JSON.parse(json) as TaskMinimal
+        return new Task(
+            data.id
+        )
+    }
+
+    static parseTask(json: string): Task {
+        let data = JSON.parse(json) as TaskData;
+        const task = new Task(data.id, data.name, new Date(data.date), data.description, data.holder, data.state as TaskState, data.priority as Priority);
+        task.isLoaded=true;
+        return task
+    }
+
+    // load(token: string, back?: () => any): Task {
+    //     console.log("Start loading task");
+    //     if (!this.isLoaded) {
+    //         MinddyService.getFullTask(token, this.id,
+    //             (response) => {
+    //                 if (response) {
+    //                     this.loadFullTask(response);
+    //                     this.isLoaded = true;
+    //                     back?.();
+    //                 }
+    //             },
+    //             (m) => {
+    //                 console.log(m)
+    //                 this.isLoaded = false;
+    //             } //todo handle error
+    //         )
+    //         return this;
+    //     }
+    //     back?.();
+    //     return this;
+    // }
+
     loadFullTask(json: string): void {
-        let data = JSON.parse(json);
+        let data = JSON.parse(json) as TaskData;
+        this.name = data.name
         this.description = data.description;
         this.date = new Date(data.date);
+        this.holder = data.holder;
         this.state = data.state as TaskState;
-        this.priority =data.priority as Priority;
-    }
-    static buildTask(json:string){
-        let data=JSON.parse(json) as TaskMinimal
-        return new Task(
-            data.id,
-            data.name,
-            new Date(data.date),
-            data.holder,
-            data.holderName
-        )
+        this.priority = data.priority as Priority;
     }
 }

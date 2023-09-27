@@ -1,8 +1,8 @@
-import {AppData} from "../data/classes/AppData";
+import {MinddyManager} from "../data/Minddy.manager";
 
 export interface EditProjectProps {
     isNew: boolean
-    appData: AppData | undefined
+    appData: MinddyManager | undefined
 }
 
 export default function EditProject(props: EditProjectProps) {

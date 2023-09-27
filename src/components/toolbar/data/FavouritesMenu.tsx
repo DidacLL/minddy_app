@@ -1,13 +1,13 @@
 import {Link} from "react-router-dom";
 import {Trans} from "@lingui/macro";
 import React from "react";
-import {AppData} from "../../../data/classes/AppData";
+import {MinddyManager} from "../../../data/Minddy.manager";
 
 
-export function FavouritesMenu(prop: { appData: AppData }) {
+export function FavouritesMenu(prop: { manager: MinddyManager }) {
     return <ul className="p-2">
         {
-            prop.appData.user.userConfig.favourites?.map((el) => {
+            prop.manager.user.userConfig.favourites?.map((el) => {
                 return <li><Link to={"/new/project"} className="dropdown-item justify-between ">
                     <label> {el.title}</label>
                     {el.icon}

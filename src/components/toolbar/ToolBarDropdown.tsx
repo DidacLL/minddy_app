@@ -1,9 +1,9 @@
 import React, {useEffect, useRef, useState} from "react";
-import {AppData} from "../../data/classes/AppData";
+import {MinddyManager} from "../../data/Minddy.manager";
 
 interface ToolBarDropdownProps {
     name: string;
-    appData: AppData,
+    manager: MinddyManager,
     menu: () => React.JSX.Element
     iconJSX: React.JSX.Element
 }
@@ -33,11 +33,11 @@ export function ToolBarDropdown(props: ToolBarDropdownProps) {
     useEffect(() => {
 
     }, [open]);
-    return       <div className="dropdown  bg-primary dropdown-bottom dropdown-end align-middle ">
+    return       <div className="dropdown bg-primary dropdown-bottom dropdown-end align-middle ">
 
             {open &&
                 <div tabIndex={0}
-                     className=" dropdown-content text-primary-content rounded-b-box max-w-prose bg-primary z-10 "
+                     className=" dropdown-content text-primary-content rounded-b-box max-w-prose bg-primary "
                      onMouseLeave={()=>{if(open)setOpen(false)}}
                      ref={dropdownRef}>
                     <div className="menu menu-vertical menu-sm md:menu-md rounded-b-box">

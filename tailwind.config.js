@@ -43,7 +43,7 @@ module.exports = {
             },
             '.btn-shadow': {
                 'box-shadow': '0px 0.3em 0.1em 0px var(--primary-dark)',
-                'background-color': 'var(--primary)',
+
 
                 '&:hover': {
                     'box-shadow': '0px 0.2em 0.1em 0px var(--primary-dark)',
@@ -77,12 +77,30 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                'tab-border-color': "var(--tab-border-color)",
                 'primary-dark': "var(--primary-dark)",
                 'primary-light': "var(--primary-light)",
                 'main-dark': "var(--main-dark)",
                 'main-grey': "var(--main-grey)",
                 'main-light': "var(--main-light)",
-                'tab-border-color': "var(--tab-border-color)",
+                'uc-red': "var(--uc-red)",
+                'uc-red-dark': "var(--uc-red-dark)",
+                'uc-red-light': "var(--uc-red-light)",
+                'uc-blue': "var(--uc-blue)",
+                'uc-blue-light': "var(--uc-blue-light)",
+                'uc-blue-dark': "var(--uc-blue-dark)",
+                'uc-yellow': "var(--uc-yellow)",
+                'uc-yellow-dark': "var(--uc-yellow-dark)",
+                'uc-yellow-light': "var(--uc-yellow-light)",
+                'uc-green': "var(--uc-green)",
+                'uc-green-dark': "var(--uc-green-dark)",
+                'uc-green-light': "var(--uc-green-light)",
+                'uc-magenta': "var(--uc-magenta)",
+                'uc-magenta-dark': "var(--uc-magenta-dark)",
+                'uc-magenta-light': "var(--uc-magenta-light)",
+                'uc-orange': "var(--uc-orange)",
+                'uc-orange-light': "var(--uc-orange-light)",
+                'uc-orange-dark': "var(--uc-orange-dark)",
             },
             boxShadow: {
                 'inner-projected': 'inset 0 0 10px var(--main-dark)'
@@ -96,6 +114,7 @@ module.exports = {
             {
                 minddy_light: {
                     "primary": "#8bb7b7",
+                    //449696
                     "accent": "#37cdbe",
                     "neutral": "#79a89b",
                     '--primary-light': "#c0e8e2",
@@ -117,23 +136,49 @@ module.exports = {
                     "--tab-border": "2px", // border width of tabs
                     // "--tab-border-color": "red", // border width of tabs
                     "--tab-radius": "0.5rem", // border radius of tabs
+                    "--uc-red-dark": "#8c2151",
+                    "--uc-red": "#de4259",
+                    "--uc-red-light": "#fc7599",
+
+                    "--uc-blue-dark": "#36585d",
+                    "--uc-blue": "#539d9d",
+                    "--uc-blue-light": "#74cece",
+
+                    "--uc-yellow-dark": "#b4985b",
+                    "--uc-yellow": "#d5ba64",
+                    "--uc-yellow-light": "#fdeaad",
+
+                    "--uc-green-dark": "#2a492f",
+                    "--uc-green": "#678d58",
+                    "--uc-green-light": "#c1e59b",
+
+                    "--uc-magenta-dark": "#353054",
+                    "--uc-magenta": "#6e568f",
+                    "--uc-magenta-light": "#bf9dd0",
+
+                    "--uc-orange-dark": "#c24a1f",
+                    "--uc-orange": "#d98d40",
+                    "--uc-orange-light": "#e1bc5e",
+
+
                 },
             }, {
                 minddy_dark: {
-                    "primary": "#3e5257",
+                    '--primary-light': "#567373",
+                    "primary": "#323f3f",
+                    '--primary-dark': "rgba(29,44,61,0.9)",
+                    //003232
                     // #8bb7b7
-                    "accent": "#7ed79c",
-                    "neutral": "#8fbbbd",
-                    '--primary-light': "#c0e8e2",
-                    "secondary": "#a17ec5",
-                    "base-100": "#2d3d3d",
+                    "accent": "#9eeab9",
+                    "neutral": "#658a8c",
+                    "secondary": "#88a1ab",
+                    "base-100": "#445454",
                     // #2d3f3d
-                    '--primary-dark': "#003232",
-                    '--main-dark': "#011c0f",
-                    '--main-grey': "#2a2a2a",
+                    '--main-dark': "rgba(19,17,24,0.6)",
+                    '--main-grey': "rgba(42,42,42,0.82)",
                     '--main-light': "#e6ffff",
-                    "--rounded-box": "0.5rem", // border radius rounded-box utility class, used in card and other large boxes
-                    "--rounded-btn": "0.5rem", // border radius rounded-btn utility class, used in buttons and similar element
+                    "--rounded-box": "0.2rem", // border radius rounded-box utility class, used in card and other large boxes
+                    "--rounded-btn": "0.2rem", // border radius rounded-btn utility class, used in buttons and similar element
                     "--rounded-badge": "1.9rem", // border radius rounded-badge utility class, used in badges and similar
                     "--animation-btn": "0.2s", // duration of animation when you click on button
                     "--animation-input": "0.2s", // duration of animation for inputs like checkbox, toggle, radio, etc
@@ -142,6 +187,30 @@ module.exports = {
                     "--border-btn": "0", // border width of buttons
                     "--tab-border": "1px", // border width of tabs
                     "--tab-radius": "0.5rem", // border radius of tabs
+                    "--uc-red-dark": "#8c2151",
+                    "--uc-red": "#de4259",
+                    "--uc-red-light": "#fc7599",
+
+                    "--uc-blue-dark": "#36585d",
+                    "--uc-blue": "#539d9d",
+                    "--uc-blue-light": "#74cece",
+
+                    "--uc-yellow-dark": "#b4985b",
+                    "--uc-yellow": "#d5ba64",
+                    "--uc-yellow-light": "#fdeaad",
+
+                    "--uc-green-dark": "#2a492f",
+                    "--uc-green": "#678d58",
+                    "--uc-green-light": "#c1e59b",
+
+                    "--uc-magenta-dark": "#353054",
+                    "--uc-magenta": "#6e568f",
+                    "--uc-magenta-light": "#bf9dd0",
+
+                    "--uc-orange-dark": "#c24a1f",
+                    "--uc-orange": "#d98d40",
+                    "--uc-orange-light": "#e1bc5e",
+
                 },
             },
             "light",

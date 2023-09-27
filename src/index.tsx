@@ -7,6 +7,8 @@ import reportWebVitals from './reportWebVitals';
 import {i18n} from "@lingui/core";
 import {I18nProvider} from "@lingui/react";
 import {messages} from "./locales/en/messages";
+import {DevSupport} from "@react-buddy/ide-toolbox";
+import {ComponentPreviews, useInitial} from "./dev";
 
 i18n.load("en", messages);
 i18n.activate("en");
@@ -16,7 +18,11 @@ const root = ReactDOM.createRoot(
 root.render(
     <I18nProvider i18n={i18n}>
         <React.StrictMode>
-            <App/>
+            <DevSupport ComponentPreviews={ComponentPreviews}
+                        useInitialHook={useInitial}
+            >
+                <App/>
+            </DevSupport>
         </React.StrictMode>
     </I18nProvider>
 );
