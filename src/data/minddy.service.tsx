@@ -1,20 +1,27 @@
-import {ProjectStructure} from "./classes/ProjectStructure";
-import {UserConfig} from "./classes/bussiness/MinddyUser";
-
-interface UserData {
-    userName: string;
-    uiConfig: UserConfig;
-}
+import {ProjectStructure} from "./classes/utils/ProjectStructure";
+import {UserData} from "./classes/dto/UserData";
 
 export default class MinddyService {
 
     static API_URL = 'http://localhost:8833/v1/auth/'
+    static pendingRequests: Map<string,Promise<any>> = new Map();
+    static updateFactor(name: string) {
+        return `${name}_${Math.ceil(Date.now() / 100000000)}`;
+    }
 
     static async ping() {
         try {
-            const response = await fetch(this.API_URL.concat('user/demo/ping?ping=ping'));
-            const text = response.text();
-            return await text === "pong";
+            const url = this.API_URL.concat('user/demo/ping?ping=ping');
+            const request = this.pendingRequests.get(url);
+            if (request) return request;
+            const fetchPromise = this.pingCall(url)
+                .finally(() => {
+                    // Once the request is completed, quit the request from pending map
+                    this.pendingRequests.delete(url);
+                });
+            //And save the Request as pending request
+            this.pendingRequests.set(url,fetchPromise);
+            return await fetchPromise;
         } catch (e) {
             throw new Error(`Server Down :(`);
         }
@@ -56,7 +63,6 @@ export default class MinddyService {
     }
 
     static getFullTask(token: string, id: string, callBack: (json: string) => void, error: (message: string) => void) {
-        console.log("PATATAA")
         this.getCall(token, 'task', `/data?id=${id}`)
             .then(r => callBack(r))
             .catch(e => error(e.message));
@@ -101,13 +107,13 @@ export default class MinddyService {
     }
 
     private static checkSessionStorage(name: string, callBack: (json: string) => void, fetchCall: (s: string) => any) {
-        const key = `${name}_${Math.ceil(Date.now() / 100000000)}`;
+        const key = MinddyService.updateFactor(name);
         const savedValue = sessionStorage.getItem(key);
         if (savedValue) callBack(savedValue)
         else fetchCall(key);
     }
 
-    private static async getCall(token: string, urlStart: string, urlEnd: string) {
+    private static async getCall(token: string, urlStart: string, urlEnd: string): Promise<string> {
         const options: RequestInit = {
             method: 'GET',
             headers: {
@@ -118,14 +124,26 @@ export default class MinddyService {
         let url = this.API_URL.concat(urlStart);
         if (token === 'DEMO') url = url.concat('/demo');
         url = url.concat(urlEnd);
-        return await this.callAPI(url, options);
-    }
 
+        // If there is any pending request for same url, we return its promise
+        const request = this.pendingRequests.get(url);
+        if (request) return request;
+        // If there is not any request for this url we call the api
+        const fetchPromise = this.callAPI(url, options)
+            .finally(() => {
+                // Once the request is completed, quit the request from pending map
+                this.pendingRequests.delete(url);
+            });
+        //And save the Request as pending request
+        this.pendingRequests.set(url,fetchPromise);
+        return fetchPromise;
+    }
     private static getAuthHeader(token: string) {
         return token === "DEMO" ? undefined : {'Authorization': `Bearer ${token}`};
     }
 
     private static async callAPI(url: string, options: RequestInit) {
+        console.log(url)
         try {
             const response = await fetch(url, options);
             if (!response.ok) {
@@ -139,16 +157,10 @@ export default class MinddyService {
         }
     }
 
+    private static async pingCall(url:string) {
+        const response = await fetch(url);
+        return await response.text()==='pong';
+    }
+
 }
 
-export interface PagedResponse<T> {
-    content: T[];
-    totalPages: number;
-    totalElements: number;
-    last: boolean;
-    size: number;
-    number: number;
-    sort: any;
-    first: boolean;
-    numberOfElements: number;
-}

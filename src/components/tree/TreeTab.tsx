@@ -1,4 +1,4 @@
-import {ProjectNode} from '../../data/classes/ProjectNode';
+import {ProjectNode} from '../../data/classes/dto/ProjectNode';
 import React from 'react';
 import {ArchiveBoxArrowDownIcon, ArchiveBoxIcon} from '@heroicons/react/20/solid';
 import {Trans} from '@lingui/macro';

@@ -1,11 +1,9 @@
-import {MinddyManager} from "../data/Minddy.manager";
+import {MinddyManager} from "../../../data/Minddy.manager";
 import {EllipsisVerticalIcon, PencilSquareIcon} from "@heroicons/react/20/solid";
-import {DeadlineStats} from "../components/dashboard/DeadlineStats";
+import {DeadlineStats} from "../DeadlineStats";
 import React, {useEffect, useState} from "react";
-import Task from "../data/classes/bussiness/Task";
+import Task from "../../../data/classes/dao/Task";
 import {Trans} from "@lingui/macro";
-import {Simulate} from "react-dom/test-utils";
-import {PagedResponse} from "../data/minddy.service";
 
 export function ProjectTasks(props: { manager: MinddyManager }) {
     const [tasks, setTasks] = useState<Task[]>();

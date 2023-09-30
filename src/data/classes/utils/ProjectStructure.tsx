@@ -1,26 +1,5 @@
-import {ProjectNode} from "./ProjectNode";
-import {ProjectState} from "./bussiness/Project";
-
-export interface ProjectMinimalData {
-    ownerID: string;
-    projectID: string;
-    projectName: string;
-    notes: number;
-    pendingTasks: number;
-    uiConfig: string;
-    state: ProjectState;
-}
-
-export interface ProjectNodeData {
-    project: ProjectMinimalData;
-    subProjects: ProjectNodeData[];
-    accumulatedSubprojects: number;
-}
-
-interface ProjectStructureData {
-    date: string;
-    root: ProjectNodeData;
-}
+import {ProjectNode} from "../dto/ProjectNode";
+import {ProjectStructureData} from "../dto/ProjectStructureData";
 
 export class ProjectStructure {
     date: Date;

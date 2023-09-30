@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {useMediaQuery} from 'react-responsive';
 import {ScreenType} from "../enums/ScreenType";
-import ScreenData from "../classes/ScreenData";
+import ScreenData from "../classes/utils/ScreenData";
 
 export const useScreenInfo = () => {
     const [orientation, setOrientation] = useState(window.screen.orientation.type);

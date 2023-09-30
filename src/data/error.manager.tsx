@@ -1,7 +1,5 @@
 import React, {ErrorInfo, ReactNode} from "react";
-
-export enum ErrorType {
-NOTIFICATE,CONFIRM,INPUT,UNEXPECTED,FATAL}
+import {ErrorType} from "./enums/ErrorType";
 
 interface State {
     hasError: ErrorType|undefined;

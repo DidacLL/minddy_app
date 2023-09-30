@@ -41,9 +41,8 @@ export function UserDropdown(props:{manager: MinddyManager} ) {
             <li>
                 <label className="justify-between menu-title text-primary-content">
                     {props.manager.user.userName}
-                    {props.manager.structure?.root.project.pendingTasks
-                        && props.manager.structure?.root.project.pendingTasks>0
-                        ?<span className="badge">ToDo</span>:""}
+                    {/*{props.manager.getRootProject()&& props.manager.getRootProject().pendingTasks && props.manager.getRootProject().pendingTasks>0*/}
+                    {/*    ?<span className="badge">ToDo</span>:""}*/}
                 </label>
             </li>
             <li className="focus:outline-none focus:ring-0 menu-title text-primary-content">

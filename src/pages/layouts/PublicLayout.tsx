@@ -1,10 +1,9 @@
-import ScreenData from '../../data/classes/ScreenData';
+import ScreenData from '../../data/classes/utils/ScreenData';
 import {Link, Outlet, useNavigate} from 'react-router-dom';
 import {Trans} from '@lingui/macro';
 import {LanguageSelector} from '../../components/toolbar/LanguageSelector';
 import {APP_NAME} from '../../App';
 import {useEffect, useState} from 'react';
-import {MinddyManager} from "../../data/Minddy.manager";
 import MinddyService from "../../data/minddy.service";
 
 interface PublicLayoutParams {
@@ -24,7 +23,7 @@ export function PublicLayout(props: PublicLayoutParams) {
     useEffect(() => {
     }, [serviceAvailable]);
     useEffect(() => {
-        MinddyService.ping().then(setServiceAvailable).catch((e)=>{
+        if(!serviceAvailable)MinddyService.ping().then(setServiceAvailable).catch((e)=>{
             setServiceAvailable(false);
             props.onServerError(e.message)
         })

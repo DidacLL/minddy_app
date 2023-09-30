@@ -8,7 +8,7 @@ import {PublicLayout} from "./pages/layouts/PublicLayout";
 import {useScreenInfo} from "./data/hooks/useScreenSize";
 import {MainLayout} from "./pages/layouts/MainLayout";
 import {MinddyManager} from "./data/Minddy.manager";
-import {MinddyUser} from "./data/classes/bussiness/MinddyUser";
+import {MinddyUser} from "./data/classes/dao/MinddyUser";
 import EditProject from "./pages/EditProject";
 import EditTask from "./pages/EditTask";
 import EditNote from "./pages/EditNote";
@@ -44,23 +44,25 @@ function App() {
 
     useEffect(() => {
         if (user && (!appManager || user.token !== appManager.user.token)) {
-            setAppManager(new MinddyManager(user, screenInfo, () => {
-                setLoadedTree(true)
-            }, () => {
-
-                setServerError("SERVICE NOT RESPONDING")
-            }, () => setUser(undefined)));
+            setAppManager(
+                new MinddyManager(user, screenInfo, () => {
+                    setLoadedTree(true)
+                }, () => {
+                    setServerError("SERVICE NOT RESPONDING")
+                }, () => setUser(undefined)));
         }
     }, [user]);
 
     useEffect(() => {
-        if (appManager) appManager.screen = screenInfo;
+        if (appManager) {
+            appManager.screen = screenInfo;
+        }
     }, [loadedTree, screenInfo])
 
     const loginUser = (token: string) => {
         try {
             console.log("loading user:" + token)
-            new MinddyUser(token,setUser,()=>setServerError("User not found!"));
+            new MinddyUser(token, setUser, () => setServerError("User not found!"));
             console.log("loading user:" + token)
 
         } catch (e) {

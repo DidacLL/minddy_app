@@ -1,22 +1,15 @@
 import {MinddyManager} from "../data/Minddy.manager";
 import React, {useEffect, useState} from "react";
-import {Project} from "../data/classes/bussiness/Project";
-import {ProjectDashboard} from "../components/dashboard/ProjectDashboard";
-import {ProjectTasks} from "./ProjectTasks";
+import {Project} from "../data/classes/dao/Project";
+import {ProjectDashboard} from "../components/dashboard/tabs/ProjectDashboard";
+import {ProjectTasks} from "../components/dashboard/tabs/ProjectTasks";
 import {Trans} from "@lingui/macro";
+import {DashboardTabs} from "../data/enums/DashboardTabs";
+import {ProjectNotes} from "../components/dashboard/tabs/ProjectNotes";
 
-class ProjectNotes extends React.Component<{ manager: MinddyManager }> {
-    render() {
-        return null;
-    }
-}
-
-export enum DashboardTab{
-    DASHBOARD,TASKS,NOTES
-}
 export function MainScreen(props: { manager: MinddyManager }) {
     const [selectedProject, setSelectedProject] = useState(props.manager?.currentProject ? props.manager.currentProject : null);
-    const [projectTab, setProjectTab] = useState(DashboardTab.DASHBOARD);
+    const [projectTab, setProjectTab] = useState(DashboardTabs.DASHBOARD);
 
     useEffect(() => {
         if(selectedProject){
@@ -27,13 +20,13 @@ export function MainScreen(props: { manager: MinddyManager }) {
         props.manager.changeDashboard = (p: Project) => setSelectedProject(p)
     }, [props.manager]);
     useEffect(() => {
-        props.manager.changeDashboardTab=(tab:DashboardTab)=>setProjectTab(tab)
+        props.manager.changeDashboardTab=(tab:DashboardTabs)=>setProjectTab(tab)
     }, []);
     function renderTabContent() {
         switch (projectTab) {
-            case  DashboardTab.TASKS:
+            case  DashboardTabs.TASKS:
                 return <ProjectTasks manager={props.manager}/>
-            case  DashboardTab.NOTES:
+            case  DashboardTabs.NOTES:
                 return <ProjectNotes manager={props.manager}/>
             default:
                 return <ProjectDashboard manager={props.manager}/>
@@ -46,20 +39,20 @@ export function MainScreen(props: { manager: MinddyManager }) {
                 <div className="">
                     <div className="navbar-start"></div>
                     <div className="tabs navbar-center w-[100%]  mt-0 bg-base-300">
-                        <div className={`tab tab-sm tab-lifted tab-border-none w-[30%] ${projectTab === DashboardTab.DASHBOARD ? 'tab-active ' : 'bg-base-300 text-base-content/25'}`}
+                        <div className={`tab tab-sm tab-lifted tab-border-none w-[30%] ${projectTab === DashboardTabs.DASHBOARD ? 'tab-active ' : 'bg-base-300 text-base-content/25'}`}
                            onClick={(e) => {
                                e.preventDefault();
-                               setProjectTab( DashboardTab.DASHBOARD)
+                               setProjectTab( DashboardTabs.DASHBOARD)
                            }}><Trans>Dashboard</Trans></div>
-                        <div className={`tab tab-sm tab-lifted w-[30%] ${projectTab ===  DashboardTab.TASKS ? 'tab-active ' : 'bg-base-300 text-base-content/25'}`}
+                        <div className={`tab tab-sm tab-lifted w-[30%] ${projectTab ===  DashboardTabs.TASKS ? 'tab-active ' : 'bg-base-300 text-base-content/25'}`}
                            onClick={(e) => {
                                e.preventDefault();
-                               setProjectTab( DashboardTab.TASKS)
+                               setProjectTab( DashboardTabs.TASKS)
                            }}><Trans>Tasks</Trans></div>
-                        <div className={`tab tab-sm tab-lifted w-[30%] ${projectTab ===  DashboardTab.NOTES ? ' tab-active' : 'bg-base-300 text-base-content/25'}`}
+                        <div className={`tab tab-sm tab-lifted w-[30%] ${projectTab ===  DashboardTabs.NOTES ? ' tab-active' : 'bg-base-300 text-base-content/25'}`}
                            onClick={(e) => {
                                e.preventDefault();
-                               setProjectTab( DashboardTab.NOTES)
+                               setProjectTab( DashboardTabs.NOTES)
                            }}><Trans>Notes</Trans></div>
                     </div>
                     <div className="navbar-end"></div>

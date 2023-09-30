@@ -1,0 +1,3 @@
+export enum ErrorType {
+    NOTIFICATE, CONFIRM, INPUT, UNEXPECTED, FATAL
+}

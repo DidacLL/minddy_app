@@ -1,18 +1,19 @@
-import {MinddyManager} from '../../data/Minddy.manager';
+import {MinddyManager} from '../../../data/Minddy.manager';
 import React, {useEffect, useState} from 'react';
-import {HorizontalScroller} from './HorizontalScroller';
-import {Project} from '../../data/classes/bussiness/Project';
-import {PathBreadcrumbs} from './PathBreadcrumbs';
-import {DashboardTab} from '../../pages/MainScreen';
-import {DeadlineStats} from './DeadlineStats';
+import {HorizontalScroller} from '../HorizontalScroller';
+import {Project} from '../../../data/classes/dao/Project';
+import {PathBreadcrumbs} from '../PathBreadcrumbs';
+import {DeadlineStats} from '../DeadlineStats';
 import {EllipsisVerticalIcon, PencilSquareIcon} from '@heroicons/react/20/solid';
-import MinddyService, {PagedResponse} from "../../data/minddy.service";
-import Task, {TaskMinimal} from "../../data/classes/bussiness/Task";
+import Task from "../../../data/classes/dao/Task";
+import {PagedResponse} from "../../../data/classes/dto/PagedResponse";
+import {ObjectMinimal} from "../../../data/classes/dto/ObjectMinimal";
+import {DashboardTabs} from "../../../data/enums/DashboardTabs";
 
 export function ProjectDashboard(props: { manager: MinddyManager }) {
     const [path, setPath] = useState<Project[] | undefined>();
 
-    const [todoList, setTodoList] = useState<TaskMinimal[]>([]);
+    const [todoPage, setTodoPage] = useState<PagedResponse<ObjectMinimal>>();
     const [daysMissing, setDaysMissing] = useState<number>();
     const calculateDaysUntilDeadline = (deadline: Date) => {
         const now = new Date();
@@ -23,7 +24,7 @@ export function ProjectDashboard(props: { manager: MinddyManager }) {
     useEffect(() => {
         try {
             setPath(props.manager.currentProject.getAllProjectsPath().map((id) => {
-                return props.manager.structure?.nodeMap.get(id)?.project || props.manager.currentProject;
+                return props.manager.getProject(id) || props.manager.currentProject;
             }))
 
         } catch (e) {
@@ -33,9 +34,10 @@ export function ProjectDashboard(props: { manager: MinddyManager }) {
     }, [props.manager.currentProject]);
 
 
-
     useEffect(() => {
-    }, [todoList]);
+
+
+    }, [todoPage]);
     return <div className='flex flex-col p-2 h-full flex-grow w-full '>
 
         <div className='flex flex-row w-[100%] justify-between grow overflow-hidden '>
@@ -54,16 +56,22 @@ export function ProjectDashboard(props: { manager: MinddyManager }) {
                 <label>State: {props.manager.currentProject.state} </label>
 
                 <div className=' m-2 bg-'>
-                    <HorizontalScroller label={'TO-DO'} manager={props.manager} elements={todoList.map(v=>v.id)}/>
+                    {props.manager.currentProject &&
+                        <HorizontalScroller<Task> label={'TO-DO'}
+                                                  manager={props.manager}
+                                                  pageFunction={(callBack, error, size, page) =>
+                                                      props.manager.getProjectToDoPage(callBack, error, size, page)
+                                                  }
+                                                  getFunction={(id, callback, error) => props.manager.getTask(id, callback, error)}/>}
                 </div>
                 <div className=' m-2 bg-'>
-                    <HorizontalScroller label={'NOTES'} manager={props.manager} elements={todoList.map(v=>v.id)}/>
+                    {/*<HorizontalScroller label={'NOTES'} manager={props.manager} elements={todoPage?.content.map(v=>v.id)}/>*/}
                 </div>
                 <div className='stats flex flex-row m-4 overflow-hidden text-sm'>
                     <div className='stat'>
                         <div className='stat-title'>Pending tasks:</div>
                         <div onClick={() => {
-                            props.manager.changeDashboardTab(DashboardTab.TASKS)
+                            props.manager.changeDashboardTab(DashboardTabs.TASKS)
                         }}
                              className='stat-value btn btn-ghost'>{props.manager.currentProject.pendingTasks}</div>
                         <div className='stat-desc'></div>
@@ -73,13 +81,13 @@ export function ProjectDashboard(props: { manager: MinddyManager }) {
                         <div onClick={() => {
                             props.manager.minimizeProjectTree()
                         }}
-                             className='stat-value btn-ghost btn'>{props.manager.structure?.nodeMap.get(props.manager.currentProject.id)?.accumulatedSubprojects}</div>
+                             className='stat-value btn-ghost btn'>{props.manager.getProjectNode(props.manager.currentProject.id)?.accumulatedSubprojects}</div>
                         <div className='stat-desc'></div>
                     </div>
                     <div className='stat '>
                         <div className='stat-title'>Notes:</div>
                         <div onClick={() => {
-                            props.manager.changeDashboardTab(DashboardTab.NOTES)
+                            props.manager.changeDashboardTab(DashboardTabs.NOTES)
                         }}
                              className='stat-value btn-ghost btn'>{props.manager.currentProject.numNotes}</div>
                         <div className='stat-desc'></div>

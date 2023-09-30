@@ -1,5 +1,5 @@
-import {ProjectNodeData} from "./ProjectStructure";
-import {Project} from "./bussiness/Project";
+import {Project} from "../dao/Project";
+import {ProjectNodeData} from "./ProjectNodeData";
 
 export class ProjectNode {
     project: Project;

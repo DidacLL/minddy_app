@@ -1,6 +1,5 @@
 import MinddyService from "../../minddy.service";
-import {MinddyObject} from "./MinddyObject";
-import {Favourite} from "../Favourite";
+import {Favourite} from "../dto/Favourite";
 
 export class UserConfig {
     favourites: Favourite[];
@@ -14,12 +13,12 @@ export class UserConfig {
     }
 }
 
-export class MinddyUser extends MinddyObject{
+export class MinddyUser{
     token:string;
     userName!:string;
     userConfig!:UserConfig;
+    isLoaded:boolean=false;
     constructor(token: string,callBack?:(v:any)=>void,error?:()=>void) {
-        super();
         this.token = token;
         MinddyService.loadUserData(token,
             ({userName, uiConfig}) => {

@@ -1,4 +1,4 @@
-import {ScreenType} from "../enums/ScreenType";
+import {ScreenType} from "../../enums/ScreenType";
 
 export default class ScreenData {
     type: ScreenType;

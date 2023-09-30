@@ -1,4 +1,4 @@
-import {Project} from "../../data/classes/bussiness/Project";
+import {Project} from "../../data/classes/dao/Project";
 import React, {useEffect, useState} from "react";
 
 export function PathBreadcrumbs(props: { path: Project[], handleClick: (project: Project) => void }) {

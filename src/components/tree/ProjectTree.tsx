@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {MinddyManager} from "../../data/Minddy.manager";
-import {ProjectNode} from "../../data/classes/ProjectNode";
+import {ProjectNode} from "../../data/classes/dto/ProjectNode";
 import {TreeTab} from "./TreeTab";
-import {Project, ProjectState} from "../../data/classes/bussiness/Project";
+import {Project, ProjectState} from "../../data/classes/dao/Project";
 import {Trans} from "@lingui/macro";
 
 interface ProjectTreeProps {
@@ -33,7 +33,7 @@ export function ProjectTree(props: ProjectTreeProps) {
     function handleTitleClick(event: React.MouseEvent, root: ProjectNode) {
         if (openProject) {
             if (openProject === root.project) {
-                const aux = props.manager.structure.getNodeById(root.project.getParentID());
+                const aux = props.manager.getProjectNode(root.project.getParentID());
                 if (aux) return setOpenProject(aux.project);
             }
         }
@@ -80,6 +80,6 @@ export function ProjectTree(props: ProjectTreeProps) {
     }
 
     return <div className="flex-grow bg-primary h-full">
-        {props.manager.structure && constructProjectTabs(props.manager.structure.root)}
+        {constructProjectTabs(props.manager.getRootProjectNode())}
     </div>
 }

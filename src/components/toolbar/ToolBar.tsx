@@ -4,18 +4,19 @@ import {UserDropdown} from "./data/UserDropdown";
 import {
     ArchiveBoxArrowDownIcon,
     ArchiveBoxIcon,
-    Bars3Icon, HeartIcon,
+    Bars3Icon,
+    HeartIcon,
     MagnifyingGlassIcon,
     PencilSquareIcon,
-    PlusIcon,
-    StarIcon
+    PlusIcon
 } from "@heroicons/react/20/solid";
 import {ToolBarDropdown} from "./ToolBarDropdown";
 import {APP_LOGO, APP_NAME} from "../../App";
 import {FavouritesMenu} from "./data/FavouritesMenu";
 import {Link, useNavigate} from "react-router-dom";
 import {PathBreadcrumbs} from "../dashboard/PathBreadcrumbs";
-import {DashboardTab} from "../../pages/MainScreen";
+
+import {DashboardTabs} from "../../data/enums/DashboardTabs";
 
 interface ToolBarProps {
     isVertical: boolean,
@@ -70,7 +71,7 @@ export function ToolBar(props: ToolBarProps) {
                 {/*APP NAME-----------------------------------------------------------------------------------------------------------------APP NAME */}
                 <Link to={"/dashboard"}
                       className="btn btn-ghost normal-case text-xl font-mono font-black text-base-100 hover:text-primary-content hover:bg-secondary"
-                      onClick={() => props.manager.changeCurrentProject(props.manager.structure.root.project)}
+                      onClick={() => props.manager.changeCurrentProject(props.manager.getRootProject())}
                 >{props.manager.screen.windowSize.width>1000?APP_NAME:APP_LOGO}</Link>
             </div>
             {/*BUTTONS LEFT-----------------------------------------------------------------------------------------------------------BUTTONS LEFT*/}
@@ -111,7 +112,7 @@ export function ToolBar(props: ToolBarProps) {
                     <div className='max-w-prose overflow-hidden text-ellipsis whitespace-nowrap'>
                         <PathBreadcrumbs
                             path={props.manager.currentProject.getAllProjectsPath()
-                                .map(s => props.manager.structure.getNodeById(s)?.project
+                                .map(s => props.manager.getProject(s)
                                     || props.manager.currentProject)}
                             handleClick={(v) => {
                                 props.manager.changeCurrentProject(v)
@@ -120,7 +121,7 @@ export function ToolBar(props: ToolBarProps) {
                     </div>
                     <label className=' min-w-fit p-1 font-black text-md text-neutral cursor-pointer hover:text-main-light'
                     onClick={()=>{
-                        props.manager.changeDashboardTab(DashboardTab.DASHBOARD)
+                        props.manager.changeDashboardTab(DashboardTabs.DASHBOARD)
                         navigate('/dashboard')
                     }}>
                         {' >_'}{currentProject}

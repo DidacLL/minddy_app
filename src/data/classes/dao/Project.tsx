@@ -1,6 +1,6 @@
-import {ProjectMinimalData} from "../ProjectStructure";
 import {MinddyObject} from "./MinddyObject";
 import MinddyService from "../../minddy.service";
+import {ProjectMinimalData} from "../dto/ProjectMinimalData";
 
 interface ProjectData{
     holderID:string;
@@ -25,7 +25,6 @@ export class ProjectConfig {
 }
 
 export class Project extends MinddyObject {
-    id: string;
     name: string;
     uiConfig: ProjectConfig;
     state: ProjectState;
@@ -35,8 +34,7 @@ export class Project extends MinddyObject {
     pendingTasks: number | undefined;
 
     constructor(id: string, name: string, uiConfig: ProjectConfig,state: ProjectState, description?: string,  deadLine?: Date, numNotes?: number, pendingTasks?: number) {
-        super();
-        this.id = id;
+        super(id);
         this.name = name;
         this.uiConfig = uiConfig;
         this.description = description;
@@ -108,14 +106,10 @@ export class Project extends MinddyObject {
         back?.();
         return  this.isLoaded;
     }
-
-    getPendingTasks(token:string, callBack:(json:any)=>void,error:(message:string)=>void,size:number,page:number) {
-        MinddyService.loadProjectDashboardTasks(token,this.id,callBack,error,size,page)
-    }
-    getAllTasks(token:string,callBack:(json:any)=>void,size:number,page:number, viewAll:boolean,subprojects:boolean,error:(message:string)=>void) {
-        MinddyService.loadAllTasks(token,this.id,size,page,viewAll,subprojects,callBack,error)
-    }
-
+    //
+    // getPendingTasks(token:string, callBack:(json:any)=>void,error:(message:string)=>void,size:number,page:number) {
+    //     MinddyService.loadProjectDashboardTasks(token,this.id,callBack,error,size,page)
+    // }
     isRootProject(){
         return this.id.length<=2;
     }
