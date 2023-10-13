@@ -33,7 +33,7 @@ export function UserDropdown(props:{manager: MinddyManager} ) {
     return <details open={open} className="dropdown dropdown-bottom dropdown-end text-primary-content hover:text-secondary " ref={dropdownRef}>
         <summary tabIndex={0} className="flex " onClick={handleSummaryClick} >
             {/*<label className="btn btn-circle btn-ghost btn-xs sm:btn-sm  max-h-max hover:text-secondary ">*/}
-                <UserIcon className='h-10 mx-4'/>
+                <UserIcon className='h-[2em] m-2'/>
             {/*</label>*/}
         </summary>
         <ul tabIndex={0}

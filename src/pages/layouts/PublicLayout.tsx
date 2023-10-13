@@ -30,6 +30,7 @@ export function PublicLayout(props: PublicLayoutParams) {
     }, []);
 
     return <div>
+
         <div className='navbar'>
             <div className='navbar-start'>
                 <label className='text-xl font-extrabold'>{APP_NAME}</label>
@@ -53,6 +54,12 @@ export function PublicLayout(props: PublicLayoutParams) {
                 <button className={`btn p-2 ml-2`}>
                     <Link to={'/about'}> <Trans> About</Trans>
                     </Link>
+                </button>
+                <button className={`btn p-2 ml-2`} onClick={()=>{
+                    sessionStorage.clear();
+                    localStorage.clear();
+                }}>
+                 Clear All cookies
                 </button>
             </div>
             <div className='navbar-end text-xs max-w-1/4 '>

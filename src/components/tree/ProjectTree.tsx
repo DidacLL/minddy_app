@@ -40,7 +40,7 @@ export function ProjectTree(props: ProjectTreeProps) {
         setOpenProject(root.project);
     }
 
-    function constructProjectTabs(root: ProjectNode) {
+    function constructProjectTabs(root: ProjectNode,index:number=0) {
         if (openProject) {
             let rest: React.JSX.Element | undefined;
             const path = openProject.getAllProjectsPath();
@@ -48,38 +48,38 @@ export function ProjectTree(props: ProjectTreeProps) {
             if (open && root.hasChild()) {
                 rest = root.isRootProject() ?
                     // TREE BACKGROUND
-                    <div className='  rounded-r-box mb-2 center-shadow-in p-4 flex-grow  h-full bg-base-300 '>
-                        <div className={` overflow-y-scroll no-scrollbar h-full flex flex-col text-right`}>
-                            {root.subProjects.map((el) => {
+                    <div key={'body_'+root.project.id} className='  rounded-r-box mb-2 center-shadow-in p-4 flex-grow  h-full bg-base-300 text-base-200/50 bg-dot dot-xs-wide  '>
+                        <div key={'body_in_'+root.project.id} className={` overflow-y-scroll no-scrollbar h-full flex flex-col text-right`}>
+                            {root.subProjects.map((el,index) => {
                                 // @ts-ignore
                                 if (!viewAll && (el.project.state && (ProjectState.COMPLETE === ProjectState[el.project.state.valueOf()] || ProjectState.DISCARDED === ProjectState[el.project.state.valueOf()]))) {
-                                    return '';
+                                    return <div key={'sub_'+el.project.id}></div>;
                                 }
-                                return constructProjectTabs(el)
+                                return constructProjectTabs(el,index)
                             })}
                         </div>
                     </div>
                     //TREE TAB BODY
-                    : <div className={`bg-base-200 shadow rounded-br-box mb-2 ml-2 flex flex-col text-right  `}>
-                        {root.subProjects.map((el) => {
+                    : <div key={'tab_'+root.project.id}  className={`bg-base-200 shadow rounded-br-box mb-2 ml-2 flex flex-col text-right  `}>
+                        {root.subProjects.map((el,index) => {
                             // @ts-ignore
                             if (!viewAll && (el.project.state && (ProjectState.COMPLETE === ProjectState[el.project.state.valueOf()] || ProjectState.DISCARDED === ProjectState[el.project.state.valueOf()]))) {
-                                return '';
+                                return <div key={'tree_'+el.project.id}></div>;
                             }
-                            return constructProjectTabs(el)
+                            return constructProjectTabs(el,index)
                         })}
                     </div>
             }
-            return <TreeTab root={root}
+            return <TreeTab key={'tree_tab_'+root.project.id} root={root}
                             open={open}
                             selectTab={(e) => handleTitleClick(e, root)}
-                            handleToggle={(b: boolean) => setViewAll(b)}
+                            handleToggle={() => setViewAll(!viewAll)}
                             rest={rest}/>
         }
         return <label><Trans>LOADING...</Trans></label>
     }
 
-    return <div className="flex-grow bg-primary h-full">
+    return <div key={'full_tree_'+props.manager.currentProject.id}  className="flex-grow h-full flex flex-col justify-between overflow-auto no-scrollbar">
         {constructProjectTabs(props.manager.getRootProjectNode())}
     </div>
 }

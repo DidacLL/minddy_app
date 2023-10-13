@@ -1,69 +1,69 @@
 import {MinddyManager} from "../../../data/Minddy.manager";
-import {EllipsisVerticalIcon, PencilSquareIcon} from "@heroicons/react/20/solid";
-import {DeadlineStats} from "../DeadlineStats";
+import {SquaresPlusIcon} from "@heroicons/react/20/solid";
 import React, {useEffect, useState} from "react";
 import Task from "../../../data/classes/dao/Task";
 import {Trans} from "@lingui/macro";
+import {PagedResponse} from "../../../data/classes/dto/PagedResponse";
+import {ObjectTable} from "../ObjectTable";
+import {MinddyToggle} from "./MinddyToggle";
+
 
 export function ProjectTasks(props: { manager: MinddyManager }) {
-    const [tasks, setTasks] = useState<Task[]>();
-
+    const [currentPage, setCurrentPage] = useState<PagedResponse<Task>>();
+    const [isPaged, setIsPaged] = useState(true);
+    const [content, setContent] = useState<React.JSX.Element>();
     const [viewAll, setViewAll] = useState(false);
-
     const [viewSubprojects, setViewSubprojects] = useState(true);
-    useEffect(() =>
-            updateTaskViews()
-        , [viewAll, viewSubprojects]);
+    useEffect(() => {
+        loadPage(0)
+    }, [viewAll, viewSubprojects, props.manager.currentProject]);
 
     useEffect(() => {
-            setViewAll(false);
-            setViewSubprojects(true)
-            updateTaskViews();
-    }, [props.manager.currentProject, props.manager.user.token]);
+        loadPage(0);
+    }, []);
+    useEffect(() => {
+        let ot =objectTable()
+        if(ot)setContent(ot);
+    }, [currentPage]);
 
-    function updateTaskViews() {
+    useEffect(() => {
+        let ot =objectTable()
+        if(ot)setContent(ot);
+    }, [currentPage]);
 
+
+    function loadPage(num?: number) {
+        props.manager.getCurrentProjectTasks(res => setCurrentPage(res), (e) => {
+            console.log(e)
+        }, 10, num || 0, viewAll, viewSubprojects);
     }
 
+    const objectTable = () => {
+        if (currentPage) return <ObjectTable<Task> objects={currentPage.content} manager={props.manager}/>
+    };
     return <div className='flex flex-col p-2  flex-grow w-full '>
         <div className='flex flex-row justify-between w-[100%] flex-grow  overflow-hidden '>
             <div className='flex flex-col flex-grow justify-between min-h-full overflow-hidden   '>
                 {/*_________OPTIONS____________*/}
-                <div className='menu menu-horizontal form-control text-xs'>
-                    <div className='btn btn-ghost cursor-pointer'
-                         onClick={() => setViewSubprojects(!viewSubprojects)}>
-                        <div className='label-text'><Trans> Include Subprojects:</Trans>:</div>
-                        <input type='checkbox'
-                               className={`toggle-xs toggle ${viewSubprojects ? 'bg-base-accent' : 'bg-base-200'}`}
-                               checked={viewSubprojects} onChange={() => setViewSubprojects(!viewSubprojects)}/>
-                    </div>
-                    <div className='btn btn-ghost label cursor-pointer'
-                         onClick={() => setViewAll(!viewAll)}>
-                        <div className='label-text'><Trans> Only Pending Tasks</Trans>:</div>
-                        <input type='checkbox'
-                               className={`toggle-xs toggle ${viewAll ? 'bg-base-accent' : 'bg-base-200'}`}
-                               checked={viewAll} onChange={() => setViewAll(!viewAll)}
-                        />
-                    </div>
+                <div>
+
+                    <MinddyToggle onClick={() => setViewSubprojects(!viewSubprojects)} value={viewSubprojects}
+                                  text={<Trans>Show subprojects</Trans>}/>
+                    <MinddyToggle onClick={() => setViewAll(!viewAll)} value={viewAll}
+                                  text={<Trans>Show Closed</Trans>}/>
                 </div>
-                {tasks && tasks.map((t) =>
-                    <label className='text-xl font-black'>{t.name} </label>)}
+                <div className='grow'>
+                    {content}
+                </div>
             </div>
-            <div className='max-w-fit pl-4 '>
+            <div className='max-w-fit grow pl-4 '>
                 <div className=' flex justify-end align-top'>
-                    <div className='flex justify-end ' data-tip={'edit..'}>
-                        <div className='tooltip tooltip-bottom flex' data-tip={'edit..'}>
-                            <PencilSquareIcon
+                        <div className='tooltip tooltip-left flex' data-tip={'new task'}>
+                            <SquaresPlusIcon
                                 className='h-7 hover:cursor-pointer hover:bg-transparent hover:text-primary'/>
                         </div>
-                        <div className='tooltip tooltip-bottom flex' data-tip={'options..'}>
-                            <EllipsisVerticalIcon
-                                className='h-8 hover:cursor-pointer hover:bg-transparent hover:text-primary'/>
-                        </div>
-                    </div>
                 </div>
-                {props.manager.currentProject.deadLine &&
-                    <DeadlineStats daysMissing={3} deadLine={props.manager.currentProject.deadLine}/>}
+
 
             </div>
         </div>

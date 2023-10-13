@@ -19,7 +19,7 @@ import {PathBreadcrumbs} from "../dashboard/PathBreadcrumbs";
 import {DashboardTabs} from "../../data/enums/DashboardTabs";
 
 interface ToolBarProps {
-    isVertical: boolean,
+    isMini: boolean,
     manager: MinddyManager
 }
 
@@ -46,14 +46,14 @@ export function ToolBar(props: ToolBarProps) {
         }
         props.manager.updateProjectButton = (b: boolean) => setMinimized(b)
     }, []);
-    return <div className="z-40 navbar bg-primary p-0  m-0 flex flex-nowrap w-screen h-16 ">
+    return <div className="z-40 navbar-lite navbar bg-primary p-0  m-0 flex flex-nowrap w-screen h-min  ">
         {/*_________________START----------------*/}
-        <div className="navbar-start w-1/4 ">
+        <div className="navbar-start w-1/4 h-1">
             <div className='flex flex-nowrap'>
                 {/*HIDDEN MENU-----------------------------------------------------------------------------------------------------------HIDDEN MENU */}
                 <div className="dropdown">
                     <label tabIndex={0} className="md:hidden ">
-                        <Bars3Icon className="btn btn-circle hover:bg-neutral p-2 hover:ring-accent"/>
+                        <Bars3Icon className="btn btn-circle btn-xs hover:bg-neutral p-2 hover:ring-accent"/>
                     </label>
                     <ul tabIndex={0}
                         className="menu menu-sm dropdown-content mt-3 p-2 bg-primary rounded-box w-52">
@@ -70,45 +70,45 @@ export function ToolBar(props: ToolBarProps) {
                 </div>
                 {/*APP NAME-----------------------------------------------------------------------------------------------------------------APP NAME */}
                 <Link to={"/dashboard"}
-                      className="btn btn-ghost normal-case text-xl font-mono font-black text-base-100 hover:text-primary-content hover:bg-secondary"
+                      className="btn btn-ghost h-full normal-case txt-xl font-mono font-black text-base-100 hover:text-primary-content hover:bg-secondary"
                       onClick={() => props.manager.changeCurrentProject(props.manager.getRootProject())}
                 >{props.manager.screen.windowSize.width>1000?APP_NAME:APP_LOGO}</Link>
             </div>
             {/*BUTTONS LEFT-----------------------------------------------------------------------------------------------------------BUTTONS LEFT*/}
-            <div className="text-primary shadow-r flex flex-nowrap gap-x-4">
+            <div className=" grow  flex flex-nowrap gap-x-4">
                 {/*TOGGLE PROJECT-----------------------------------------------------------------------------------------------------------TOGGLE PROJECT*/}
-                <label className="justify-around ">
+                <div className="flex grow content-center origin-center ">
                     <button
                         onClick={(e) => {
                             e.preventDefault();
                             setMinimized(!minimized);
                             minimizeMenu();
                         }}
-                        className={`p-2 text-primary-content flex flex-nowrap btn-shadow mr-2 lowercase tooltip tooltip-bottom ${minimized ? '' : 'force-shadow-in'}`}
+                        className={`h-full txt-s text-primary-content flex flex-nowrap  lowercase btn btn-xs tooltip tooltip-bottom ${minimized ? '' : 'force-shadow-in'}`}
                         defaultChecked={true}
-                        style={{borderRadius: "4rem"}}
+                        // style={{borderRadius: "4rem"}}
                         data-tip="projects">
-                        {minimized ? <ArchiveBoxIcon height={"1.5em"} className=" font-extrabold "/> :
-                            <ArchiveBoxArrowDownIcon height={"1.5em"} className=" font-extrabold "/>}
-                        <label className="hidden 2xl:flex normal-case px-1">Projects</label>
+                        {minimized ? <ArchiveBoxIcon className="h-[2em] font-extrabold"/> :
+                            <ArchiveBoxArrowDownIcon  className="h-[2em] font-extrabold "/>}
+                        <label className="hidden 2xl:flex normal-case p-2">Projects</label>
                     </button>
-                </label>
+                </div>
 
 
                 {/*FAVOURITES*/}
                 <label className="justify-around align-middle ">
                     <ToolBarDropdown manager={props.manager}
                                      menu={() => <FavouritesMenu manager={props.manager}/>}
-                                     iconJSX={<HeartIcon height={"1.6em"} className=""/>} name={"Favourites"}/> </label>
+                                     iconJSX={<HeartIcon className="h-full"/>} name={"Favourites"}/> </label>
 
                 {/*{props.manager.screen.isHorizontal() && <HorizontalScrollMenu icons={Icons.getElements()}/>}*/}
 
             </div>
         </div>
         {/*//////////////////////// CENTER /////////////////////////////*/}
-        <div className="p-2 navbar-center h-full content-center align-middle w-1/2 flex">
-            <div className='bg-base-300 h-full align-middle  rounded-box w-full justify-between center-shadow-in flex-nowrap md:flex hidden'>
-                <div className='pl-2 w-full h-full pt-2 flex flex-row flex-nowrap text-primary-content text-center font-mono font-bold text-xl  overflow-hidden text-ellipsis whitespace-nowrap'>
+        <div className="px-2 navbar-center content-center  w-1/2 flex">
+            <div className='bg-base-300 h-[2em] align-middle  rounded-box w-full justify-between center-shadow-in flex-nowrap md:flex txt-l hidden'>
+                <div className='pl-2 w-full  flex flex-row flex-nowrap text-primary-content text-center font-mono font-bold txt-s  overflow-hidden text-ellipsis whitespace-nowrap'>
                     <div className='max-w-prose overflow-hidden text-ellipsis whitespace-nowrap'>
                         <PathBreadcrumbs
                             path={props.manager.currentProject.getAllProjectsPath()
@@ -128,21 +128,21 @@ export function ToolBar(props: ToolBarProps) {
 
                     </label>
                 </div>
-                <div className="h-full flex flex-nowrap flex-row items-center btn-group btn-group-horizontal ">
+                <div className="h-[2em] flex flex-nowrap flex-row items-center btn-group btn-group-horizontal ">
 
                     <div className="">
-                        <PlusIcon className=" btn btn-ghost py-2 font-extrabold "/>
+                        <PlusIcon className=" btn btn-ghost btn-sm  font-extrabold "/>
                     </div>
-                    <div className="">
-                        <PencilSquareIcon className=" btn btn-ghost  py-3 font-extrabold "/>
+                    <div className="mr-4">
+                        <PencilSquareIcon className=" btn btn-ghost  btn-sm py-1 font-extrabold "/>
                     </div>
                 </div>
             </div>
         </div>
-        <div className="navbar-end justify-end flex grow">
-            <div className="form-control grow flex flex-row">
+        <div className="navbar-end align-middle flex-row place-items-center justify-between flex grow">
+            <div className="form-control h-auto grow align-middle place-items-center flex flex-row  mask-dot dot-l">
                 <input type="text" placeholder="Search"
-                       className="input input-bordered  w-2 input-md flex-grow input-primary hidden md:flex  "/>
+                       className="input input-bordered w-2 input-sm flex-grow input-primary hidden md:flex  "/>
                 <MagnifyingGlassIcon className="w-10 p-2 hover:text-secondary  -inset-x-10"/>
             </div>
             <div className="hover:text-secondary ">

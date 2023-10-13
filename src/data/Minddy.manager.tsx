@@ -8,20 +8,24 @@ import {MinddyPool} from "./classes/utils/MinddyPool";
 import {PagedResponse} from "./classes/dto/PagedResponse";
 import {ObjectMinimal} from "./classes/dto/ObjectMinimal";
 import {DashboardTabs} from "./enums/DashboardTabs";
+import React from "react";
+import {Note} from "./classes/dao/Note";
+import {Tag} from "./classes/dao/Tag";
+import {TaskData} from "./classes/dto/TaskData";
 
 export class MinddyManager {
     user: MinddyUser
     screen: ScreenData
+    isTouchScreen:boolean
     private readonly _logout: () => any
     private _taskPool: MinddyPool<Task>;
+    private _notePool: MinddyPool<Note>;
     private _structure!: ProjectStructure
     private _currentTaskPage!: PagedResponse<ObjectMinimal>;
-
     private _currentProject!: Project
-
+    private _tags:string[]=[];
+    openModal!: (body: React.JSX.Element) => void;
     private _updateToolbar!: () => void;
-
-
     private _minimizeProjectTree!: () => void;
 
     private _updateProjectButton!: (b: boolean) => void;
@@ -33,12 +37,16 @@ export class MinddyManager {
 
     private _changeDashboardTab!: (tab: DashboardTabs) => void;
 
-    constructor(user: MinddyUser, screen: ScreenData, callBack: () => void, error: () => void, logout: () => any) {
+    private _updateScroller!: () => void;
+
+
+    constructor(user: MinddyUser, screen: ScreenData, callBack: () => void, error: () => void, logout: () => any, isTouchScreen?:boolean) {
         MinddyService.loadProjectStructure(user.token, (structure) => {
             this._structure = structure;
             this.changeCurrentProject(this._structure?.root.project);
             callBack();
         }, error)
+        this.isTouchScreen= isTouchScreen||false;
         this.user = user;
         this.screen = screen;
         this._logout = logout;
@@ -53,12 +61,29 @@ export class MinddyManager {
             },
             (json) => Task.parseTask(json)
         )
+        this._notePool = new MinddyPool<Note>(
+            (id, callback1, error1) => {
+                MinddyService.getFullNote(
+                    this.user.token,
+                    id,
+                    callback1,
+                    error1
+                )
+            },
+            (json) => Note.parseNote(json)
+        )
+        MinddyService.getUserTags(this.user.token,(json)=>{
+            this._tags=JSON.parse(json) as string[];
+        },(e)=>{})
 
         const savedTaskPool= localStorage.getItem(Date.now().toLocaleString()+'_'+typeof Task)
         if(savedTaskPool)this._taskPool.addElements((JSON.parse(savedTaskPool) as Task[]))
+        const savedNotePool= localStorage.getItem(Date.now().toLocaleString()+'_'+typeof Note)
+        if(savedNotePool)this._notePool.addElements((JSON.parse(savedNotePool) as Note[]))
 
     }
 
+//-------------------------------------------------------------GETTERS & SETTERS
     get currentProject(): Project {
         if (!this._currentProject) throw new Error("There is not any Project as Current")
         return this._currentProject;
@@ -76,7 +101,6 @@ export class MinddyManager {
         if (!this._minimizeProjectTree) throw new Error("Function not ready")
         return this._minimizeProjectTree;
     }
-
     set minimizeProjectTree(value: () => void) {
         if (value) this._minimizeProjectTree = value;
     }
@@ -90,7 +114,6 @@ export class MinddyManager {
         if (value) this._updateProjectButton = value;
     }
 
-//-------------------------------------------------------------GETTERS & SETTERS
     set changeDashboard(value: (p: Project) => void) {
         if (value) this._changeDashboard = value;
     }
@@ -103,7 +126,6 @@ export class MinddyManager {
         if (!this._changeDashboard) throw new Error("Function not ready")
         return this._changeDashboardTab;
     }
-
     set changeDashboardTab(value: (tab: DashboardTabs) => void) {
         if (value) this._changeDashboardTab = value;
     }
@@ -113,15 +135,33 @@ export class MinddyManager {
         return this._logout;
     }
 
+
+    get tags():string[]{
+        return this._tags;
+    }
+    tagExists(name:string):boolean{
+        return this._tags.includes(name);
+    }
+    addTag(name:string):boolean{
+    // todo
+        return this._tags.includes(name);
+    }
+    set updateScroller(value: () => void) {
+        this._updateScroller = value;
+    }
+
 //----------------------------------------------------------------PUBLIC METHODS
     changeCurrentProject(project: Project) {
         try {
             this._currentProject = project;
-            this._updateTree(project);
             project.load(this.user.token, () => {
                 this._updateToolbar();
                 this._changeDashboard(project);
             });
+            if(!project.tags || project.tags.length>=0)MinddyService.getProjectTags(this.user.token,project.id,(json)=>{
+                project.tags=Tag.parseTags(json).map(e=>e.id);
+            },(e)=>{})
+            this._updateTree(project);
         } catch (e) {
             console.log('error from manager-48: ' + e)
         }
@@ -129,8 +169,7 @@ export class MinddyManager {
         return this._currentProject;
     }
 
-    getProjectToDoPage(callBack: (page: PagedResponse<ObjectMinimal>) => any, error: (e: any) => any, size?: number, page?: number) {
-            console.log("Loading project todo (manager-150)")
+    getProjectToDoPage(callBack: (page: PagedResponse<ObjectMinimal>) => any, error: (e: any) => any, size: number, page: number) {
             MinddyService.loadProjectDashboardTasks(
                 this.user.token,
                 this._currentProject.id,
@@ -139,8 +178,9 @@ export class MinddyManager {
                     val.content.map((value) => {
                         this.getTask(value.id,
                             (task) => {
-
-
+                                MinddyService.getTaskTags(this.user.token,task.id,(json)=>{
+                                    task.tags=Tag.parseTags(json).map(t=>t.id)
+                                },(e)=>{})
                             },
                             error);
                     })
@@ -151,9 +191,32 @@ export class MinddyManager {
                 size,
                 page)
     }
+    getProjectNotes(callBack: (page: PagedResponse<ObjectMinimal>) => any, error: (e: any) => any, size: number, page: number) {
+            MinddyService.loadProjectNotes(
+                this.user.token,
+                this._currentProject.id,size,page,
+                (v) => {
+                    const val = JSON.parse(v) as PagedResponse<ObjectMinimal>
+                    val.content.map((value) => {
+                        this.getNote(value.id,
+                            (note) => {
+
+                            },
+                            error);
+                    })
+                    this._currentTaskPage = val;
+                    callBack(val);
+                },
+                error)
+    }
 
     getTask(id: string, callback: (task: Task) => any, error: (e: any) => any) {
         this._taskPool.get(id, callback, error);
+    }
+
+    getNote(id: string, calback: (note: Note) => void, error: (e: any) => any) {
+        this._notePool.get(id,calback,error);
+
     }
 
     getProject(id: string) {
@@ -193,9 +256,23 @@ export class MinddyManager {
 
     editNote(id: string) {
     }
-
     searchProject(keyword: string) {
 
     }
 
+    getCurrentProjectTasks(callback: (v:PagedResponse<Task>)=>void, error:(e:any)=>void, size: number, page: number,viewAll:boolean,subProjects:boolean) {
+        MinddyService.loadAllTasks(this.user.token,
+            this._currentProject.id,
+            size || 10,
+            page || 0,
+            viewAll,
+            subProjects,
+            (json: string) => {
+                let data=JSON.parse(json) as PagedResponse<TaskData>;
+                callback(Task.parseTaskPage(data));
+
+            },
+            error)
+
+    }
 }

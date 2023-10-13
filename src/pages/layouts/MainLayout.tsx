@@ -8,21 +8,25 @@ import {EllipsisHorizontalIcon, EllipsisVerticalIcon} from "@heroicons/react/20/
 
 
 export function MainLayout({manager}: { manager: MinddyManager }) {
-    const MIN_PANEL_SIZE = () => (vertical ? 20 : 15) + (manager.screen.isHighResolution ? -10 : 5);
+    const MIN_PANEL_SIZE = () => (vertical ? 20 : 15) + (Math.max(window.innerWidth,window.innerHeight)>1000? -10 : 5);
     const [resize, setResize] = useState(false);
     const navigate = useNavigate();
     const projectPanel = useRef<ImperativePanelHandle | null>(null);
     const sizeHandler = useRef<HTMLDivElement | null>(null);
     const [vertical, setVertical] = useState<boolean>(window.innerWidth < window.innerHeight);
-
+    const [bigScreen, setBigScreen] = useState<boolean>();
+    useEffect(() => {
+    }, [bigScreen]);
     useEffect(() => {
     }, [vertical]);
     useEffect(() => {
+        setBigScreen(Math.max(window.innerWidth,window.innerHeight)>1000)
         if (sizeHandler.current) {
             if (vertical) sizeHandler.current.style.height = `${resize ? 10 : 6}px`;
             else sizeHandler.current.style.width = `${resize ? 18 : 12}px`;
         }
         if (manager) {
+            setBigScreen(Math.max(window.innerWidth,window.innerHeight)>1000)
             manager.minimizeProjectTree = (): void => {
                 if (projectPanel.current) {
                     if (projectPanel.current.getCollapsed()) {
@@ -41,7 +45,11 @@ export function MainLayout({manager}: { manager: MinddyManager }) {
 
     useEffect(() => {
         navigate('/dashboard')
-        const handleResize =()=> setVertical(window.innerWidth < window.innerHeight);
+        const handleResize =()=> {
+            setVertical(window.innerWidth < window.innerHeight);
+            setBigScreen(window.innerWidth>1000);
+        }
+
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
@@ -108,7 +116,7 @@ export function MainLayout({manager}: { manager: MinddyManager }) {
                             </div>
                         </PanelResizeHandle>
                     </div>
-                    <ToolBar isVertical={true} manager={manager}></ToolBar>
+                    <ToolBar isMini={true} manager={manager}></ToolBar>
                     <Panel defaultSize={50} minSize={0}
                            className=''
                            ref={projectPanel}
@@ -122,7 +130,8 @@ export function MainLayout({manager}: { manager: MinddyManager }) {
         }
         // ---------------------------------------------------------------------------------------------------HORIZONTAL
         return (<div className=" h-screen flex flex-col max-w-screen overflow-hidden">
-            <ToolBar isVertical={false} manager={manager}/>
+
+            {bigScreen && <ToolBar isMini={false} manager={manager}/>}
             <PanelGroup direction="horizontal"
                         className="flex flex-grow  bg-primary z-0">
                 <Panel defaultSize={30} minSize={0}
@@ -130,6 +139,7 @@ export function MainLayout({manager}: { manager: MinddyManager }) {
                        ref={projectPanel}
                        collapsible={true} collapsedSize={0} order={1}
                        onResize={(c, p) => getOnResize(c, p)}>
+                    {!bigScreen && <ToolBar isMini={true} manager={manager}/>}
                     <ProjectTree manager={manager}/>
                 </Panel>
 

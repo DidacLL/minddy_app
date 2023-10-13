@@ -65,7 +65,7 @@ import {
 import React from "react";
 
 export class Icons {
-    private static classConfig: string= 'btn btn-ghost p-2 hover:text-base-content hover:bg-transparent hover:p-1 ';
+    private static classConfig: string= 'min-w-prose grow';
     
     static ICONS: Record<string, React.JSX.Element> = {
         'ACADEMIC': <AcademicCapIcon className={this.classConfig}/>,

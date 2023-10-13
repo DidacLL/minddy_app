@@ -33,7 +33,7 @@ export function ToolBarDropdown(props: ToolBarDropdownProps) {
     useEffect(() => {
 
     }, [open]);
-    return       <div className="dropdown bg-primary dropdown-bottom dropdown-end align-middle ">
+    return       <div className="h-full dropdown bg-primary txt-s dropdown-bottom dropdown-end align-middle ">
 
             {open &&
                 <div tabIndex={0}
@@ -55,10 +55,12 @@ export function ToolBarDropdown(props: ToolBarDropdownProps) {
                     }}catch (ex) {
                     }
                 }}
-                className={`p-2 text-primary-content flex flex-nowrap btn-shadow mr-2 lowercase ${open? 'force-shadow-in' : 'tooltip tooltip-bottom'}`}
-                style={{borderRadius:"4rem"}}
+            // className={` txt-s text-primary-content flex flex-nowrap  mr-2 lowercase btn btn-xs tooltip tooltip-bottom ${minimized ? '' : 'force-shadow-in'}`}
+
+            className={`h-full  text-primary-content flex flex-nowrap btn btn-xs btn-shadow mr-2 lowercase ${open? 'force-shadow-in' : 'tooltip tooltip-bottom'}`}
+                // style={{borderRadius:"4rem"}}
                 data-tip={props.name.toLowerCase()}>
-            {props.iconJSX}
+            <div className='h-full w-[2em] flex grow '>{props.iconJSX}</div>
             <label className="hidden 2xl:flex normal-case px-1">{props.name}</label>
         </button>
             </div>

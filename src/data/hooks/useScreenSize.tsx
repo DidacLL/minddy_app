@@ -15,17 +15,12 @@ export const useScreenInfo = () => {
     }, []);
 
     useEffect(() => {
-        // let timeoutId: number | null = null;
         const handleResize = () => {
-            // if (timeoutId !== null) clearTimeout(timeoutId);
-            // timeoutId = window.setTimeout(() => {
                 setWindowSize({width: window.innerWidth, height: window.innerHeight});
                 setIsFullScreen(window.innerWidth === window.screen.width && window.innerHeight === window.screen.height);
-            // }, 200); // Set the delay here. 150ms is often a good value, but you can adjust this as needed.
         };
         window.addEventListener('resize', handleResize);
         return () => {
-            // if (timeoutId !== null) clearTimeout(timeoutId);
             window.removeEventListener('resize', handleResize);
         };
     }, []);

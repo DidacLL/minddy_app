@@ -57,19 +57,89 @@ module.exports = {
             '.right-shadow': {
                 'box-shadow': '0.3em 0.2em 0 0.5px var(--primary-dark)'
             },
-            '.shadow-overlay': {
-                position: 'relative',
-                '&::before': {
-                    content: '""',
-                    position: 'absolute',
-                    top: 0,
-                    right: 0,
-                    bottom: 0,
-                    left: 0,
-                    boxShadow: 'inset 0 10px 10px var(--main-dark)',
-                    pointerEvents: 'none',
-                },
+            '.-mt-full': {
+                marginTop: '-50%'
+            }, '.-top': {
+                top: '-1em'
+            }, '.-top2': {
+                top: '-2em'
             },
+            '.navbar-lite': {
+                display: 'flex',
+                alignItems: 'center',
+                padding: 'var(--navbar-padding, 0.05rem)',
+                minHeight: '2rem',
+                width: '100%'
+            },
+            '.-mt-halfline': {
+                marginTop: '-0.5em'
+            },
+            '.-mt-1line': {
+                marginTop: '-1em'
+            },
+            '.-mt-2line': {
+                marginTop: '-2em'
+            },
+            '.-mt-3line': {
+                marginTop: '-2em'
+            },
+            '.txt-mini': {
+                fontSize: '0.1em!important'
+            },
+            '.txt-xxs': {
+                fontSize: '0.25em!important'
+            },
+            '.txt-xxsb': {
+                fontSize: '0.35em!important'
+            },
+            '.txt-xs': {
+                fontSize: '0.5em!important'
+            },
+            '.txt-xsb': {
+                fontSize: '0.6em!important'
+            },
+            '.txt-s': {
+                fontSize: '0.75em!important'
+            },
+            '.txt-sb': {
+                fontSize: '0.85em!important'
+            },
+            '.txt-m': {
+                fontSize: '1em!important'
+            },
+            '.txt-mb': {
+                fontSize: '1.1em!important'
+            },
+            '.txt-l': {
+                fontSize: '1.25em!important'
+            },
+            '.txt-lb': {
+                fontSize: '1.35em!important'
+            },
+            '.txt-xl': {
+                fontSize: '1.50em!important'
+            },
+            '.txt-xlb': {
+                fontSize: '1.60em!important'
+            },
+            '.txt-xxl': {
+                fontSize: '1.75em!important'
+            },
+            '.txt-xxlb': {
+                fontSize: '1.85em!important'
+            },
+            '.txt-3xl': {
+                fontSize: '2em!important'
+            },
+            '.txt-3xlb': {
+                fontSize: '3em!important'
+            },
+            '.txt-giant': {
+                fontSize: '4em!important'
+            },
+            '.txt-monster': {
+                fontSize: '8em!important'
+            }
 
 
         })
@@ -121,6 +191,7 @@ module.exports = {
                     '--primary-dark': "rgba(89,137,227,0.38)",
                     "secondary": "#ffe798",
                     "base-100": "#ffffff",
+                    "error": "rgba(171,14,14,0.74)",
                     '--main-dark': "#003232",
                     '--main-grey': "#cccccc",
                     '--main-light': "#ffffeb",
@@ -243,7 +314,7 @@ module.exports = {
             "coffee",
             "winter",
         ], // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
-        darkTheme: "dark", // name of one of the included themes for dark mode
+        darkTheme: "minddy_dark", // name of one of the included themes for dark mode
         base: true, // applies background color and foreground color for root element by default
         styled: true, // include daisyUI colors and design decisions for all components
         utils: true, // adds responsive and modifier utility classes

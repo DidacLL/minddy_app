@@ -58,7 +58,7 @@ export function HorizontalScrollMenu(props: { icons: React.JSX.Element[] }) {
         }
     }
 
-    return <div className=" max-w-full  flex items-center ring-2 ring-primary-light bg-secondary rounded-box text-secondary-content/70 drop-shadow-lg shadow-main-dark shadow-inner ">
+    return <div className=" max-w-full  flex items-center ring-2 ring-primary-light bg-secondary rounded-box text-secondary-content/70   ">
         <ChevronLeftIcon className="btn btn-ghost btn-xs btn-circle  text-primary stroke-2 stroke-primary hover:bg-main-light/80"
                          onMouseDown={() => handleArrow(false)}
                          onMouseEnter={() => startScrolling(false)}
