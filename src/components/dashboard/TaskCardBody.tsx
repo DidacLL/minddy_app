@@ -1,11 +1,15 @@
 import {MinddyManager} from "../../data/Minddy.manager";
 import {ShortDate} from "./ShortDate";
 import Task from "../../data/classes/dao/Task";
+import {useNavigate} from "react-router-dom";
 
 export function TaskCardBody(props: {
     manager: MinddyManager,
     task: Task
 }) {
+    const navigate= useNavigate();
+
+
     return <div className="flex  flex-col grow h-full justify-between ">
         <div className='h-min'>
             <div style={{float: 'right', marginLeft: '10px', textAlign: 'right'}}>
@@ -19,8 +23,9 @@ export function TaskCardBody(props: {
         <div
             className="mask-frame select-none text-base-100 bg-base-300 hover:bg-secondary cursor-pointer select-disabled font-bold rounded-b-box w-full mb-1"
             onClick={(e) => {
-                const p = props.manager.getProject(props.task.holder);
-                if (p) props.manager.changeCurrentProject(p)
+                // const p = props.manager.getProject(props.task.holder);
+                // if (p)
+                    navigate('/dashboard/'+props.task.holder+'/tasks')
             }}>
             {props.manager.getProject(props.task.holder)?.name}
         </div>

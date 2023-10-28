@@ -1,4 +1,5 @@
 import {Priority} from "../../enums/Priority";
+import {TaskState} from "../../enums/TaskState";
 
 export interface TaskData {
     id: string;
@@ -6,6 +7,6 @@ export interface TaskData {
     description: string;
     date: Date;
     holder: string;
-    state: string;
+    state: TaskState;
     priority: Priority
 }

@@ -9,13 +9,14 @@ import React, {useEffect, useRef} from "react";
 import {TagBadge} from "./TagBadge";
 import {Note} from "../data/classes/dao/Note";
 import {ObjectContainer} from "./dashboard/ObjectContainer";
+import {useNavigate} from "react-router-dom";
 
 
 export function TaskFullView(props: {
     manager: MinddyManager,
     task: Task
 }) {
-
+    const navigate =useNavigate();
     const noteContainer = useRef(null);
     const formWidth = () => props.manager.screen.isVertical() ? 'w-full' : 'w-[50%]'
     const allProjectsPath = () => {
@@ -111,7 +112,7 @@ export function TaskFullView(props: {
                                                            manager={props.manager}
 
                                                            pageFunction={(callBack, error, size, page) =>
-                                                               props.manager.getProjectNotes(callBack, error, size, page)
+                                                               props.manager.getProjectNotes(props.task.holder,callBack, error, size, page)
                                                            }
                                                            getFunction={(id, callback, error) => props.manager.getNote(id, callback, error)}
                                                            />}
@@ -124,8 +125,9 @@ export function TaskFullView(props: {
             <div
                 className="select-none text-base-100 bg-base-300 hover:bg-secondary cursor-pointer select-disabled font-bold rounded-b-box w-full "
                 onClick={(e) => {
-                    const p = props.manager.getProject(props.task.holder);
-                    if (p) props.manager.changeCurrentProject(p)
+                    // const p = props.manager.getProject(props.task.holder);
+                    // if (p)
+                        navigate('/dashboard/'+props.task.holder+'/tasks')
                 }}>
                 {props.manager.getProject(props.task.holder)?.name}
             </div>

@@ -1,4 +1,4 @@
-import {ProjectState} from "../dao/Project";
+import {ProjectState} from "../../enums/ProjectState";
 
 export interface ProjectMinimalData {
     ownerID: string;

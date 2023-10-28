@@ -1,10 +1,11 @@
 import ScreenData from '../../data/classes/utils/ScreenData';
-import {Link, Outlet, useNavigate} from 'react-router-dom';
+import {Link, Outlet, useNavigate, useParams} from 'react-router-dom';
 import {Trans} from '@lingui/macro';
 import {LanguageSelector} from '../../components/toolbar/LanguageSelector';
 import {APP_NAME} from '../../App';
-import {useEffect, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import MinddyService from "../../data/minddy.service";
+import Cookies from "js-cookie";
 
 interface PublicLayoutParams {
     screenData: ScreenData,
@@ -13,7 +14,7 @@ interface PublicLayoutParams {
 }
 
 export function PublicLayout(props: PublicLayoutParams) {
-
+    let {pid: projectId} = useParams();//fixme
     const [serviceAvailable, setServiceAvailable] = useState<boolean>(false);
     const navigate = useNavigate();
     const navigateToDemoDashboard = () => {
@@ -58,6 +59,7 @@ export function PublicLayout(props: PublicLayoutParams) {
                 <button className={`btn p-2 ml-2`} onClick={()=>{
                     sessionStorage.clear();
                     localStorage.clear();
+                    Cookies.remove('_m')
                 }}>
                  Clear All cookies
                 </button>

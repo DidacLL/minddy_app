@@ -8,6 +8,7 @@ import {ObjectCard} from "./ObjectCard";
 import ResponsiveText from "../../data/classes/utils/ResponsiveText";
 import {Simulate} from "react-dom/test-utils";
 import {Trans} from "@lingui/macro";
+import {useParams} from "react-router-dom";
 
 enum ContainerMode {
     LOADING = 0, EMPTY = 1, MIN = 2, SCROLL = 3, MAX = 4
@@ -40,6 +41,7 @@ function CounterBadge({value}: CounterBadgeProps) {
 
 export function ObjectContainer<T extends MinddyObject>(props: ObjectContainerProps<T>) {
 
+
     const [scrollInterval, setScrollInterval] = useState<NodeJS.Timeout | null>(null);
 
     const [objects, setObjects] = useState<React.JSX.Element[]>([]);
@@ -55,8 +57,8 @@ export function ObjectContainer<T extends MinddyObject>(props: ObjectContainerPr
 
     function loadPage(num: number) {
         props.pageFunction((p) => {
-            setMode(p.totalElements > 0 ? Math.max(mode, ContainerMode.MIN) : ContainerMode.EMPTY);
             setPage(p)
+            setMode(p.totalElements > 0 ? Math.max(mode, ContainerMode.MIN) : ContainerMode.EMPTY);
         }, props.onError ? props.onError : (e) => {
             setMode(ContainerMode.EMPTY)
         }, page ? page.size : props.pageSize || 10, num)
@@ -142,10 +144,9 @@ export function ObjectContainer<T extends MinddyObject>(props: ObjectContainerPr
     }, []);
 
     useEffect(() => {
+        setMode(ContainerMode.LOADING)
         loadPage(0)
-        // setMode(ContainerMode.LOADING)
-
-    }, [props.manager.currentProject]);
+    }, [props]);
     //------------------------------------------------LOAD PAGE
     const totalElements = () => {
         if (page) return page.totalElements;
@@ -154,7 +155,7 @@ export function ObjectContainer<T extends MinddyObject>(props: ObjectContainerPr
         if (page && mode > ContainerMode.EMPTY) {
             setObjects(mode >= ContainerMode.MAX ? createNewCards() : objects.concat(createNewCards()))
         }
-    }, [mode, page]);
+    }, [page]);
     //------------------------------------------------ON MINIMIZE
     useEffect(() => {
         switch (mode) {

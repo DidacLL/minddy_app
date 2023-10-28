@@ -5,7 +5,8 @@ import {ProjectRequest} from "./classes/dao/Project";
 export default class MinddyService {
 
     static API_URL = 'http://localhost:8833/v1/auth/'
-    static pendingRequests: Map<string,Promise<any>> = new Map();
+    static pendingRequests: Map<string, Promise<any>> = new Map();
+
     static updateFactor(name: string) {
         return `${name}_${Math.ceil(Date.now() / 100000000)}`;
     }
@@ -21,7 +22,7 @@ export default class MinddyService {
                     this.pendingRequests.delete(url);
                 });
             //And save the Request as pending request
-            this.pendingRequests.set(url,fetchPromise);
+            this.pendingRequests.set(url, fetchPromise);
             return await fetchPromise;
         } catch (e) {
             throw new Error(`Server Down :(`);
@@ -64,8 +65,12 @@ export default class MinddyService {
     }
 
 
-    public static updateProject(token:string,request: ProjectRequest,callBack?:(json:string)=>void,error?:(message:any)=>void){
-        this.putCall(token,'project','/update',JSON.stringify(request)).then(callBack).catch(error)
+    public static updateProject(token: string, request: ProjectRequest, callBack?: (json: string) => void, error?: (message: any) => void) {
+        this.putCall(token, 'project', '/update', JSON.stringify(request)).then((response) => {
+            if (response) {
+                callBack?.(response);
+            }
+        }).catch(error)
     }
 
     static getProjectTags(token: string, id: string, callBack: (json: string) => void, error: (message: string) => void) {
@@ -79,6 +84,7 @@ export default class MinddyService {
             .then(r => callBack(r))
             .catch(e => error(e.message));
     }
+
     static getTaskTags(token: string, id: string, callBack: (json: string) => void, error: (message: string) => void) {
         this.getCall(token, 'task', `/data/tags?id=${id}`)
             .then(r => callBack(r))
@@ -96,6 +102,7 @@ export default class MinddyService {
             .then(r => callBack(r))
             .catch(e => error(e.message));
     }
+
     static loadProjectDashboardTasks(token: string,
                                      projectID: string,
                                      callBack: (json: string) => void,
@@ -122,7 +129,7 @@ export default class MinddyService {
                         subprojects: boolean,
                         callBack: (r: string) => void,
                         error: (m: string) => any) {
-        this.checkSessionStorage(projectID + '_tasks_all_' + size + '_' + page+'_'+viewAll+'_'+subprojects, (json) => {
+        this.checkSessionStorage(projectID + '_tasks_all_' + size + '_' + page + '_' + viewAll + '_' + subprojects, (json) => {
             callBack(json)
         }, (key) => {
             this.getCall(token, 'project', `/tasks?id=${projectID}&size=${size}&page=${page}&viewall=${viewAll}&subproject=${subprojects}`)
@@ -134,12 +141,12 @@ export default class MinddyService {
         });
     }
 
- static loadProjectNotes(token: string,
-                        projectID: string,
-                        size: number = 10,
-                        page: number = 0,
-                        callBack: (r: string) => void,
-                        error: (m: string) => any) {
+    static loadProjectNotes(token: string,
+                            projectID: string,
+                            size: number = 10,
+                            page: number = 0,
+                            callBack: (r: string) => void,
+                            error: (m: string) => any) {
         this.checkSessionStorage(projectID + '_notes_all_' + size + '_' + page, (json) => {
             callBack(json)
         }, (key) => {
@@ -158,6 +165,7 @@ export default class MinddyService {
         if (savedValue) callBack(savedValue)
         else fetchCall(key);
     }
+
     private static async getCall(token: string, urlStart: string, urlEnd: string): Promise<string> {
         const options: RequestInit = {
             method: 'GET',
@@ -180,12 +188,13 @@ export default class MinddyService {
                 this.pendingRequests.delete(url);
             });
         //And save the Request as pending request
-        this.pendingRequests.set(url,fetchPromise);
+        this.pendingRequests.set(url, fetchPromise);
         return fetchPromise;
     }
-    private static async putCall(token: string, urlStart: string, urlEnd: string,body:string): Promise<string> {
+
+    private static async putCall(token: string, urlStart: string, urlEnd: string, body: string): Promise<string> {
         const options: RequestInit = {
-            method: 'PUT',
+            method: 'POST',
             headers: {
                 ...this.getAuthHeader(token),
                 'Content-Type': 'application/json'
@@ -206,7 +215,7 @@ export default class MinddyService {
                 this.pendingRequests.delete(url);
             });
         //And save the Request as pending request
-        this.pendingRequests.set(url,fetchPromise);
+        this.pendingRequests.set(url, fetchPromise);
         return fetchPromise;
     }
 
@@ -227,9 +236,10 @@ export default class MinddyService {
             throw new Error((error as Error).message as string || `API NOT AVAILABLE`);
         }
     }
-    private static async pingCall(url:string) {
+
+    private static async pingCall(url: string) {
         const response = await fetch(url);
-        return await response.text()==='pong';
+        return await response.text() === 'pong';
     }
 }
 

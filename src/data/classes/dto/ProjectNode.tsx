@@ -1,4 +1,4 @@
-import {Project} from "../dao/Project";
+import {Project, ProjectData} from "../dao/Project";
 import {ProjectNodeData} from "./ProjectNodeData";
 
 export class ProjectNode {
@@ -20,7 +20,9 @@ export class ProjectNode {
         return this.subProjects.map((x) => x.project);
     }
 
-
+    getProjectData(){
+        return this.project.getProjectData()
+    }
     static parseProjectNode(data: ProjectNodeData): ProjectNode {
         const project = Project.parseProjectMinimal(data.project);
         const subProjects = data.subProjects.map(subProject => ProjectNode.parseProjectNode(subProject));

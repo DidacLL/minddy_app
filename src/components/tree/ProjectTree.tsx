@@ -2,8 +2,10 @@ import React, {useEffect, useState} from "react";
 import {MinddyManager} from "../../data/Minddy.manager";
 import {ProjectNode} from "../../data/classes/dto/ProjectNode";
 import {TreeTab} from "./TreeTab";
-import {Project, ProjectState} from "../../data/classes/dao/Project";
+import {Project} from "../../data/classes/dao/Project";
 import {Trans} from "@lingui/macro";
+import {useNavigate, useParams} from "react-router-dom";
+import {ProjectState} from "../../data/enums/ProjectState";
 
 interface ProjectTreeProps {
     manager: MinddyManager;
@@ -11,25 +13,38 @@ interface ProjectTreeProps {
 }
 
 export function ProjectTree(props: ProjectTreeProps) {
-
+    let params = useParams();
     const [viewAll, setViewAll] = useState(false);
-    const [openProject, setOpenProject] = useState(props.manager.currentProject || undefined);
-    props.manager.updateTree = (project: Project) => setOpenProject(project)
-    useEffect(() => {
-        if (!openProject && props.manager.currentProject && props.manager.currentProject !== openProject) {
-            setOpenProject(props.manager.currentProject)
+    const [openProject, setOpenProject] = useState<Project>();
+    const navigate= useNavigate()
+
+    function assignStatesFromParams() {
+        if (params.projectId) {
+            const project = props.manager.getProject(params.projectId.toUpperCase())
+            if (project) {
+                setOpenProject(project)
+                return;
+            }
         }
-    }, [props.manager.currentProject]);
+        setOpenProject(props.manager.getRootProject())
+    }
+
     useEffect(() => {
-        if (openProject && props.manager.currentProject !== openProject) {
-            props.manager.changeCurrentProject(openProject);
+        if (openProject) {
+            navigate('/dashboard/'+openProject.id);
         }
-    }, [openProject]);
+    }, [openProject, props.manager]);
 
     useEffect(() => {
 
     }, [viewAll]);
+    useEffect(() => {
+        assignStatesFromParams();
+    }, [params,params.projectId]);
 
+    useEffect(() => {
+        assignStatesFromParams();
+    }, []);
     function handleTitleClick(event: React.MouseEvent, root: ProjectNode) {
         if (openProject) {
             if (openProject === root.project) {
@@ -79,7 +94,7 @@ export function ProjectTree(props: ProjectTreeProps) {
         return <label><Trans>LOADING...</Trans></label>
     }
 
-    return <div key={'full_tree_'+props.manager.currentProject.id}  className="flex-grow h-full flex flex-col justify-between overflow-auto no-scrollbar">
+    return <div key={'full_tree_'+new Date().getMilliseconds()}  className="flex-grow h-full flex flex-col justify-between overflow-auto no-scrollbar">
         {constructProjectTabs(props.manager.getRootProjectNode())}
     </div>
 }

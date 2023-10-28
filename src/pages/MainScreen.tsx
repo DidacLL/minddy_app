@@ -7,63 +7,73 @@ import {Trans} from "@lingui/macro";
 import {DashboardTabs} from "../data/enums/DashboardTabs";
 import {ProjectNotes} from "../components/dashboard/tabs/ProjectNotes";
 import {FullPageModal} from "../components/FullScreenModal";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
-export function MainScreen(props: { manager: MinddyManager, tab?: DashboardTabs }) {
-    let {id: projectId} = useParams();//fixme
-    const [selectedProject, setSelectedProject] = useState<Project>();
-    const [projectTab, setProjectTab] = useState(props.tab || DashboardTabs.DASHBOARD);
+
+export function MainScreen(props: { manager: MinddyManager, tab?: DashboardTabs, viewToday?: boolean }) {
+    const navigate= useNavigate();
+    let params = useParams();
+    const [currentProject, setCurrentProject] = useState<Project>();
+    const [projectTab, setProjectTab] = useState<DashboardTabs>();
     const [modal, setModal] = useState<MutableRefObject<HTMLDialogElement | null>>();
     const [modalContent, setModalContent] = useState<React.JSX.Element>();
+
+    function assignStatesFromParams() {
+        if (params.projectId) {
+            const project = props.manager.getProject(params.projectId.toUpperCase())
+            if (project) {
+                if (project.isLoaded) {
+                    project && setCurrentProject(project)
+                } else {
+                    project.load(props.manager.user.token, () => setCurrentProject(project))
+                }
+            }
+        }else{
+            setCurrentProject(props.manager.getRootProject())
+        }
+        switch(params.tab?.toLowerCase()){
+            case 'tasks':setProjectTab(DashboardTabs.TASKS)
+                break;
+            case 'notes':setProjectTab(DashboardTabs.NOTES)
+                break;
+            default: setProjectTab(DashboardTabs.DASHBOARD)
+        }
+    }
+    useEffect(() => {
+
+    }, []);
 
     useEffect(() => {
 
     }, [modalContent, props.manager.screen]);
-    useEffect(() => {
-        if (selectedProject) {
-            props.manager.changeCurrentProject(selectedProject)
-        }
-    }, [selectedProject]);
-
-
-    useEffect(() => {
-        if (projectId) {
-            const p = props.manager.getProject(projectId)
-            p && setSelectedProject(p)
-        }
-    }, [projectId]);
     useEffect(() => {
         props.manager.openModal = (body: React.JSX.Element) => {
             setModalContent(body)
             modal?.current?.showModal()
         }
     }, [modal]);
-    useEffect(() => {
-        props.manager.changeDashboard = (p: Project) => setSelectedProject(p)
-    }, [props.manager.currentProject]);
-    useEffect(() => {
-        props.manager.changeDashboardTab = (tab: DashboardTabs) => setProjectTab(tab)
-        if (props.manager?.currentProject) {
-            setSelectedProject(props.manager.currentProject);
 
-        }
-    }, []);
+    useEffect(() => {
+        assignStatesFromParams();
+    }, [params]);
+    useEffect(() => {
+    }, [currentProject,projectTab,currentProject]);
 
     function renderTabContent() {
         switch (projectTab) {
             case  DashboardTabs.TASKS:
-                return <ProjectTasks manager={props.manager}/>
+                return <ProjectTasks manager={props.manager} project={currentProject}/>
             case  DashboardTabs.NOTES:
-                return <ProjectNotes manager={props.manager}/>
+                return <ProjectNotes manager={props.manager} project={currentProject}/>
             default:
-                return <ProjectDashboard manager={props.manager}/>
+                return <ProjectDashboard manager={props.manager} project={currentProject}/>
         }
     }
 
-    const percent = Math.floor(100/Math.max(1,Object.keys(DashboardTabs).length/2));
-    return props.manager && selectedProject ?
+    const percent = Math.floor(100 / Math.max(1, Object.keys(DashboardTabs).length / 2));
+    return currentProject?
 
-        <div className=' flex flex-col grow overflow-y-scroll rounded-l-box no-scrollbar'>
+        <div key={params.projectId +'_'+ params.tab} className=' flex flex-col grow overflow-y-scroll rounded-l-box no-scrollbar'>
             <FullPageModal getRef={(v) => {
                 setModal(v)
             }} content={modalContent}/>
@@ -74,9 +84,10 @@ export function MainScreen(props: { manager: MinddyManager, tab?: DashboardTabs 
                         className={`tab tab-sm txt-sb tab-lifted tab-border-none rounded-t-box w-[${percent}%] text-left ${projectTab === DashboardTabs.DASHBOARD ? 'tab-active  ' : 'bg-base-300 bg-dot dot-s text-base-200/50'}`}
                         onClick={(e) => {
                             e.preventDefault();
-                            setProjectTab(DashboardTabs.DASHBOARD)
+                            navigate('/dashboard/'+params.projectId?.toLowerCase())
                         }}>
-                        <label className={` w-full text-left px-2 font-bold ${projectTab === DashboardTabs.DASHBOARD ? ' text-base-content' : 'text-base-content/20'}`}>
+                        <label
+                            className={` w-full text-left px-2 font-bold ${projectTab === DashboardTabs.DASHBOARD ? ' text-base-content' : 'text-base-content/20'}`}>
                             <Trans>Dashboard</Trans>
                         </label>
                     </div>
@@ -84,9 +95,10 @@ export function MainScreen(props: { manager: MinddyManager, tab?: DashboardTabs 
                         className={`tab tab-sm txt-sb  tab-lifted tab-border-none  w-[${percent}%] ${projectTab === DashboardTabs.TASKS ? 'tab-active ' : 'bg-base-300 bg-dot dot-s text-base-200/50'}`}
                         onClick={(e) => {
                             e.preventDefault();
-                            setProjectTab(DashboardTabs.TASKS)
+                            navigate('/dashboard/'+params.projectId?.toLowerCase()+'/tasks')
                         }}>
-                        <label className={`w-full text-left px-2 font-bold ${projectTab === DashboardTabs.TASKS ? ' text-base-content' : 'text-base-content/20'}`}>
+                        <label
+                            className={`w-full text-left px-2 font-bold ${projectTab === DashboardTabs.TASKS ? ' text-base-content' : 'text-base-content/20'}`}>
                             <Trans>Tasks</Trans>
                         </label>
                     </div>
@@ -94,9 +106,10 @@ export function MainScreen(props: { manager: MinddyManager, tab?: DashboardTabs 
                         className={`tab tab-sm txt-sb  tab-lifted tab-border-none  w-[${percent}%] ${projectTab === DashboardTabs.NOTES ? 'tab-active ' : 'bg-base-300 bg-dot dot-s text-base-200/50'}`}
                         onClick={(e) => {
                             e.preventDefault();
-                            setProjectTab(DashboardTabs.NOTES)
+                            navigate('/dashboard/'+params.projectId?.toLowerCase()+'/notes')
                         }}>
-                        <label className={`w-full text-left px-2 font-bold ${projectTab === DashboardTabs.NOTES ? ' text-base-content' : 'text-base-content/20'}`}>
+                        <label
+                            className={`w-full text-left px-2 font-bold ${projectTab === DashboardTabs.NOTES ? ' text-base-content' : 'text-base-content/20'}`}>
                             <Trans>Notes</Trans>
                         </label>
                     </div>

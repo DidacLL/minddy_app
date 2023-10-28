@@ -13,36 +13,46 @@ import {
 import {ToolBarDropdown} from "./ToolBarDropdown";
 import {APP_LOGO, APP_NAME} from "../../App";
 import {FavouritesMenu} from "./data/FavouritesMenu";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import {PathBreadcrumbs} from "../dashboard/PathBreadcrumbs";
 
 import {DashboardTabs} from "../../data/enums/DashboardTabs";
+import {Project} from "../../data/classes/dao/Project";
 
 interface ToolBarProps {
     isMini: boolean,
-    manager: MinddyManager
+    manager: MinddyManager,
+    disabled:boolean
 }
 
 
 export function ToolBar(props: ToolBarProps) {
+    let params = useParams();
 
     const [minimizeMenu, setMinimizeMenu] = useState<any>();
 
-    const [currentProject, setCurrentProject] = useState<string>('');
+    const [currentProject, setCurrentProject] = useState<Project>();
     const [minimized, setMinimized] = useState(false);
     const navigate = useNavigate();
     useEffect(() => {
-        setMinimizeMenu(() => props.manager.minimizeProjectTree)
+        setMinimizeMenu(() => props.manager.toggleProjectTree)
 
-    }, [props.manager]);
+    }, [props.manager,props.disabled]);
 
     useEffect(() => {
 
     }, [minimized]);
 
     useEffect(() => {
-        props.manager.updateToolbar = () => {
-            setCurrentProject(props.manager.currentProject.name)
+        if(params.projectId) {
+            const project = props.manager.getProject(params.projectId);
+            project && setCurrentProject(project)
+        }
+    }, [params]);
+    useEffect(() => {
+        if(params.projectId) {
+            const project = props.manager.getProject(params.projectId);
+            project && setCurrentProject(project)
         }
         props.manager.updateProjectButton = (b: boolean) => setMinimized(b)
     }, []);
@@ -71,7 +81,7 @@ export function ToolBar(props: ToolBarProps) {
                 {/*APP NAME-----------------------------------------------------------------------------------------------------------------APP NAME */}
                 <Link to={"/dashboard"}
                       className="btn btn-ghost h-full normal-case txt-xl font-mono font-black text-base-100 hover:text-primary-content hover:bg-secondary"
-                      onClick={() => props.manager.changeCurrentProject(props.manager.getRootProject())}
+                      onClick={() => navigate('/dashboard')}
                 >{props.manager.screen.windowSize.width>1000?APP_NAME:APP_LOGO}</Link>
             </div>
             {/*BUTTONS LEFT-----------------------------------------------------------------------------------------------------------BUTTONS LEFT*/}
@@ -79,6 +89,7 @@ export function ToolBar(props: ToolBarProps) {
                 {/*TOGGLE PROJECT-----------------------------------------------------------------------------------------------------------TOGGLE PROJECT*/}
                 <div className="flex grow content-center origin-center ">
                     <button
+                        disabled={props.disabled}
                         onClick={(e) => {
                             e.preventDefault();
                             setMinimized(!minimized);
@@ -110,21 +121,20 @@ export function ToolBar(props: ToolBarProps) {
             <div className='bg-base-300 h-[2em] align-middle  rounded-box w-full justify-between center-shadow-in flex-nowrap md:flex txt-l hidden'>
                 <div className='pl-2 w-full  flex flex-row flex-nowrap text-primary-content text-center font-mono font-bold txt-s  overflow-hidden text-ellipsis whitespace-nowrap'>
                     <div className='max-w-prose overflow-hidden text-ellipsis whitespace-nowrap'>
-                        <PathBreadcrumbs
-                            path={props.manager.currentProject.getAllProjectsPath()
+                        {currentProject && <PathBreadcrumbs
+                            path={currentProject.getAllProjectsPath()
                                 .map(s => props.manager.getProject(s)
-                                    || props.manager.currentProject)}
+                                    || currentProject)}
                             handleClick={(v) => {
-                                props.manager.changeCurrentProject(v)
+                                navigate("/dashboard/"+v.id.toLowerCase())
 
-                            }}/>
+                            }}/>}
                     </div>
                     <label className=' min-w-fit p-1 font-black text-md text-neutral cursor-pointer hover:text-main-light'
                     onClick={()=>{
-                        props.manager.changeDashboardTab(DashboardTabs.DASHBOARD)
                         navigate('/dashboard')
                     }}>
-                        {' >_'}{currentProject}
+                        {' >_'}{currentProject?.name}
 
                     </label>
                 </div>
@@ -133,7 +143,9 @@ export function ToolBar(props: ToolBarProps) {
                     <div className="">
                         <PlusIcon className=" btn btn-ghost btn-sm  font-extrabold "/>
                     </div>
-                    <div className="mr-4">
+                    <div className="mr-4" onClick={()=>{
+                        if (currentProject)navigate('/project/0/'+currentProject?.id)
+                    }}>
                         <PencilSquareIcon className=" btn btn-ghost  btn-sm py-1 font-extrabold "/>
                     </div>
                 </div>

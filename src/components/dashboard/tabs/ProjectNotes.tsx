@@ -5,24 +5,23 @@ import {Note} from "../../../data/classes/dao/Note";
 import {ObjectTable} from "../ObjectTable";
 import {DocumentPlusIcon} from "@heroicons/react/20/solid";
 import {ObjectMinimal} from "../../../data/classes/dto/ObjectMinimal";
+import {Project} from "../../../data/classes/dao/Project";
 
-interface ProjectNotesProps {
-    manager: MinddyManager
-}
-
-
-export function ProjectNotes(props: { manager: MinddyManager }) {
+export function ProjectNotes(props: { manager: MinddyManager, project?: Project  }) {
     const [currentPage, setCurrentPage] = useState<PagedResponse<ObjectMinimal>>();
+    const [project, setProject] = useState<Project>();
     const [objects, setObjects] = useState<Note[]>([]);
     const [content, setContent] = useState<React.JSX.Element>();
     useEffect(() => {
+        setProject(project)
         loadPage(0);
     }, []);
 
     useEffect(() => {
         // setObjects([])
+        setProject(props.project)
         loadPage(0)
-    }, [ props.manager.currentProject]);
+    }, [ props.project]);
     useEffect(() => {
         if(currentPage) {
             setObjects([])
@@ -46,7 +45,7 @@ export function ProjectNotes(props: { manager: MinddyManager }) {
 
 
     function loadPage(num?: number) {
-        props.manager.getProjectNotes(res => setCurrentPage(res), (e) => {
+        project && props.manager.getProjectNotes(project.id,res => setCurrentPage(res), (e) => {
             console.log(e)
         }, 10, num || 0);
     }

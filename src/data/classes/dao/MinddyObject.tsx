@@ -26,7 +26,9 @@ export abstract class MinddyObject {
         this.id = id;
         this._request=this.resetRequest()||undefined;
     }
-
+    toString(){
+        return this.id;
+    }
     get isLoaded(): boolean {
         return this._isLoaded;
     }

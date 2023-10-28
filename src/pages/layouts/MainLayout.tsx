@@ -8,26 +8,30 @@ import {EllipsisHorizontalIcon, EllipsisVerticalIcon} from "@heroicons/react/20/
 
 
 export function MainLayout({manager}: { manager: MinddyManager }) {
-    const MIN_PANEL_SIZE = () => (vertical ? 20 : 15) + (Math.max(window.innerWidth,window.innerHeight)>1000? -10 : 5);
+    const MIN_PANEL_SIZE = () => (vertical ? 20 : 15) + (Math.max(window.innerWidth, window.innerHeight) > 1000 ? -10 : 5);
     const [resize, setResize] = useState(false);
     const navigate = useNavigate();
     const projectPanel = useRef<ImperativePanelHandle | null>(null);
+    const [disableProjectTree, setDisableProjectTree] = useState(false);
     const sizeHandler = useRef<HTMLDivElement | null>(null);
     const [vertical, setVertical] = useState<boolean>(window.innerWidth < window.innerHeight);
     const [bigScreen, setBigScreen] = useState<boolean>();
+    if (!manager.navigate) manager.navigate = (url: string) => navigate(url.toLowerCase());
     useEffect(() => {
-    }, [bigScreen]);
+        if(!disableProjectTree){
+            setResize(true);
+            projectPanel.current?.expand();
+        }
+    }, [disableProjectTree]);
     useEffect(() => {
-    }, [vertical]);
-    useEffect(() => {
-        setBigScreen(Math.max(window.innerWidth,window.innerHeight)>1000)
+        setBigScreen(Math.max(window.innerWidth, window.innerHeight) > 1000)
         if (sizeHandler.current) {
             if (vertical) sizeHandler.current.style.height = `${resize ? 10 : 6}px`;
             else sizeHandler.current.style.width = `${resize ? 18 : 12}px`;
         }
         if (manager) {
-            setBigScreen(Math.max(window.innerWidth,window.innerHeight)>1000)
-            manager.minimizeProjectTree = (): void => {
+            setBigScreen(Math.max(window.innerWidth, window.innerHeight) > 1000)
+            manager.toggleProjectTree = (): void => {
                 if (projectPanel.current) {
                     if (projectPanel.current.getCollapsed()) {
                         projectPanel.current.expand();
@@ -36,18 +40,32 @@ export function MainLayout({manager}: { manager: MinddyManager }) {
                         projectPanel.current.collapse()
                         setResize(true);
                     }
-                    manager.updateToolbar();
+                    // manager.updateToolbar();
+                }
+            }
+            manager.disableProjectTreePanel = (disable: boolean) => {
+                setDisableProjectTree(disable)
+                if (projectPanel.current) {
+                    if (disable) {
+                        projectPanel.current.collapse()
+                        setResize(false);
+                    } else {
+                        setResize(true);
+                    }
                 }
             }
         }
 
     }, [resize]);
 
+
     useEffect(() => {
-        navigate('/dashboard')
-        const handleResize =()=> {
+
+    }, [vertical,bigScreen]);
+    useEffect(() => {
+        const handleResize = () => {
             setVertical(window.innerWidth < window.innerHeight);
-            setBigScreen(window.innerWidth>1000);
+            setBigScreen(window.innerWidth > 1000);
         }
 
         window.addEventListener('resize', handleResize);
@@ -55,7 +73,7 @@ export function MainLayout({manager}: { manager: MinddyManager }) {
     }, []);
 
     function MouseResizeHandler() {
-        if (projectPanel.current) {
+        if (!disableProjectTree && projectPanel.current) {
             if (projectPanel.current.getCollapsed()) {
                 projectPanel.current.resize(MIN_PANEL_SIZE() + 1)
                 setResize(false)
@@ -106,8 +124,8 @@ export function MainLayout({manager}: { manager: MinddyManager }) {
                         <Outlet/>
                     </Panel>
                     <div className="flex justify-center align-baseline  h-4 "
-                         onMouseEnter={() => !projectPanel.current?.getCollapsed() && setResize(true)}
-                         onMouseLeave={() => !projectPanel.current?.getCollapsed() && setResize(false)}
+                         onMouseEnter={() => !disableProjectTree && !projectPanel.current?.getCollapsed() && setResize(true)}
+                         onMouseLeave={() => !disableProjectTree && !projectPanel.current?.getCollapsed() && setResize(false)}
                          onMouseUp={MouseResizeHandler}>
 
                         <PanelResizeHandle className="w-full  flex justify-center">
@@ -116,7 +134,7 @@ export function MainLayout({manager}: { manager: MinddyManager }) {
                             </div>
                         </PanelResizeHandle>
                     </div>
-                    <ToolBar isMini={true} manager={manager}></ToolBar>
+                    <ToolBar isMini={true} manager={manager} disabled={disableProjectTree}></ToolBar>
                     <Panel defaultSize={50} minSize={0}
                            className=''
                            ref={projectPanel}
@@ -131,7 +149,7 @@ export function MainLayout({manager}: { manager: MinddyManager }) {
         // ---------------------------------------------------------------------------------------------------HORIZONTAL
         return (<div className=" h-screen flex flex-col max-w-screen overflow-hidden">
 
-            {bigScreen && <ToolBar isMini={false} manager={manager}/>}
+            {bigScreen && <ToolBar isMini={false} manager={manager} disabled={disableProjectTree}/>}
             <PanelGroup direction="horizontal"
                         className="flex flex-grow  bg-primary z-0">
                 <Panel defaultSize={30} minSize={0}
@@ -139,23 +157,25 @@ export function MainLayout({manager}: { manager: MinddyManager }) {
                        ref={projectPanel}
                        collapsible={true} collapsedSize={0} order={1}
                        onResize={(c, p) => getOnResize(c, p)}>
-                    {!bigScreen && <ToolBar isMini={true} manager={manager}/>}
+                    {!bigScreen && <ToolBar isMini={true} manager={manager} disabled={disableProjectTree}/>}
                     <ProjectTree manager={manager}/>
                 </Panel>
+                {
+                    !disableProjectTree &&
+                    <div className="flex items-center w-4  "
+                         onMouseEnter={() => !projectPanel.current?.getCollapsed() && setResize(true)}
+                         onMouseLeave={() => !projectPanel.current?.getCollapsed() && setResize(false)}
+                         onMouseUp={MouseResizeHandler}>
 
-                <div className="flex items-center w-4  "
-                     onMouseEnter={() => !projectPanel.current?.getCollapsed() && setResize(true)}
-                     onMouseLeave={() => !projectPanel.current?.getCollapsed() && setResize(false)}
-                     onMouseUp={MouseResizeHandler}>
-
-                    <PanelResizeHandle className="flex align-middle grow  h-36 w-12 z-10 p-2">
-                        <div
-                            className="min-h-full flex flex-col place-items-center bg-primary align-middle rounded-r-box"
-                            ref={sizeHandler}>
-                            {resize && <EllipsisVerticalIcon className="h-full py-12 pr-2 text-base-300  "/>}
-                        </div>
-                    </PanelResizeHandle>
-                </div>
+                        <PanelResizeHandle className="flex align-middle grow  h-36 w-12 z-10 p-2">
+                            <div
+                                className="min-h-full flex flex-col place-items-center bg-primary align-middle rounded-r-box"
+                                ref={sizeHandler}>
+                                {resize && <EllipsisVerticalIcon className="h-full py-12 pr-2 text-base-300  "/>}
+                            </div>
+                        </PanelResizeHandle>
+                    </div>
+                }
                 <Panel defaultSize={70} minSize={50} order={20}
                        className='flex flex-col  grow -z-10 align-middle'>
                     <div

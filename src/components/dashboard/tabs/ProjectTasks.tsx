@@ -6,26 +6,26 @@ import {Trans} from "@lingui/macro";
 import {PagedResponse} from "../../../data/classes/dto/PagedResponse";
 import {ObjectTable} from "../ObjectTable";
 import {MinddyToggle} from "./MinddyToggle";
+import {Project} from "../../../data/classes/dao/Project";
 
 
-export function ProjectTasks(props: { manager: MinddyManager }) {
+export function ProjectTasks(props: { manager: MinddyManager , project?: Project }) {
     const [currentPage, setCurrentPage] = useState<PagedResponse<Task>>();
+    const [project, setProject] = useState<Project>();
     const [isPaged, setIsPaged] = useState(true);
     const [content, setContent] = useState<React.JSX.Element>();
     const [viewAll, setViewAll] = useState(false);
     const [viewSubprojects, setViewSubprojects] = useState(true);
     useEffect(() => {
-        loadPage(0)
-    }, [viewAll, viewSubprojects, props.manager.currentProject]);
-
-    useEffect(() => {
-        loadPage(0);
+        setProject(props.project)
     }, []);
     useEffect(() => {
-        let ot =objectTable()
-        if(ot)setContent(ot);
-    }, [currentPage]);
+        setProject(props.project)
+    }, [viewAll, viewSubprojects,props.project]);
 
+    useEffect(() => {
+        loadPage(0)
+    }, [project]);
     useEffect(() => {
         let ot =objectTable()
         if(ot)setContent(ot);
@@ -33,7 +33,7 @@ export function ProjectTasks(props: { manager: MinddyManager }) {
 
 
     function loadPage(num?: number) {
-        props.manager.getCurrentProjectTasks(res => setCurrentPage(res), (e) => {
+        if(project)props.manager.getProjectTasks(project.id, res => setCurrentPage(res), (e) => {
             console.log(e)
         }, 10, num || 0, viewAll, viewSubprojects);
     }

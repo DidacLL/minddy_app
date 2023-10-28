@@ -39,8 +39,8 @@ export default class Task extends MinddyObject {
     static parseTask(json: string): Task {
         let data = JSON.parse(json) as TaskData;
 
-        let key: keyof typeof TaskState = data.state as keyof typeof TaskState;
-        const task = new Task(data.id, data.name, new Date(data.date), data.description, data.holder, TaskState[key], data.priority as Priority);
+        // let key: keyof typeof TaskState = data.state as keyof typeof TaskState;
+        const task = new Task(data.id, data.name, new Date(data.date), data.description, data.holder, data.state as TaskState, data.priority as Priority);
 
         task.isLoaded = true;
         return task
@@ -62,8 +62,8 @@ export default class Task extends MinddyObject {
 
     static fromData(data: TaskData) {
 
-        let key: keyof typeof TaskState = data.state as keyof typeof TaskState;
-        return new Task(data.id, data.name, new Date(data.date), data.description, data.holder, TaskState[key], data.priority as Priority);
+        // let key: keyof typeof TaskState = data.state as keyof typeof TaskState;
+        return new Task(data.id, data.name, new Date(data.date), data.description, data.holder, data.state as TaskState, data.priority as Priority);
 
     }
 

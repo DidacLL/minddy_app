@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Login} from "./pages/public/Login";
@@ -18,7 +18,9 @@ import {ErrorPage} from "./pages/ErrorPage";
 import {Kanban} from "./pages/Kanban";
 import {Search} from "./pages/Search";
 import {LandingPage} from "./pages/LandingPage";
-import {DashboardTabs} from "./data/enums/DashboardTabs";
+import Cookies from "js-cookie"
+
+export const ContextProject = React.createContext<string | undefined>(undefined);
 
 
 export const APP_NAME = <label className='font-black font-mono text-base-content'>_minddy</label>
@@ -27,6 +29,7 @@ export const APP_LOGO = <label className='font-black  text-base-content h-full'>
 
 function App() {
 
+    const contextId = useContext(ContextProject)
     const [touchScreen, setTouchScreen] = useState<boolean>(false);
     const screenInfo = useScreenInfo();
     const [user, setUser] = useState<MinddyUser>();
@@ -35,37 +38,57 @@ function App() {
     const [serverError, setServerError] = useState<string>();
 
 
+    function removeListeners(mouseHandler: () => void, touchHandler: () => void) {
+        window.removeEventListener('pointerdown', mouseHandler);
+        window.removeEventListener('touchstart', touchHandler);
+    }
 
     useEffect(() => {
-        const mouseHandler = () => setTouchScreen(false);
-        const touchHandler = () => setTouchScreen(true);
 
+        const savedVal = Cookies.get("_m")
+        if (savedVal) loginUser(savedVal);
+        const mouseHandler = () => {
+            setTouchScreen(false);
+            removeListeners(mouseHandler, touchHandler);
+            window.addEventListener('touchstart', touchHandler);
+        };
+        const touchHandler = () => {
+            setTouchScreen(true);
+            removeListeners(mouseHandler, touchHandler);
+            window.addEventListener('pointerdown', mouseHandler);
+        };
         window.addEventListener('pointerdown', mouseHandler);
         window.addEventListener('touchstart', touchHandler);
 
         return () => {
-            window.removeEventListener('pointerdown', mouseHandler);
-            window.removeEventListener('touchstart', touchHandler);
+            removeListeners(mouseHandler, touchHandler);
         };
     }, []);
 
     useEffect(() => {
-        if (user && (!appManager || user.token !== appManager.user.token)) {
-            setAppManager(
-                new MinddyManager(user, screenInfo, () => {
-                    setLoadedTree(true)
-                }, () => {
-                    setServerError("USER ERROR")
-                }, () => setUser(undefined),touchScreen));
+        if (user) {
+            if (!appManager || user.token !== appManager.user.token) {
+                setAppManager(
+                    new MinddyManager(user, screenInfo, () => {
+                        setLoadedTree(true)
+                        // appManager?.navigate?.('/dashboard')
+                    }, () => {
+                        setServerError("USER ERROR")
+                    }, () => {
+
+                        setUser(undefined);
+                    }, touchScreen)
+                );
+            }
         }
     }, [user]);
     //
     useEffect(() => {
         if (appManager) {
             appManager.screen = screenInfo;
-            appManager.isTouchScreen=touchScreen;
+            appManager.isTouchScreen = touchScreen;
         }
-    }, [screenInfo,touchScreen])
+    }, [screenInfo, touchScreen])
     useEffect(() => {
 
     }, [serverError]);
@@ -75,7 +98,6 @@ function App() {
 
         } catch (e) {
             console.log("User not found!")
-
         }
         //TODO if user constructor throws fetch error redirect to login again
     }
@@ -96,24 +118,16 @@ function App() {
                         </Route>
                         :
                         <Route path={"/"} element={<MainLayout manager={appManager}/>}>
-                            <Route index path={"dashboard"} element={<MainScreen manager={appManager}/>}/>
-                            <Route path={"dashboard/:proj"} element={<MainScreen manager={appManager}/>}>
-                                <Route path={"tasks"} element={<MainScreen manager={appManager} tab={DashboardTabs.TASKS}/>}/>
-                                <Route path={"notes"} element={<MainScreen manager={appManager} tab={DashboardTabs.NOTES}/>}/>
-                            </Route>
+                            {/*<Route index path={"dashboard"}*/}
+                            {/*       element={<MainScreen manager={appManager} viewToday={true}/>}/>*/}
+                            {/*<Route path={"dashboard/:projectId/:tab"} element={<MainScreen manager={appManager}/>}/>*/}
+                            <Route path={"dashboard/:projectId?/:tab?"} element={<MainScreen manager={appManager}/>}/>
                             <Route path={"kanban"} element={<Kanban appData={appManager}/>}/>
                             <Route path={"kanban/:id"} element={<Kanban appData={appManager}/>}/>
                             <Route path={"search"} element={<Search appData={appManager}/>}/>
-                            <Route path={"edit/"}>
-                                <Route path={"project/:id"} element={<EditProject appData={appManager} isNew={false}/>}/>
-                                <Route path={"task/:id"} element={<EditTask appData={appManager} isNew={false}/>}/>
-                                <Route path={"note/:id"} element={<EditNote manager={appManager} isNew={false}/>}/>
-                            </Route>
-                            <Route path={"new/"}>
-                                <Route path={"project"} element={<EditProject appData={appManager} isNew={true}/>}/>
-                                <Route path={"task"} element={<EditTask appData={appManager} isNew={true}/>}/>
-                                <Route path={"note"} element={<EditNote manager={appManager} isNew={true}/>}/>
-                            </Route>
+                            <Route path={"project/:isNew/:projectId"} element={<EditProject manager={appManager}/>}/>
+                            <Route path={"task/:isNew/:projectId/:taskId?"} element={<EditTask appData={appManager}/>}/>
+                            <Route path={"note/:isNew/:projectId/:auxId"} element={<EditNote manager={appManager}/>}/>
                         </Route>
                     }
                 </Routes>
@@ -132,23 +146,23 @@ function App() {
                             <Route path="/about" element={<About/>}/>
                             <Route path={"*"} element={<ErrorPage error={serverError}/>}/>
 
-                        </Route>:
-                            <Route path={""} element={<PublicLayout onServerError={setServerError}
-                                                                    screenData={screenInfo}
-                                                                    demo={() => loginUser("DEMO")}/>}>
-                                <Route index element={<LandingPage/>}/>
-                                <Route path="/login" element={<Login onSubmit={loginUser}/>}/>
-                                <Route path="/register" element={<Register onSubmit={loginUser}/>}/>
-                                <Route path="/about" element={<About/>}/>
-                                <Route path={"*"} element={<LandingPage/>}/>
-                            </Route>
-                            }
-                        </Routes>
-
-
-                        </BrowserRouter>
-                        </ErrorManager>);
+                        </Route> :
+                        <Route path={""} element={<PublicLayout onServerError={setServerError}
+                                                                screenData={screenInfo}
+                                                                demo={() => loginUser("DEMO")}/>}>
+                            <Route index element={<LandingPage/>}/>
+                            <Route path="/login" element={<Login onSubmit={loginUser}/>}/>
+                            <Route path="/register" element={<Register onSubmit={loginUser}/>}/>
+                            <Route path="/about" element={<About/>}/>
+                            <Route path={"*"} element={<LandingPage/>}/>
+                        </Route>
                     }
+                </Routes>
 
 
-                    export default App;
+            </BrowserRouter>
+        </ErrorManager>);
+}
+
+
+export default App;

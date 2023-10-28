@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import {MinddyManager} from "../../data/Minddy.manager";
 import {Trans} from "@lingui/macro";
 import ResponsiveText from "../../data/classes/utils/ResponsiveText";
+import {useParams} from "react-router-dom";
 
 interface ObjectTableParams<T extends MinddyObject> {
     // getFunction: (id: string, callback: (object: T) => void, error: (e: any) => void) => void;
@@ -14,6 +15,8 @@ interface ObjectTableParams<T extends MinddyObject> {
 export function ObjectTable<T extends MinddyObject>(props: ObjectTableParams<T>) {
     // const [ids, setIds] = useState(props.ids);
 
+    let {pid: projectId} = useParams();//fixme
+
     const [objects, setObjects] = useState<T[]>();
 
     useEffect(() => {
@@ -21,7 +24,7 @@ export function ObjectTable<T extends MinddyObject>(props: ObjectTableParams<T>)
     }, []);
     useEffect(() => {
         setObjects(props.objects);
-    }, [props.manager.currentProject,props.objects]);
+    }, [projectId,props.objects]);
     useEffect(() => {
 
     }, [objects]);

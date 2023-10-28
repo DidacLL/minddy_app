@@ -4,31 +4,30 @@ import {ProjectMinimalData} from "../dto/ProjectMinimalData";
 import {MinddyManager} from "../../Minddy.manager";
 import React from "react";
 import {Tag} from "./Tag";
+import {i18n} from "@lingui/core";
+import {t} from "@lingui/macro";
+import {ProjectState} from "../../enums/ProjectState";
+import {UserColor} from "../../enums/UserColor";
 
 export interface ProjectRequest {
     projectData: ProjectData;
     tags: string[];
 }
 export interface ProjectData{
-    holderID:string;
+    ownerID:string;
     projectID:string;
     projectName:string;
     description:string;
     state:number;
-    deadLine:string;
+    deadline?:string;
     uiConfig:string;
 }
-export enum ProjectState {
-    ACTIVE=0,
-    DELAYED=1,
-    PAUSED=2,
-    SILENT=3,
-    DISCARDED=4,
-    COMPLETE=5
-}
-
-export class ProjectConfig {
-    //todo
+export interface ProjectConfig {
+    projectColor:UserColor;
+    isPinned:boolean;
+    isFavourite:boolean;
+    pinnedNotes:string[];
+    pinnedSearch:string[];
 }
 
 export class Project extends MinddyObject {
@@ -40,7 +39,7 @@ export class Project extends MinddyObject {
     private _state: ProjectState;
 
     private _description: string | undefined;
-    private _deadLine: Date | undefined;
+    private _deadline: Date | undefined;
     private _numNotes: number | undefined;
     private _pendingTasks: number | undefined;
     constructor(id: string, name: string, uiConfig: ProjectConfig,state: ProjectState, description?: string,  deadLine?: Date, numNotes?: number, pendingTasks?: number) {
@@ -49,7 +48,7 @@ export class Project extends MinddyObject {
         this._uiConfig = uiConfig;
         this._description = description;
         this._state = state;
-        this._deadLine = deadLine;
+        this._deadline = deadLine;
         this._numNotes = numNotes;
         this._pendingTasks = pendingTasks;
     }
@@ -77,8 +76,8 @@ export class Project extends MinddyObject {
         return this._pendingTasks;
     }
 
-    get deadLine(): Date | undefined {
-        return this._deadLine;
+    get deadline(): Date | undefined {
+        return this._deadline;
     }
 
     get numNotes(): number | undefined {
@@ -101,8 +100,8 @@ export class Project extends MinddyObject {
         this._uiConfig = value;
     }
 
-    set deadLine(value: Date | undefined) {
-        this._deadLine = value;
+    set deadline(value: Date | undefined) {
+        this._deadline = value;
     }
 
     set numNotes(value: number | undefined) {
@@ -116,7 +115,7 @@ export class Project extends MinddyObject {
     static parseProjectMinimal(data: ProjectMinimalData): Project {
         let id = data.ownerID + data.projectID as string;
         let name = data.projectName as string;
-        let uiConfig = data.uiConfig as ProjectConfig;
+        let uiConfig = data.uiConfig as unknown as ProjectConfig;
         let state = data.state as ProjectState;
         return new Project(id, name, uiConfig, state, undefined, undefined, data.notes, data.pendingTasks);
     }
@@ -125,7 +124,7 @@ export class Project extends MinddyObject {
         let data = JSON.parse(json) as ProjectData;
         this._description = data.description as string;
         if (!this._state) this._state = data.state as ProjectState;
-        if (!this._deadLine && (data.deadLine)&&(data.deadLine as string).length>1) this._deadLine = new Date(data.deadLine as string); //FIXME
+        if (!this._deadline && (data.deadline)&&(data.deadline as string).length>1) this._deadline = new Date(data.deadline as string); //FIXME
 
 
     }
@@ -140,12 +139,12 @@ export class Project extends MinddyObject {
 
     getProjectData():ProjectData{
         return {
-            holderID:this.id.slice(0, this.id.length - 2),
+            ownerID:this.id.slice(0, this.id.length - 2),
             projectID: this.id.slice(this.id.length - 2),
             projectName: this._name,
             description:this._description||'',
-            state:this._state,
-            deadLine:this._deadLine?.toLocaleDateString()||'',
+            state:this._state as number,
+            deadline:this._deadline?.toLocaleDateString()||'',
             uiConfig:JSON.stringify(this.uiConfig)||''
         }
     }
@@ -157,8 +156,8 @@ export class Project extends MinddyObject {
             uiConfig: this._uiConfig,
             notes: this._numNotes,
             pendingTasks: this._pendingTasks,
-            state:this._state
-        } as ProjectMinimalData
+            state: this._state
+        } as unknown as ProjectMinimalData
     }
 
     getAllProjectsPath(): string[] {
@@ -202,7 +201,7 @@ export class Project extends MinddyObject {
     }
 
     getCardBody():any{
-        return <div>{this._deadLine?.toLocaleDateString()||'' + this._description + this._state}</div>
+        return <div>{this._deadline?.toLocaleDateString()||'' + this._description + this._state}</div>
     }
     //
     // getPendingTasks(token:string, callBack:(json:any)=>void,error:(message:string)=>void,size:number,page:number) {
@@ -220,5 +219,8 @@ export class Project extends MinddyObject {
         return <></>;
     }
 
+    copy(){
+        return new Project(this.id,this.name,this.uiConfig,this.state,this.description,this.deadline,this.numNotes,this.pendingTasks)
+    }
 
 }
