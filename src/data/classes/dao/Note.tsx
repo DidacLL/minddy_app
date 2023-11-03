@@ -2,20 +2,10 @@ import {MinddyObject} from "./MinddyObject";
 import {MinddyManager} from "../../Minddy.manager";
 import React from "react";
 import {NoteRow} from "../../../components/NoteRow";
+import {NoteRequest} from "./NoteRequest";
 
 export enum NoteType {
     TEXT, LINK, SEARCH, NUMBER
-}
-
-interface NoteData {
-    noteDTO: {
-        id: string,
-        name: string,
-        body: string
-        type: number;
-        isVisible: boolean;
-    }
-    tags: { name: string, isVisible: boolean, isHeritable: boolean }[];
 }
 
 export class Note extends MinddyObject {
@@ -31,10 +21,10 @@ export class Note extends MinddyObject {
     }
 
     static parseNote(json: string): Note {
-        let data = JSON.parse(json) as NoteData;
+        let data = JSON.parse(json) as NoteRequest;
         const dto = data.noteDTO;
         const note = new Note(dto.id, dto.name, dto.body, dto.type);
-        note.tags = data.tags.map(t => t.name);
+        note.tags = data.tags;
         note.isLoaded = true;
         return note
     }
@@ -53,7 +43,7 @@ export class Note extends MinddyObject {
 
 
     public resetRequest() {
-        return {} as NoteData;
+        return {} as NoteRequest;
     }
 
     public save(token: string) {

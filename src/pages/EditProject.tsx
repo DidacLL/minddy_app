@@ -26,26 +26,37 @@ export default function EditProject(props: EditProjectProps) {
     const params = useParams();
     const navigate = useNavigate();
     const isNew = params.isNew as unknown as number > 0 || false;
-    const [project, setProject] = useState<Project>(props.manager.getProject(params.projectId||'')||props.manager.getRootProject());
+    const [project, setProject] = useState<Project>(props.manager.getProject(params.projectId || '') || props.manager.getRootProject());
     const [builder, setBuilder] = useState<ProjectBuilder>(props.manager.projectBuilder.resetData(project, isNew));
 
     //------------------------------------------------------------------------------------------------------------------MOUNT
     useEffect(() => {
-        props.manager.disableProjectTreePanel(true);
+        try {
+            props.manager.disableProjectTreePanel(true);
             builder.resetData(project, isNew)
-        return()=>props.manager.disableProjectTreePanel(false);
+        } catch (e) {
+        }
+        return () => {
+            try {
+                props.manager.disableProjectTreePanel(false);
+            } catch (e) {
+            }
+        }
     }, []);
     //------------------------------------------------------------------------------------------------------------------PROJECT
 
     return <div className='h-full w-full flex flex-col justify-between'>
         {/*HEADER                                                                    */}
-        <div className='w-full h-min flex '>
+        <div className='w-full h-min flex justify-between '>
+            <label className='whitespace-nowrap mx-4'>Parent Project:</label>
             {project && <PathBreadcrumbs
                 path={project.getAllProjectsPath()?.map(id => props.manager.getProject(id) || props.manager.getRootProject())}
                 handleClick={() => {//todo
                 }}/>}
 
-            <label className=' z-20 btn btn-shadow btn-circle right-0 txt-l font-mono btn-sm mx-2  hover:text-opacity-60 ' onClick={e=>navigate('/dashboard/'+project.id)}> x </label>
+            <label
+                className=' z-20 btn btn-shadow btn-circle right-0 txt-l font-mono btn-sm mx-2  hover:text-opacity-60 '
+                onClick={e => navigate('/dashboard/' + project.id)}> x </label>
         </div>
         {/*                                 BODY                                                                    */}
         <div className='grow bg-base-100'>
@@ -55,16 +66,16 @@ export default function EditProject(props: EditProjectProps) {
                     <MTextInput maxChar={30}
                                 name={i18n._(t`Project name`)}
                                 onChange={(val: string) => {
-                                        builder.name = val;
+                                    builder.name = val;
                                 }}
                                 tip={i18n._(t`project name tip`)}
                                 placeHolder={i18n._(t`project placeholder`)}
-                                initialValue={builder.name||project.name}
+                                initialValue={builder.name}
                     />
                     <MTextArea maxChar={180}
                                name={i18n._(t`Project description`)}
                                onChange={(val: string) => {
-                                       builder.description = val;
+                                   builder.description = val;
                                }}
                                tip={i18n._(t`project description tip`)}
                                placeHolder={i18n._(t`description placeholder`)}
@@ -85,7 +96,7 @@ export default function EditProject(props: EditProjectProps) {
                     {/*/>*/}
                     {project && <EnumSelector<ProjectState> names={Object.values(ProjectStateNames)}
                                                             onChange={(v) => {
-                                                                builder.state=v;
+                                                                builder.state = v;
                                                             }}
                                                             title={i18n._(t`Project State`)}
                                                             values={Object.values(ProjectState) as ProjectState[]}
@@ -95,16 +106,16 @@ export default function EditProject(props: EditProjectProps) {
                 </div>
                 <div>
                     <MinddyToggle onClick={(e) => {
-                    }} value={true} text={<div>pinned</div>}/>
+                    }} value={true} text={'pinned'}/>
                     <MinddyToggle onClick={(e) => {
-                    }} value={true} text={<div>favourite</div>}/>
+                    }} value={true} text={'favourite'}/>
                 </div>
                 <div>
-                    {builder && (builder.deadline instanceof Date ) &&
+                    {builder && (builder.deadline instanceof Date) &&
                         <DeadlineStats daysMissing={calculateDaysUntil(builder.deadline)}
                                        deadLine={builder.deadline}/>}
                     <DateSelector title={'Deadline'} onChange={
-                        (d) => builder.deadline=d
+                        (d) => builder.deadline = d
                     }
                                   initialValue={builder.deadline}/>
                 </div>
@@ -126,17 +137,10 @@ export default function EditProject(props: EditProjectProps) {
                         <AttributeLabel text={''} clazzName='txt-mb m-2'/>,
                         <SwatchIcon className='btn btn-circle  p-1 m-1 btn-sm btn-shadow'/>]}
                 />
-                <div onClick={(ev)=>{
-                    console.log('saving \n' + builder.id)
-                    if(builder.isFullFilled())props.manager.updateProject(builder.build(),(v)=>{
-                        props.manager.updateAllData(
-                            ignored=>navigate('/dashboard/'+v.ownerID+v.projectID));
-                    }
-                    );
-                }}>
+                <div onClick={saveProject}>
                     <MinddyInputGroup
                         child={[
-                            <AttributeLabel text={'save'} clazzName='txt-mb m-2'/>,
+                            <AttributeLabel text={i18n._('save')} clazzName='txt-mb m-2'/>,
                             <CogIcon className='btn btn-circle p-1 m-1   btn-sm btn-shadow'/>
                         ]}
 
@@ -148,5 +152,18 @@ export default function EditProject(props: EditProjectProps) {
         {/*<div className=' h-full w-full'>*/}
         {/*</div>*/}
     </div>
+
+    function saveProject() {
+        if (builder.isFullFilled())
+            isNew ? props.manager.newProject(builder.build(), (v) => {
+                    props.manager.updateAllData(
+                        ignored => navigate('/dashboard/' + v.ownerID + v.projectID));
+                })
+                : props.manager.updateProject(builder.build(), (v) => {
+                        props.manager.updateAllData(
+                            ignored => navigate('/dashboard/' + v.ownerID + v.projectID));
+                    }
+                );
+    }
 
 }

@@ -31,6 +31,7 @@ export class ProjectBuilder extends ObjectBuilder<Project,ProjectRequest> {
     }
     resetData(project: Project, isNew: boolean) {
         this.id = project.id;
+        this.isNew=isNew;
         if (this.isNew) {
             this._name = '';
             this._description = '';
@@ -49,7 +50,7 @@ export class ProjectBuilder extends ObjectBuilder<Project,ProjectRequest> {
     }
     //-----------------------------------------------------------------------------------------------------Getters & Setters
     get name(): string {
-        if(!this._name)throw Error('NAME NOT SET')
+        if(!this._name)this._name='';
         return this._name;
     }
 
@@ -69,7 +70,7 @@ export class ProjectBuilder extends ObjectBuilder<Project,ProjectRequest> {
     }
 
     get uiConfig(): ProjectConfig {
-        if(!this._uiConfig)throw Error('Configuration NOT SET')
+        if(!this._uiConfig)this._uiConfig={} as ProjectConfig;
         return this._uiConfig;
     }
 
@@ -78,7 +79,7 @@ export class ProjectBuilder extends ObjectBuilder<Project,ProjectRequest> {
     }
 
     get state(): ProjectState {
-        if(!this._state)throw Error('STATE NOT SET')
+        if(!this._state)this._state=ProjectState.ACTIVE;
         return this._state;
     }
 

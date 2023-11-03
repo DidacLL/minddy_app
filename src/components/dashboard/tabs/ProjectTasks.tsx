@@ -2,11 +2,11 @@ import {MinddyManager} from "../../../data/Minddy.manager";
 import {SquaresPlusIcon} from "@heroicons/react/20/solid";
 import React, {useEffect, useState} from "react";
 import Task from "../../../data/classes/dao/Task";
-import {Trans} from "@lingui/macro";
 import {PagedResponse} from "../../../data/classes/dto/PagedResponse";
 import {ObjectTable} from "../ObjectTable";
 import {MinddyToggle} from "./MinddyToggle";
 import {Project} from "../../../data/classes/dao/Project";
+import {i18n} from "@lingui/core";
 
 
 export function ProjectTasks(props: { manager: MinddyManager , project?: Project }) {
@@ -48,9 +48,9 @@ export function ProjectTasks(props: { manager: MinddyManager , project?: Project
                 <div>
 
                     <MinddyToggle onClick={() => setViewSubprojects(!viewSubprojects)} value={viewSubprojects}
-                                  text={<Trans>Show subprojects</Trans>}/>
+                                  text={i18n._(`Show subprojects`)}/>
                     <MinddyToggle onClick={() => setViewAll(!viewAll)} value={viewAll}
-                                  text={<Trans>Show Closed</Trans>}/>
+                                  text={i18n._('Show Closed')}/>
                 </div>
                 <div className='grow'>
                     {content}

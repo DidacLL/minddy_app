@@ -5,11 +5,12 @@ import ResponsiveText from "../data/classes/utils/ResponsiveText";
 import {PathBreadcrumbs} from "./dashboard/PathBreadcrumbs";
 import {Project} from "../data/classes/dao/Project";
 import {AttributeLabel} from "./AttributeLabel";
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {TagBadge} from "./TagBadge";
 import {Note} from "../data/classes/dao/Note";
 import {ObjectContainer} from "./dashboard/ObjectContainer";
 import {useNavigate} from "react-router-dom";
+import {PencilSquareIcon} from "@heroicons/react/20/solid";
 
 
 export function TaskFullView(props: {
@@ -18,9 +19,11 @@ export function TaskFullView(props: {
 }) {
     const navigate =useNavigate();
     const noteContainer = useRef(null);
+
+    const [project, setProject] = useState<Project>();
     const formWidth = () => props.manager.screen.isVertical() ? 'w-full' : 'w-[50%]'
     const allProjectsPath = () => {
-        const path: Project | undefined = props.manager.getProject(props.task.holder);
+        const path: Project | undefined =project;
         let retVal: Project[] = [];
         if (path) {
             const fullPath = path.getAllProjectsPath();
@@ -34,14 +37,23 @@ export function TaskFullView(props: {
 
 
     useEffect(() => {
+        console.log(JSON.stringify(props.task))
+        const val = props.manager.getProject(props.task.holder);
+        console.log(val?.id||'ERR')
+        if(val)setProject(val);
+    }, []);
+    useEffect(() => {
 
-    }, [props]);
+    }, [props, props.task,project]);
     return <div className="flex flex-col w-auto h-full">
 
         <div className="flex flex-col  h-full">
-            <div className='w-full items-start pr-4 '>
+            <div className='w-full items-start pr-4 flex flex-nowrap m-2 '>
                 <ResponsiveText text={<>props.task.name</>} max={120} min={30}
                                 clazzName='text-base-300/80 text-left font-black uppercase'/>
+                <div className='btn btn-shadow btn-circle p-2' onClick={()=>navigate(`/task/0/${project?.id}/${props.task.id}`)}>
+                    <PencilSquareIcon className=''/>
+                </div>
             </div>
             <div className='overflow-y-scroll h-max  no-scrollbar z-20  grow'>
                 {/*--------------------------------------------------------------------------------------------------BODY*/}

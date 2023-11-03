@@ -1,7 +1,7 @@
 import React from "react";
 import {MinddyInputGroup} from "./MinddyInputGroup";
 
-export function MinddyToggle(props: { onClick: (ev?:any) => void, value: boolean, text: React.JSX.Element ,clazzName?:string,strokeColor?:string}) {
+export function MinddyToggle(props: { onClick: (ev?:any) => void, value: boolean, text:string ,clazzName?:string,strokeColor?:string}) {
     return <MinddyInputGroup child={[
         <div
             className={`cursor-pointer  btn-shadow badge badge-lg bg-transparent select-none flex align-bottom ${props.value && 'force-shadow-in'}`}

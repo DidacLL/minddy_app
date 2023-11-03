@@ -5,7 +5,7 @@ export interface TaskData {
     id: string;
     name: string;
     description: string;
-    date: Date;
+    date: Date|undefined;
     holder: string;
     state: TaskState;
     priority: Priority

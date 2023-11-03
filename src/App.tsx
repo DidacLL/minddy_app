@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Login} from "./pages/public/Login";
@@ -29,7 +29,6 @@ export const APP_LOGO = <label className='font-black  text-base-content h-full'>
 
 function App() {
 
-    const contextId = useContext(ContextProject)
     const [touchScreen, setTouchScreen] = useState<boolean>(false);
     const screenInfo = useScreenInfo();
     const [user, setUser] = useState<MinddyUser>();
@@ -126,8 +125,8 @@ function App() {
                             <Route path={"kanban/:id"} element={<Kanban appData={appManager}/>}/>
                             <Route path={"search"} element={<Search appData={appManager}/>}/>
                             <Route path={"project/:isNew/:projectId"} element={<EditProject manager={appManager}/>}/>
-                            <Route path={"task/:isNew/:projectId/:taskId?"} element={<EditTask appData={appManager}/>}/>
-                            <Route path={"note/:isNew/:projectId/:auxId"} element={<EditNote manager={appManager}/>}/>
+                            <Route path={"task/:isNew/:projectId/:taskId?"} element={<EditTask manager={appManager}/>}/>
+                            <Route path={"note/:isNew/:projectId/:auxId?"} element={<EditNote manager={appManager}/>}/>
                         </Route>
                     }
                 </Routes>

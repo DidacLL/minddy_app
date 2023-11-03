@@ -1,8 +1,8 @@
 import {ProjectStructure} from "./classes/utils/ProjectStructure";
 import ScreenData from "./classes/utils/ScreenData";
-import MinddyService from "./minddy.service";
+import MinddyService, {MinddyError} from "./minddy.service";
 import {MinddyUser} from "./classes/dao/MinddyUser";
-import Task from "./classes/dao/Task";
+import Task, {TaskRequest} from "./classes/dao/Task";
 import {MinddyPool} from "./classes/utils/MinddyPool";
 import {PagedResponse} from "./classes/dto/PagedResponse";
 import {ObjectMinimal} from "./classes/dto/ObjectMinimal";
@@ -13,6 +13,9 @@ import {TaskData} from "./classes/dto/TaskData";
 import Cookies from "js-cookie";
 import {ProjectBuilder} from "./ProjectBuilder";
 import {ProjectData, ProjectRequest} from "./classes/dao/Project";
+import {TaskBuilder} from "./TaskBuilder";
+import {NoteRequest} from "./classes/dao/NoteRequest";
+import {NoteBuilder} from "./NoteBuilder";
 
 export class MinddyManager {
     user: MinddyUser
@@ -21,19 +24,24 @@ export class MinddyManager {
     openModal!: (body: React.JSX.Element) => void;
     // private _changeDashboard!: (p: Project) => void;
     public navigate!: (url: string) => void;
+    projectBuilder: ProjectBuilder;
+    taskBuilder: TaskBuilder;
+    disableProjectTreePanel!: (disable: boolean) => void;
     private readonly _logout: () => any
     private _taskPool: MinddyPool<Task>;
     private _notePool: MinddyPool<Note>;
     private _structure!: ProjectStructure
-    projectBuilder:ProjectBuilder;
-    disableProjectTreePanel!: (disable: boolean) => void;
+    noteBuilder: NoteBuilder;
+
     constructor(user: MinddyUser, screen: ScreenData, callBack: () => void, error: () => void, logout: () => any, isTouchScreen?: boolean) {
         MinddyService.loadProjectStructure(user.token, (structure) => {
             this._structure = structure;
             // this.changeCurrentProject(context?context():this.getRootProject().id);
             callBack();
         }, error)
-        this.projectBuilder=new ProjectBuilder();
+        this.projectBuilder = new ProjectBuilder();
+        this.taskBuilder = new TaskBuilder();
+        this.noteBuilder = new NoteBuilder();
         this.isTouchScreen = isTouchScreen || false;
         this.user = user;
         this.screen = screen;
@@ -134,6 +142,8 @@ export class MinddyManager {
             this.user.token,
             id,
             (v) => {
+                console.log('Project TODO :')
+                console.log(v)
                 const val = JSON.parse(v) as PagedResponse<ObjectMinimal>
                 val.content.map((value) => {
                     this.getTask(value.id,
@@ -195,27 +205,92 @@ export class MinddyManager {
         return this._structure.root.project;
     }
 
-    newProject(parent: string) {
-
+    newProject(data: ProjectRequest, callback?: (response: ProjectData) => any) {
+        MinddyService.createNewProject(this.user.token, data, (json) => {
+                // sessionStorage.clear()
+                try {
+                    let data = JSON.parse(json) as ProjectData;
+                    MinddyService.loadProjectStructure(
+                        this.user.token,
+                        (structure) => this._structure = structure
+                        , () => {
+                        }
+                    )
+                    callback?.(data);
+                    this.projectBuilder = new ProjectBuilder();
+                } catch (e) {
+                    console.log(JSON.parse(json) as MinddyError)
+                }
+            },
+            (e) => console.log(e.message))
     }
 
-    newTask(holder: string) {
-
+    newTask(data: TaskRequest, callback?: (response: TaskData) => any) {
+        MinddyService.createNewTask(this.user.token, data, (json) => {
+                // sessionStorage.clear()
+                try {
+                    let data = JSON.parse(json) as TaskData;
+                    MinddyService.loadProjectStructure(
+                        this.user.token,
+                        (structure) => this._structure = structure
+                        , () => {
+                        }
+                    )
+                    callback?.(data);
+                    this.taskBuilder = new TaskBuilder();
+                } catch (e) {
+                    console.log(JSON.parse(json) as MinddyError)
+                }
+            },
+            (e) => console.log(e.message))
     }
 
-    newNote(holder: string) {
+    newNote(data: NoteRequest, callback?: (response: NoteRequest) => any) {
+        MinddyService.createNewNote(this.user.token, data, (json) => {
+                // sessionStorage.clear()
+                try {
+                    let data = JSON.parse(json) as NoteRequest;
+                    MinddyService.loadProjectStructure(
+                        this.user.token,
+                        (structure) => this._structure = structure
+                        , () => {
+                        }
+                    )
+                    callback?.(data);
+                    this.noteBuilder = new NoteBuilder();
+                } catch (e) {
+                    console.log(JSON.parse(json) as MinddyError)
+                }
+            },
+            (e) => console.log(e.message))
     }
 
-    updateProject(data: ProjectRequest, callback?:(response:ProjectData)=>any) {
-        MinddyService.updateProject(this.user.token,data,(json)=>{
+
+    updateProject(data: ProjectRequest, callback?: (response: ProjectData) => any) {
+        MinddyService.updateProject(this.user.token, data, (json) => {
             // sessionStorage.clear()
             MinddyService.loadProjectStructure(this.user.token, (structure) => {
                 this._structure = structure;
-            }, ()=>{})
-            let data = JSON.parse(json)as ProjectData;
+            }, () => {
+            })
+            let data = JSON.parse(json) as ProjectData;
             callback?.(data)
 
-            this.projectBuilder=new ProjectBuilder();})
+            this.projectBuilder = new ProjectBuilder();
+        })
+    }
+    updateTask(data: TaskRequest, callback?: (response: TaskData) => any) {
+        MinddyService.updateTask(this.user.token, data, (json) => {
+            // sessionStorage.clear()
+            MinddyService.loadProjectStructure(this.user.token, (structure) => {
+                this._structure = structure;
+            }, () => {
+            })
+            let data = JSON.parse(json) as TaskData;
+            callback?.(data)
+
+            this.taskBuilder = new TaskBuilder();
+        })
     }
 
     editTask(id: string) {
@@ -245,15 +320,16 @@ export class MinddyManager {
 
     }
 
-    updateAllData(callBack?:(response : any)=>any, error?:(err:any)=>any) {
+    updateAllData(callBack?: (response: any) => any, error?: (err: any) => any) {
         sessionStorage.clear()
         localStorage.clear()
         MinddyService.loadProjectStructure(this.user.token, (structure) => {
             this._structure = structure;
             // this.changeCurrentProject(context?context():this.getRootProject().id);
             callBack?.(structure);
-        }, error?error:e=>{})
-        this.projectBuilder=new ProjectBuilder();
+        }, error ? error : e => {
+        })
+        this.projectBuilder = new ProjectBuilder();
         this._taskPool = new MinddyPool<Task>(
             (id, callback1, error1) => {
                 MinddyService.getFullTask(
@@ -279,6 +355,20 @@ export class MinddyManager {
         MinddyService.getUserTags(this.user.token, (json) => {
             this._tags = JSON.parse(json) as string[];
         }, (e) => {
+        })
+    }
+
+    updateNote(data: NoteRequest, callback?: (response: NoteRequest) => any) {
+        MinddyService.updateNote(this.user.token, data, (json) => {
+            // sessionStorage.clear()
+            MinddyService.loadProjectStructure(this.user.token, (structure) => {
+                this._structure = structure;
+            }, () => {
+            })
+            let data = JSON.parse(json) as NoteRequest;
+            callback?.(data)
+
+            this.noteBuilder = new NoteBuilder();
         })
     }
 }

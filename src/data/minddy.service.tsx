@@ -1,6 +1,13 @@
 import {ProjectStructure} from "./classes/utils/ProjectStructure";
 import {UserData} from "./classes/dto/UserData";
 import {ProjectRequest} from "./classes/dao/Project";
+import {TaskRequest} from "./classes/dao/Task";
+import {NoteRequest} from "./classes/dao/NoteRequest";
+
+export interface MinddyError {
+    code: number;
+    message: string;
+}
 
 export default class MinddyService {
 
@@ -64,14 +71,6 @@ export default class MinddyService {
             .catch(e => error(e.message));
     }
 
-
-    public static updateProject(token: string, request: ProjectRequest, callBack?: (json: string) => void, error?: (message: any) => void) {
-        this.putCall(token, 'project', '/update', JSON.stringify(request)).then((response) => {
-            if (response) {
-                callBack?.(response);
-            }
-        }).catch(error)
-    }
 
     static getProjectTags(token: string, id: string, callBack: (json: string) => void, error: (message: string) => void) {
         this.getCall(token, 'project', `/tag?id=${id}`)
@@ -159,6 +158,37 @@ export default class MinddyService {
         });
     }
 
+    public static updateProject(token: string, request: ProjectRequest, callBack?: (json: string) => void, error?: (message: any) => void) {
+        this.putCall(token, 'project', '/update', JSON.stringify(request)).then((response) => {
+            if (response) {
+                callBack?.(response);
+            }
+        }).catch(error)
+    }
+
+    static createNewProject(token: string, request: ProjectRequest, callBack?: (json: string) => void, error?: (message: any) => void) {
+        this.putCall(token, 'project', '/new', JSON.stringify(request)).then((response) => {
+            if (response) {
+                callBack?.(response);
+            }
+        }).catch(error)
+    }
+    public static updateTask(token: string, request: TaskRequest, callBack?: (json: string) => void, error?: (message: any) => void) {
+        this.putCall(token, 'task', '/update', JSON.stringify(request)).then((response) => {
+            if (response) {
+                callBack?.(response);
+            }
+        }).catch(error)
+    }
+
+    static createNewTask(user: string, request: TaskRequest, callBack?: (json: string) => void, error?: (e: any) => void) {
+        this.putCall(user, 'task', '/new', JSON.stringify(request)).then((response) => {
+            if (response) {
+                callBack?.(response);
+            }
+        }).catch(error)
+    }
+
     private static checkSessionStorage(name: string, callBack: (json: string) => void, fetchCall: (s: string) => any) {
         const key = MinddyService.updateFactor(name);
         const savedValue = sessionStorage.getItem(key);
@@ -209,7 +239,10 @@ export default class MinddyService {
         const request = this.pendingRequests.get(url);
         if (request) return request;
         // If there is not any request for this url we call the api
-        const fetchPromise = this.callAPI(url, options)
+        const fetchPromise = this.callAPI(url, options).catch((e) => {
+            console.log(e.code);
+            return e.message || 'error'
+        })
             .finally(() => {
                 // Once the request is completed, quit the request from pending map
                 this.pendingRequests.delete(url);
@@ -241,5 +274,23 @@ export default class MinddyService {
         const response = await fetch(url);
         return await response.text() === 'pong';
     }
+
+
+    static createNewNote(token: string, data: NoteRequest, callback?: (json: string) => void, error?: (e: any) => void) {
+        this.putCall(token, 'note', '/new', JSON.stringify(data)).then((response) => {
+            if (response) {
+                callback?.(response);
+            }
+        }).catch(error)
+    }
+
+    public static updateNote(token: string, request: NoteRequest, callBack?: (json: string) => void, error?: (message: any) => void) {
+        this.putCall(token, 'note', '/update', JSON.stringify(request)).then((response) => {
+            if (response) {
+                callBack?.(response);
+            }
+        }).catch(error)
+    }
 }
+
 

@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { CalendarIcon } from "@heroicons/react/20/solid";
+import React, {useState} from "react";
 
 interface DateSelectorProps {
     title: string;

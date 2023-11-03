@@ -15,8 +15,6 @@ import {APP_LOGO, APP_NAME} from "../../App";
 import {FavouritesMenu} from "./data/FavouritesMenu";
 import {Link, useNavigate, useParams} from "react-router-dom";
 import {PathBreadcrumbs} from "../dashboard/PathBreadcrumbs";
-
-import {DashboardTabs} from "../../data/enums/DashboardTabs";
 import {Project} from "../../data/classes/dao/Project";
 
 interface ToolBarProps {
@@ -140,7 +138,9 @@ export function ToolBar(props: ToolBarProps) {
                 </div>
                 <div className="h-[2em] flex flex-nowrap flex-row items-center btn-group btn-group-horizontal ">
 
-                    <div className="">
+                    <div className="" onClick={()=>{
+                        if (currentProject)navigate('/project/1/'+currentProject?.id)
+                    }}>
                         <PlusIcon className=" btn btn-ghost btn-sm  font-extrabold "/>
                     </div>
                     <div className="mr-4" onClick={()=>{
@@ -152,7 +152,7 @@ export function ToolBar(props: ToolBarProps) {
             </div>
         </div>
         <div className="navbar-end align-middle flex-row place-items-center justify-between flex grow">
-            <div className="form-control h-auto grow align-middle place-items-center flex flex-row  mask-dot dot-l">
+            <div className="form-control h-auto grow align-middle place-items-center flex flex-row ">
                 <input type="text" placeholder="Search"
                        className="input input-bordered w-2 input-sm flex-grow input-primary hidden md:flex  "/>
                 <MagnifyingGlassIcon className="w-10 p-2 hover:text-secondary  -inset-x-10"/>

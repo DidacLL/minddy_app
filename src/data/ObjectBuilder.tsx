@@ -1,5 +1,11 @@
 export abstract class ObjectBuilder<T, R> {
-    id?: string;
+    private _id?: string | undefined;
+    public get id(): string | undefined {
+        return this._id;
+    }
+    public set id(value: string | undefined) {
+        this._id = value;
+    }
     tags?: string[];
     isNew?: boolean;
 
@@ -7,5 +13,5 @@ export abstract class ObjectBuilder<T, R> {
 
     abstract build(): R;
 
-    abstract resetData(object: T, isNew: boolean): void;
+    abstract resetData(object?: T, isNew?: boolean): void;
 }

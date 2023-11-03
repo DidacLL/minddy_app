@@ -1,7 +1,13 @@
 import {Project} from "../../data/classes/dao/Project";
 import React, {useEffect, useState} from "react";
 
-export function PathBreadcrumbs(props: { path?: Project[], handleClick: (project: Project) => void }) {
+interface PathBreadcrumbsParams {
+    path?: Project[];
+    handleClick: (project: Project) => void ;
+    editMode?:boolean;
+}
+
+export function PathBreadcrumbs(props: PathBreadcrumbsParams) {
     const [clazzName, setClazzName] = useState<string>();
 
     useEffect(() => {
@@ -14,8 +20,8 @@ export function PathBreadcrumbs(props: { path?: Project[], handleClick: (project
         }
     }, [props.path]);
 
-    return <div className="breadcrumbs w-[100%] overflow-hidden ">
-        <ul className="w-[100%] font-black txt-s text-neutral flex flex-nowrap overflow-hidden ">
+    return <div className="breadcrumbs overflow-hidden ">
+        <ul className=" font-black txt-s text-neutral flex flex-nowrap overflow-hidden ">
             {props.path && props.path?.map((el, i) => {
                     return props.path && i<props.path.length-1?<li
                         className={props.path && i < props.path.length ? clazzName : ''}>

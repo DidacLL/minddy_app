@@ -3,7 +3,7 @@ import {Link, Outlet, useNavigate, useParams} from 'react-router-dom';
 import {Trans} from '@lingui/macro';
 import {LanguageSelector} from '../../components/toolbar/LanguageSelector';
 import {APP_NAME} from '../../App';
-import {useContext, useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import MinddyService from "../../data/minddy.service";
 import Cookies from "js-cookie";
 

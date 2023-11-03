@@ -1,4 +1,4 @@
-import {Project, ProjectData} from "../dao/Project";
+import {Project} from "../dao/Project";
 import {ProjectNodeData} from "./ProjectNodeData";
 
 export class ProjectNode {

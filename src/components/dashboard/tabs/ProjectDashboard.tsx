@@ -69,7 +69,9 @@ export function ProjectDashboard(props: { manager: MinddyManager, project?: Proj
                             }}>
                                 <PencilSquareIcon className='h-8 hover:cursor-pointer hover:text-base-300'/>
                             </div>
-                            <div className='tooltip tooltip-bottom flex' data-tip={'options..'}>
+                            <div className='tooltip tooltip-bottom flex' data-tip={'options..'} onClick={(e)=> {
+                                if (project)navigate('/task/1/'+project.id+'/')
+                            }}>
                                 <EllipsisVerticalIcon className='h-8 hover:cursor-pointer hover:text-base-300'/>
                             </div>
                         </div>

@@ -9,10 +9,14 @@ import {TaskFullView} from "../../../components/TaskFullView";
 import {PagedResponse} from "../dto/PagedResponse";
 import {TaskRow} from "../../../components/TaskRow";
 
+export interface TaskRequest {
+    taskData: TaskData;
+    tags: string[];
+}
 export default class Task extends MinddyObject {
     name: string;
     description: string;
-    date: Date | null;
+    date: Date | undefined;
     holder: string;
     state: TaskState;
     priority: Priority;
@@ -20,16 +24,16 @@ export default class Task extends MinddyObject {
     constructor(
         id: string,
         name: string,
-        date: Date,
         description: string,
         holder: string,
         state: TaskState,
         priority: Priority,
+        date?: Date,
     ) {
         super(id);
         this.name = name;
         this.description = description;
-        this.date = date || null;
+        if(date)this.date = date;
         this.holder = holder;
         this.state = state;
         this.priority = priority;
@@ -40,7 +44,7 @@ export default class Task extends MinddyObject {
         let data = JSON.parse(json) as TaskData;
 
         // let key: keyof typeof TaskState = data.state as keyof typeof TaskState;
-        const task = new Task(data.id, data.name, new Date(data.date), data.description, data.holder, data.state as TaskState, data.priority as Priority);
+        const task = new Task(data.id, data.name,  data.description, data.holder, data.state as TaskState, data.priority as Priority,data.date?new Date(data.date):undefined);
 
         task.isLoaded = true;
         return task
@@ -63,7 +67,7 @@ export default class Task extends MinddyObject {
     static fromData(data: TaskData) {
 
         // let key: keyof typeof TaskState = data.state as keyof typeof TaskState;
-        return new Task(data.id, data.name, new Date(data.date), data.description, data.holder, data.state as TaskState, data.priority as Priority);
+        return new Task(data.id, data.name, data.description, data.holder, data.state as TaskState, data.priority as Priority,data.date?new Date(data.date):undefined);
 
     }
 
@@ -100,7 +104,7 @@ export default class Task extends MinddyObject {
     }
 
     getTableRow() {
-        return <TaskRow task={this}/>
+        return <TaskRow task={this} />
     }
 
     getTableTitle(): React.JSX.Element {

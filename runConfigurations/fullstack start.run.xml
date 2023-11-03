@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="fullstack start" type="js.build_tools.npm">
+    <package-json value="$PROJECT_DIR$/package.json" />
+    <command value="run" />
+    <scripts>
+      <script value="start" />
+    </scripts>
+    <node-interpreter value="project" />
+    <envs />
+    <method v="2">
+      <option name="RunConfigurationTask" enabled="false" run_configuration_name="minddy DataService" run_configuration_type="BatchConfigurationType" />
+    </method>
+  </configuration>
+</component>

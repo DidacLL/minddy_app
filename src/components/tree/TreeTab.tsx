@@ -1,26 +1,18 @@
 import {ProjectNode} from '../../data/classes/dto/ProjectNode';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {ArchiveBoxArrowDownIcon, ArchiveBoxIcon} from '@heroicons/react/20/solid';
-import {Trans} from '@lingui/macro';
 import {MinddyToggle} from "../dashboard/tabs/MinddyToggle";
+import {i18n} from "@lingui/core";
 
 export function TreeTab(props: {
     root: ProjectNode,
     open: boolean,
+    showAll:boolean,
     selectTab: (e: any) => void,
-    handleToggle: () => void,
+    handleToggle: (b:boolean) => void,
     rest: React.JSX.Element | undefined
 }) {
 
-
-    const [showAll, setShowAll] = useState(!props.open);
-
-    useEffect(() => {
-
-    }, []);
-    useEffect(() => {
-
-    }, [showAll]);
     return <div className={`flex card  ${props.root.isRootProject() ? 'flex-grow h-full ' : ' pb-2'}`}>
 
         <div className='h-full'>
@@ -54,12 +46,11 @@ export function TreeTab(props: {
             <div className='form-control w-full bg-transparent h-auto text-xs justify-start flex start-0'>
                 <div className='flex m-2'>
                     <MinddyToggle
-                        onClick={() => {
-                            props.handleToggle()
-                            setShowAll(!showAll)
-                        }}
-                        value={showAll}
-                        text={<Trans>View all projects? </Trans>}/>
+                        onClick={() =>
+                            props.handleToggle(!props.showAll)
+                        }
+                        value={props.showAll}
+                        text={i18n._('View all projects?')}/>
                 </div>
 
             </div>}

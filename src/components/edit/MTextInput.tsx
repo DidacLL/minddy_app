@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from "react";
-import { i18n } from "@lingui/core";
-import { t, Trans } from "@lingui/macro";
 import ResponsiveText from "../../data/classes/utils/ResponsiveText";
 import {InformationCircleIcon} from "@heroicons/react/24/outline";
 

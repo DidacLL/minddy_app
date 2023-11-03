@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {InformationCircleIcon} from "@heroicons/react/24/outline";
 import ResponsiveText from "../data/classes/utils/ResponsiveText";
-import {ProjectState} from "../data/enums/ProjectState";
 
 interface EnumSelectorProps<T> {
     title: string;
@@ -38,7 +37,7 @@ export function EnumSelector<T>(props: EnumSelectorProps<T>) {
 
     useEffect(() => {
 
-        setSelected(ProjectState[selected] as unknown as number)
+        // setSelected([selected] as unknown as number)
     }, []);
     return <div
         className={`z-10 relative overflow-visible max-w-[${width / 2}em] w-auto form-control input-group-sm h-min rounded-box py-2 pl-1 pr-3 m-2 `}>

@@ -4,8 +4,6 @@ import {ProjectMinimalData} from "../dto/ProjectMinimalData";
 import {MinddyManager} from "../../Minddy.manager";
 import React from "react";
 import {Tag} from "./Tag";
-import {i18n} from "@lingui/core";
-import {t} from "@lingui/macro";
 import {ProjectState} from "../../enums/ProjectState";
 import {UserColor} from "../../enums/UserColor";
 

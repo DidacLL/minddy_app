@@ -1,0 +1,267 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2023-09-13 12:50+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: cat\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/components/AttributeLabel.tsx:4
+msgid "{0}"
+msgstr ""
+
+#: src/data/classes/utils/Tools.tsx:6
+#~ msgid "{s}"
+#~ msgstr ""
+
+#: src/pages/layouts/PublicLayout.tsx:56
+msgid "About"
+msgstr ""
+
+#: src/pages/MainScreen.tsx:91
+msgid "Dashboard"
+msgstr ""
+
+#: src/data/enums/DashboardTabs.tsx:8
+msgid "Dashboard tab"
+msgstr ""
+
+#: src/pages/layouts/PublicLayout.tsx:52
+msgid "Demo"
+msgstr ""
+
+#: src/pages/EditProject.tsx:76
+msgid "description placeholder"
+msgstr ""
+
+#: src/components/toolbar/data/FavouritesMenu.tsx:18
+msgid "edit Favourites"
+msgstr ""
+
+#: src/data/classes/utils/Tools.tsx:24
+msgid "Fri"
+msgstr ""
+
+#: src/data/classes/utils/Tools.tsx:24
+msgid "Friday"
+msgstr ""
+
+#: src/data/enums/Priority.tsx:14
+msgid "High Priority"
+msgstr ""
+
+#: src/data/enums/Priority.tsx:15
+msgid "Higher Priority"
+msgstr ""
+
+#: src/components/toolbar/data/UserDropdown.tsx:49
+#: src/pages/layouts/PublicLayout.tsx:69
+msgid "Language:"
+msgstr ""
+
+#: src/pages/PublicLayout.tsx:28
+#~ msgid "Language: <0/>"
+#~ msgstr ""
+
+#: src/components/tree/ProjectTree.tsx:93
+msgid "LOADING..."
+msgstr ""
+
+#: src/pages/layouts/PublicLayout.tsx:42
+msgid "Login"
+msgstr ""
+
+#: src/components/toolbar/data/UserDropdown.tsx:63
+msgid "Logout"
+msgstr ""
+
+#: src/data/enums/Priority.tsx:12
+msgid "Low Priority"
+msgstr ""
+
+#: src/data/enums/Priority.tsx:11
+msgid "Lower Priority"
+msgstr ""
+
+#: src/pages/EditProject.tsx:54
+#~ msgid "Max 60 characters"
+#~ msgstr ""
+
+#: src/data/classes/utils/Tools.tsx:16
+msgid "Mon"
+msgstr ""
+
+#: src/data/classes/utils/Tools.tsx:16
+msgid "Monday"
+msgstr ""
+
+#: src/components/dashboard/tabs/ProjectDashboard.tsx:138
+msgid "No tags"
+msgstr ""
+
+#: src/data/enums/Priority.tsx:13
+msgid "Normal Priority"
+msgstr ""
+
+#: src/components/toolbar/data/NewMenu.tsx:30
+msgid "Note"
+msgstr ""
+
+#: src/pages/MainScreen.tsx:113
+msgid "Notes"
+msgstr ""
+
+#: src/data/enums/DashboardTabs.tsx:10
+msgid "Notes tab"
+msgstr ""
+
+#: src/components/dashboard/ObjectContainer.tsx:259
+msgid "Nothing there..."
+msgstr ""
+
+#: src/components/dashboard/ObjectTable.tsx:34
+msgid "Nothing to do here..."
+msgstr ""
+
+#: src/components/toolbar/data/NewMenu.tsx:13
+msgid "Project"
+msgstr ""
+
+#: src/pages/EditProject.tsx:69
+msgid "Project description"
+msgstr ""
+
+#: src/pages/EditProject.tsx:75
+msgid "project description tip"
+msgstr ""
+
+#: src/pages/EditProject.tsx:58
+msgid "Project name"
+msgstr ""
+
+#: src/pages/EditProject.tsx:51
+#~ msgid "Project Name"
+#~ msgstr ""
+
+#: src/pages/EditProject.tsx:64
+msgid "project name tip"
+msgstr ""
+
+#: src/pages/EditProject.tsx:65
+msgid "project placeholder"
+msgstr ""
+
+#: src/pages/EditProject.tsx:55
+#~ msgid "Project.form.name.placeholder"
+#~ msgstr ""
+
+#: src/pages/EditProject.tsx:54
+#~ msgid "Project.form.name.tip"
+#~ msgstr ""
+
+#: src/pages/EditProject.tsx:51
+#~ msgid "Project.form.name.title"
+#~ msgstr ""
+
+#: src/pages/layouts/PublicLayout.tsx:47
+msgid "Register"
+msgstr ""
+
+#: src/data/classes/utils/Tools.tsx:26
+msgid "Sat"
+msgstr ""
+
+#: src/data/classes/utils/Tools.tsx:26
+msgid "Saturday"
+msgstr ""
+
+#: src/components/dashboard/tabs/ProjectTasks.tsx:53
+msgid "Show Closed"
+msgstr ""
+
+#: src/components/dashboard/tabs/ProjectTasks.tsx:51
+msgid "Show subprojects"
+msgstr ""
+
+#: src/data/classes/utils/Tools.tsx:28
+msgid "Sun"
+msgstr ""
+
+#: src/data/classes/utils/Tools.tsx:28
+msgid "Sunday"
+msgstr ""
+
+#: src/components/toolbar/data/NewMenu.tsx:21
+msgid "Task"
+msgstr ""
+
+#: src/data/enums/TaskState.tsx:15
+msgid "Task Deferred"
+msgstr ""
+
+#: src/data/enums/TaskState.tsx:17
+msgid "Task Discarded"
+msgstr ""
+
+#: src/data/enums/TaskState.tsx:16
+msgid "Task Done"
+msgstr ""
+
+#: src/data/enums/TaskState.tsx:13
+msgid "Task on progress"
+msgstr ""
+
+#: src/data/enums/TaskState.tsx:14
+msgid "Task Review"
+msgstr ""
+
+#: src/data/enums/TaskState.tsx:12
+msgid "Task To Do"
+msgstr ""
+
+#: src/pages/MainScreen.tsx:102
+msgid "Tasks"
+msgstr ""
+
+#: src/data/enums/DashboardTabs.tsx:9
+msgid "Tasks tab"
+msgstr ""
+
+#: src/components/toolbar/data/UserDropdown.tsx:53
+msgid "Theme:"
+msgstr ""
+
+#: src/data/classes/utils/Tools.tsx:18
+msgid "Thu"
+msgstr ""
+
+#: src/data/classes/utils/Tools.tsx:18
+msgid "Thursday"
+msgstr ""
+
+#: src/data/classes/utils/Tools.tsx:22
+msgid "Tue"
+msgstr ""
+
+#: src/data/classes/utils/Tools.tsx:22
+msgid "Tuesday"
+msgstr ""
+
+#: src/components/tree/TreeTab.tsx:62
+msgid "View all projects?"
+msgstr ""
+
+#: src/data/classes/utils/Tools.tsx:20
+msgid "Wed"
+msgstr ""
+
+#: src/data/classes/utils/Tools.tsx:20
+msgid "Wednesday"
+msgstr ""

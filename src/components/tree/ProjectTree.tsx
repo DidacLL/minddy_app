@@ -88,8 +88,8 @@ export function ProjectTree(props: ProjectTreeProps) {
             return <TreeTab key={'tree_tab_'+root.project.id} root={root}
                             open={open}
                             selectTab={(e) => handleTitleClick(e, root)}
-                            handleToggle={() => setViewAll(!viewAll)}
-                            rest={rest}/>
+                            handleToggle={(b:boolean) => setViewAll(b)}
+                            rest={rest} showAll={viewAll}/>
         }
         return <label><Trans>LOADING...</Trans></label>
     }

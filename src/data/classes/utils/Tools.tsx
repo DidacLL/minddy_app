@@ -1,7 +1,5 @@
 import React from "react";
-import {Trans,t} from "@lingui/macro";
-import {i18n} from "@lingui/core";
-
+import {Trans} from "@lingui/macro";
 
 
 export function calculateDaysUntil (date: Date){

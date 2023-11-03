@@ -6,9 +6,7 @@ import React, {useEffect, useRef, useState} from "react";
 import {ChevronLeftIcon, ChevronRightIcon, MinusIcon, PlusIcon} from "@heroicons/react/20/solid";
 import {ObjectCard} from "./ObjectCard";
 import ResponsiveText from "../../data/classes/utils/ResponsiveText";
-import {Simulate} from "react-dom/test-utils";
 import {Trans} from "@lingui/macro";
-import {useParams} from "react-router-dom";
 
 enum ContainerMode {
     LOADING = 0, EMPTY = 1, MIN = 2, SCROLL = 3, MAX = 4

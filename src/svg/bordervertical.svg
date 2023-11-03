@@ -1,0 +1,859 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 100 100" width="10em" height="10em">
+    <path d="M99.48,55.66V56h.08v.37l-.08,0v.9s0,.11.07.14l-.07,0v1l.08,0v.2l.27,0a2.91,2.91,0,0,1-.3.67s0,0,0,0a.14.14,0,0,1-.06.1v1.36l.07,0v.74a.47.47,0,0,1-.07.12V62s.05,0,.07,0v.43h-.07v.73a3.55,3.55,0,0,1,.36.11v.06l.33-.22c-.23.32-.09.83-.38,1l.09-.25a.31.31,0,0,0,0-.08l-.27.21h0c0,.21.06.41.1.61l0,0c0-.12,0-.23,0-.35,0,.48,0,.49-.22.63a2.25,2.25,0,0,1,.05-.22l-.12,0v1.92a.66.66,0,0,1,0-.15v.36c.2,0,.22.06.19.32l-.24.13v.67l0-.05v1.7l0,0v.1l0,0v.57h0V74h0v.3l0,0v0l0,0v1.61l0,0v0h0v.74l0,0,0,5.1h0v1.06h0v1h0v.33h0v4.65l0,0-.06,0,0,1.12h.06l.07,0v.33l-.12.05c0-.08,0-.15,0-.22l0,2h.19v.49l-.21.1,0,.89h0l0,0h0l.07,0h.15v.17l-.22,0,0,1.49h.27v0h-.27l0,1.16.23.08a.36.36,0,0,0,.07.48v.37l-.32-.21,0,.88.15-.08.2.07V100H.47V0H99.56V.28h-.23V1.46l.23.2v.1h-.23v1.5l.22-.08v.71L99.34,4v2l.22-.09V7.69l-.21.42v2l.21-.06v.82a.38.38,0,0,0-.2-.08v.89c.07-.36.13-.09.19-.17v0a9,9,0,0,0-.18,1.65h0v1.07l.19.2v.14l-.19.07V15.7l.19.21v.69l0,.08c0,.09,0,.18,0,.26,0-.07,0-.15,0-.25,0,.24,0,.48,0,.72l0,.05c0-.07,0-.1,0-.05,0-.12,0-.24,0-.36v.48c.1.18.1.4.06,1.19,0-.25,0-.52,0-.78l0,0v1.55h0c.06.09.11.18.16.27a2,2,0,0,0-.08-.72c.3.3.16,1.46.39,2.18l-.33-.5v.13a.85.85,0,0,1-.31.24v.59l.17-.15v.4l-.11.05-.06-.07v.49l.35.07c0,.13,0,.53,0,.86,0-.47-.17,0-.33.3v1.91l.16.54v.32l-.16,0v.49l.16-.15v.63a2,2,0,0,0-.16.2V28.8a.08.08,0,0,1,.08,0c0,.26,0,.52,0,.78l-.09.05v.26l.15-.1v.32l-.15,0v1.1l.08.05a2.23,2.23,0,0,0,0,.36h-.1v1.17a.61.61,0,0,0,.14,0v2.47l-.14,0v.53l.13.06v.63c0,.16-.06-.3-.1,0,0,0,0-.11,0-.19s0,0,0,0l0,3.34.1.07V40h0l0,0V40h0c-.06.48,0,1,0,.4v.9l-.08-.07v.4a.24.24,0,0,1,.08.11v0h-.08V42l.07,0v.26l-.07.15v.35h.07v1.55c0-.06,0-.21,0,.07a1.2,1.2,0,0,1,0,.19.13.13,0,0,0,0-.06v.47h0l0,1.34h0v.43h0v1.06h0v.17s0,0,0,0v.9h0v1.34l-.1-.12v.21l.1,0v.46h-.1V51l.1,0v.4h0c0-.06,0-.11,0-.14a.59.59,0,0,0,0,.14h0v.14l0,0c0,.43.06.74.06.16v3.13h0c0,.25,0,.49,0,.74Z"
+          transform="translate(-0.04 0.15)"/>
+    <line x1="99.52" y1="57.93" x2="99.52" y2="57.49"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,51.68l0,0C99.52,51.82,99.53,51.93,99.56,51.68Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,38.39v.92" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,37.36v.76" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,88.93v.13" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,73.42V73h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.52,40c0,.24,0,.63,0,.23V40Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="99.52" y1="89.64" x2="99.52" y2="89.27"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.55,11.49c0,.22,0,.45,0,.67v-.69" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,31.3s0,0,0,0,0,.11,0,.18Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <polyline points="99.52 2.48 99.52 2.37 99.52 2.3"
+              style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,13.14v.39" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="99.52" y1="83.07" x2="99.52" y2="83.5"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,81.86v-.6" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <polyline points="99.52 71.74 99.52 71.59 99.52 71.3"
+              style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,92.66v.43" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,90.48v-.07a.08.08,0,0,1,0,0Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,90.69v-.21" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,90.48H99.5s0,0,0,0v.13l.11-.05" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,95.2V95l-.16,0A.84.84,0,0,0,99.56,95.2Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <polyline points="99.52 4.52 99.52 4.78 99.52 5.51 99.52 5.97 99.3 6.06 99.3 4.1 99.52 4.04 99.52 3.33 99.52 3.28"
+              style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,15v-.59l-.19-.2V13.15h0a9,9,0,0,1,.18-1.65v0c-.06.08-.12-.19-.19.17v-.89a.38.38,0,0,1,.2.08V10l-.21.06v-2l.21-.42V5.82"
+          transform="translate(-0.04 0.15)" style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.53,16.68l0-.08v-.69l-.19-.21V14.63l.19-.07" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,21.51l-.17.15v-.59a.85.85,0,0,0,.31-.24V20.7l.33.5c-.23-.72-.09-1.88-.39-2.18a2,2,0,0,1,.08.72c0-.09-.1-.18-.16-.27h0V17.92l0,0c0,.26,0,.53,0,.78,0-.79,0-1-.06-1.19v-.48c0,.12,0,.24,0,.36,0-.05,0,0,0,.05l0-.05c0-.24,0-.48,0-.72,0,.1,0,.18,0,.25,0-.08,0-.17,0-.26v-.09"
+          transform="translate(-0.04 0.15)" style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,22v-.7" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,26.75l-.16.15v-.49l.16,0v-.32l-.16-.54V23.61c.16-.28.33-.77.33-.3,0-.33,0-.73,0-.86l-.35-.07v-.49l.06.07.11-.05"
+          transform="translate(-0.04 0.15)" style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,29.8l-.15.1v-.26l.09-.05c0-.26,0-.52,0-.78a.08.08,0,0,0-.08,0V27.58a2,2,0,0,1,.16-.2v-.77"
+          transform="translate(-0.04 0.15)" style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,29.55v-.68l0,0c0,.15,0,.54,0,.75Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="99.52" y1="29.7" x2="99.52" y2="29.95"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,35.54V32.79a.61.61,0,0,1-.14,0V31.61h.1a2.23,2.23,0,0,1,0-.36l-.08-.05V30.1l.15,0V29.8"
+          transform="translate(-0.04 0.15)" style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,39.66h0v0l-.1-.07,0-3.34s0,0,0,0,0,.19,0,.19c0-.25.05.21.1,0v-.63l-.13-.06v-.53l.14,0"
+          transform="translate(-0.04 0.15)" style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.53,39.93a.15.15,0,0,1,0,.06h0v-.3" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,40.27v.17c0,.61-.11.08,0-.4h0V40l0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,44.26h0V42.7h-.07v-.35l.07-.15v-.26l-.07,0v-.15h.08v0a.24.24,0,0,0-.08-.11v-.4l.08.07v-.9"
+          transform="translate(-0.04 0.15)" style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,46.25h0l0-1.34h0v-.47a.13.13,0,0,1,0,.06,1.2,1.2,0,0,0,0-.19c0-.28,0-.13,0-.07"
+          transform="translate(-0.04 0.15)" style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,47.73h0V46.67h0V46" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,51.68v.1c0,.58-.08.27-.06-.16l0,0v-.14h0a.59.59,0,0,1,0-.14s0,.08,0,.14h0v-.4l-.1,0v-.34h.1v-.46l-.1,0v-.21l.1.12V48.83h0v-.9s0,0,0,0v-.52"
+          transform="translate(-0.04 0.15)" style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.48,55.66h.08c0-.25,0-.49,0-.74h0V51.78" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,62.83V62s0,0-.07,0v-.36a.47.47,0,0,0,.07-.12V60.8l-.07,0V59.48a.14.14,0,0,0,.06-.1s0,0,0,0a2.91,2.91,0,0,0,.3-.67l-.27,0v-.2l-.08,0v-1l.07,0s0-.09-.07-.14v-.9l.08,0v-.37h-.08v-.29h0"
+          transform="translate(-0.04 0.15)" style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,92.17h-.19l0-2c0,.07,0,.14,0,.22l.12-.05V90l-.07,0h-.06l0-1.12.06,0,0,0V84.22h0v-.33h0v-1h0V81.86h0l0-5.1,0,0V76h0v0l0,0V74.3l0,0v0l0,0V74h0V70.11h0v-.57l0,0v-.1l0,0v-1.7l0,.05v-.67l.24-.13c0-.26,0-.29-.19-.32v-.36a.66.66,0,0,0,0,.15V64.54l.12,0a2.25,2.25,0,0,0-.05.22c.27-.14.27-.15.22-.63,0,.12,0,.23,0,.35l0,0c0-.2-.07-.4-.1-.61h0l.27-.21a.31.31,0,0,1,0,.08l-.09.25c.29-.14.15-.65.38-1l-.33.22v-.06a3.55,3.55,0,0,0-.36-.11V62.4h.07"
+          transform="translate(-0.04 0.15)" style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,95.43v-.15h-.27l0-1.49.22,0v-.17H99.4l-.07,0h0l0,0h0l0-.89.21-.1V91.52"
+          transform="translate(-0.04 0.15)" style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,3.18l-.22.08V1.76h.23v-.1l-.23-.2V.28h.23V0H.47V100H99.56V98l-.2-.07-.15.08,0-.88.32.21V97a.36.36,0,0,1-.07-.48l-.23-.08,0-1.16h.27"
+          transform="translate(-0.04 0.15)" style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.5,89.14l0,0h0Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M99.56,54.91v.74" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.15" y1="77.54" x2="0.15" y2="77.36"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.19,79.61h0C.23,79.55.22,79.51.19,79.61Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.19,84.48v.33h0v0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <polyline points="0.15 85.39 0.15 85.26 0.15 85.19 0.15 85.18 0.15 85.16 0.15 85.1 0.15 85.1"
+              style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.19,64.9v0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.19,71.23h0v0h0v-.1h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.23,84.19c0-.09,0-.25,0-.09v.09Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.15" y1="65.03" x2="0.15" y2="64.89"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.15" y1="82.48" x2="0.15" y2="82.42"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.16" y1="95.58" x2="0.16" y2="95.57"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.2,95.42a2.26,2.26,0,0,1,0-.26v.26Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.19,87.63h0l0-.07Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <polyline points="0.15 99.17 0.15 99.22 0.15 99.25"
+              style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.19,94.62v.15" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.15" y1="67.47" x2="0.15" y2="67.31"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.19,66.47v0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.19,67.74V68" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <polyline points="0.15 71.93 0.15 71.99 0.15 72.11"
+              style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.19,63.93v-.21" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.19,63.49v-.16h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.19,64.35v0h0Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.19,64.27v.08" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.19,64.35H.25l.06,0a.09.09,0,0,1,0,0l-.11,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.19,62.48v.09H.35A.64.64,0,0,0,.19,62.48Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.86" x2="0.8" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.85" x2="0.8" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.78" y1="55.84" x2="0.78" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.83,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.84,55.74h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.74h0s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.88" x2="0.8" y2="55.88"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.86" x2="0.81" y2="55.86"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.84" x2="0.83" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.91,55.65h0s0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.9,55.67s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.85" y1="55.83" x2="0.85" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.71s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.72h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.88" x2="0.84" y2="55.88"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.76h0s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.88" x2="0.82" y2="55.88"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.79" y1="55.83" x2="0.8" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.78" y1="55.86" x2="0.78" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.81,55.73s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.81,55.74h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.76s0,0,0,0,0,0,0,0a.11.11,0,0,1,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.73s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.87" x2="0.8" y2="55.87"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.84,55.72s0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.79" y1="55.86" x2="0.8" y2="55.86"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.83,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.83,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.79" y1="55.84" x2="0.79" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.79" y1="55.83" x2="0.79" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.84,55.66h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.78,55.69h0s0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.82,55.73h0l0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.76l0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.73c0,.09,0,.07,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.73h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.71h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.84" y1="55.86" x2="0.85" y2="55.86"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.71h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.86" x2="0.84" y2="55.86"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.88,55.71h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.85" x2="0.82" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.83" x2="0.79" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.84,55.67h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.84,55.67s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.83" x2="0.8" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.83" x2="0.8" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.85" y1="55.83" x2="0.85" y2="55.82"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.91,55.67h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.84" y1="55.82" x2="0.85" y2="55.82"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.73h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.73h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.73h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.73s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.74s0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.91" x2="0.8" y2="55.91"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.81,55.75s0,0,0,0,0,0,0,0l0,0s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.77" y1="55.9" x2="0.77" y2="55.89"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.82,55.73h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.71h0s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.82" x2="0.8" y2="55.82"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.84,55.67h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.83" x2="0.8" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.83" x2="0.81" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.67h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.86" x2="0.81" y2="55.86"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.85" x2="0.82" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.86" x2="0.81" y2="55.86"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.85" x2="0.8" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.82" x2="0.81" y2="55.82"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.55c0-.13,0-.06,0,.08a0,0,0,0,1,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.59s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.85" x2="0.81" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.73h0v0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.71h0s0,0,0,0h0s0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.86" x2="0.81" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.88,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.84" x2="0.79" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.57c0,.08,0,.24,0,.06h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.57s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.65c-.1.35-.08.31,0,0v0c0-.1,0-.09,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.67h0c-.17.38-.15.37,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.85" x2="0.82" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.7h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.87" x2="0.82" y2="55.86"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.68h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.88,55.66s0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.88,55.66Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.66h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.81" x2="0.82" y2="55.82"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.67h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.82" x2="0.82" y2="55.82"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.68h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.68s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.84" x2="0.8" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.84" x2="0.8" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.82,55.71s0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.82,55.71h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.7h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.84" x2="0.8" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.85" y1="55.85" x2="0.84" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.85" y1="55.83" x2="0.84" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.83" x2="0.83" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.83" x2="0.83" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.83" x2="0.84" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.84" y1="55.83" x2="0.84" y2="55.82"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.9,55.66a0,0,0,0,1,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.9,55.66h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.65H.91s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.77,55.69h0l0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.75" y1="55.85" x2="0.75" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.81,55.69s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.79" y1="55.85" x2="0.79" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.7h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.85" x2="0.81" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.85" x2="0.79" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.68h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.7s0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.85" x2="0.81" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.83" x2="0.82" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.82" x2="0.81" y2="55.82"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.82" x2="0.8" y2="55.82"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.66h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.81" x2="0.8" y2="55.81"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.78,55.69s0,0,0,0,0-.14.08,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.82,55.69s0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.78" y1="55.85" x2="0.79" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.84,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.68h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.83" x2="0.81" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.84" x2="0.81" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.79,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.79,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.82,55.73h0s-.06,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.82,55.73h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.72h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.72h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.86" x2="0.8" y2="55.86"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.71h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.7h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.85" x2="0.81" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <polyline points="0.84 55.83 0.84 55.83 0.83 55.83"
+              style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <polyline points="0.82 55.84 0.83 55.84 0.83 55.83"
+              style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.84" x2="0.82" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.84,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.84" x2="0.83" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.84" y1="55.84" x2="0.83" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.84" x2="0.82" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.84,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.69s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.7h0s0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.7s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.84" y1="55.85" x2="0.83" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.85" x2="0.83" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.84" x2="0.81" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.67h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.67s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.68h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <polyline points="0.81 55.84 0.81 55.84 0.81 55.84"
+              style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.84" x2="0.82" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.68h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.85" x2="0.81" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.85" x2="0.81" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.85" x2="0.81" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.22,64.88h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.15" y1="78.49" x2="0.15" y2="78.2"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.28" y1="27.13" x2="0.28" y2="26.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.32,30.56l0,0C.36,30.47.35,30.4.32,30.56Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.32,38.4V39" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <polyline points="0.28 39.78 0.28 39.57 0.28 39.47 0.28 39.44 0.28 39.41 0.28 39.31 0.28 39.3"
+              style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.32,6.88V7" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.32,17.06h0V17h0v-.18" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.36,37.94c0-.15,0-.4,0-.15v.15Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.28" y1="6.99" x2="0.28" y2="6.76"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.28" y1="35.09" x2="0.28" y2="35"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <polyline points="0.28 55.75 0.28 55.88 0.28 56.18 0.29 56.18"
+              style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.33,56h0c0-.1,0-.2,0-.3" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.32,43.47l0,0s0-.07,0-.11Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <polyline points="0.28 61.98 0.28 62.05 0.28 62.09"
+              style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.32,54.74V55" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.28" y1="10.92" x2="0.28" y2="10.65"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.32,9.4V9.31" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.32,11.44v.38" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <polyline points="0.28 18.1 0.28 18.2 0.28 18.38"
+              style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.32,5.32V5" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.32,4.6V4.34h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.32,6V6l0,0Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.32,5.85V6" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.32,6H.38L.44,6a.17.17,0,0,1,0-.07l-.11,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.32,3v.14l.16,0A.6.6,0,0,0,.32,3Z" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.82" x2="0.84" y2="55.82"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.84,55.78s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.78h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.91" x2="0.81" y2="55.91"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.84" y1="55.86" x2="0.83" y2="55.86"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.84" y1="55.84" x2="0.84" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.81" x2="0.82" y2="55.81"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.79" x2="0.83" y2="55.8"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.9,55.61s0,0,0,0,0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.9,55.65v0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.67s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.71h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.74h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.8v0s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.77s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.91" x2="0.83" y2="55.91"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.82,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.82,55.75v0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.81v0c0,.07,0,.07,0,0a.27.27,0,0,1,0-.09" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.95" x2="0.81" y2="55.95"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.88" x2="0.81" y2="55.89"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.81" x2="0.81" y2="55.81"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.87" x2="0.8" y2="55.88"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.83,55.71h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.79" y1="55.83" x2="0.79" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.84,55.64h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.8" x2="0.8" y2="55.8"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.78,55.69s0,0,0,0a0,0,0,0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.82,55.76l0-.06h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.8h0l0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.95" x2="0.81" y2="55.96"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.74c.06.14,0,.13,0,.07" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.85" y1="55.9" x2="0.85" y2="55.89"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.84" y1="55.88" x2="0.85" y2="55.89"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.84" y1="55.85" x2="0.83" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.88,55.7h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.73s0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.85" y1="55.88" x2="0.85" y2="55.87"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.71h0s0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.82" x2="0.79" y2="55.82"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.84,55.66s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.83" x2="0.81" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.9,55.66h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.91,55.65h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.88,55.66h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.88,55.66h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.84" x2="0.8" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.88" x2="0.82" y2="55.88"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.76v0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.76h0v0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.78v0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.82,55.76l0,.07s0,.05,0,0,0,0,0,0,0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.77" y1="55.91" x2="0.77" y2="55.91"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.84,55.71s0,0,0,0l0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.86" x2="0.8" y2="55.86"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.86" x2="0.81" y2="55.86"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.84,55.65h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.84,55.65s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.81" x2="0.8" y2="55.82"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.86" x2="0.82" y2="55.86"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.85" x2="0.82" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.86" x2="0.8" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.85" x2="0.81" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.83" x2="0.82" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.83" x2="0.83" y2="55.82"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.87" x2="0.82" y2="55.87"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.74s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.86" x2="0.82" y2="55.86"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.48c0-.25,0-.09,0,.15" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.86" x2="0.83" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.84" y1="55.87" x2="0.83" y2="55.87"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.88,55.72h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.76s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.76h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.73v0h0s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.83" x2="0.81" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.63v-.22" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.63s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <polyline points="0.82 55.86 0.82 55.87 0.82 55.88 0.82 55.88"
+              style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.83" x2="0.81" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.82" x2="0.83" y2="55.82"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.64s0,0,0,0,0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.79" x2="0.83" y2="55.79"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.64h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.64h0s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.82" x2="0.8" y2="55.82"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.84,55.67h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.83" x2="0.8" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.79" y1="55.83" x2="0.8" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.79" y1="55.83" x2="0.79" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.83,55.7h0s0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.83" x2="0.82" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.83" x2="0.81" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.9,55.67h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.85" y1="55.83" x2="0.85" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.68h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.84" y1="55.82" x2="0.84" y2="55.81"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <polyline points="0.85 55.81 0.85 55.81 0.84 55.81"
+              style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.66h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.86" y1="55.81" x2="0.86" y2="55.8"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.86" y1="55.8" x2="0.87" y2="55.8"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.63h0s0,0,0,0h0s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.78,55.69h0l0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.82,55.69s0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.79" y1="55.84" x2="0.79" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.84" x2="0.8" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.85" x2="0.79" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.79" y1="55.84" x2="0.79" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.82" x2="0.81" y2="55.82"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.66h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.66h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.82" x2="0.81" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.83" x2="0.82" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.71h0s0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.85,55.64h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.79" x2="0.81" y2="55.78"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.79,55.69s0,0,0,0,0-.22.07-.06" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.82,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.78" y1="55.84" x2="0.79" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.79" y1="55.84" x2="0.8" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.84" x2="0.8" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.85" x2="0.81" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.84" x2="0.82" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.82,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.82,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.82,55.76s-.06,0,0-.06h0s0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.77" y1="55.91" x2="0.77" y2="55.9"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.84,55.73s0,0,0,0h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.88" x2="0.81" y2="55.88"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.88" x2="0.81" y2="55.87"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.87" x2="0.81" y2="55.86"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.86" x2="0.81" y2="55.86"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.86" x2="0.81" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.85" x2="0.82" y2="55.85"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.83" x2="0.83" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.84" y1="55.83" x2="0.85" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.84" y1="55.83" x2="0.84" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.84" y1="55.83" x2="0.83" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.84" y1="55.84" x2="0.84" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.81" y1="55.84" x2="0.8" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.83" x2="0.83" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.83" x2="0.83" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.7h0s0-.05,0-.05h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.89,55.7h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.84" y1="55.84" x2="0.85" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.84" y1="55.84" x2="0.83" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.83" y1="55.84" x2="0.83" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.66s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.82" x2="0.82" y2="55.83"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.8" y1="55.84" x2="0.81" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.87,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.67s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.69s0,0,0,0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.71h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.71h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.82" y1="55.85" x2="0.82" y2="55.84"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.86,55.69h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <path d="M.35,6.84h0" transform="translate(-0.04 0.15)"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+    <line x1="0.28" y1="28.67" x2="0.28" y2="28.2"
+          style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.25px"/>
+</svg>
